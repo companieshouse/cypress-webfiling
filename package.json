@@ -4,7 +4,7 @@
   "description": "Accessbility testing for Webfiling using Cypress.io",
   "main": "index.js",
   "scripts": {
-    "cypress:test": "cypress run --browser chrome --headless",
+    "cypress:test": "cypress run --browser chrome --headless --record --key 05e1ed2f-c399-425c-96b3-e4b596e8e917",
     "cypress:open": "cypress open",
     "precypress:open": "npm i & npm run lint",
     "precypress:test": "npm run precypress:open",
