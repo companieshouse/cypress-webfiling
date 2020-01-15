@@ -78,11 +78,6 @@ class RegisterMortgageChargeOrAcquisitionPage extends BasePage {
         cy.get('#cta-3-answer').type("456")
     }
 
-    submitChargeRegistration() {
-        cy.get('input[class="button regular submit positive"]').click();
-        return this;
-    }
-
 }
 
 export default RegisterMortgageChargeOrAcquisitionPage

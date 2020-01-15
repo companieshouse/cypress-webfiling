@@ -3,17 +3,17 @@ import AddressPage from "./generic/Address";
 
 const addressPage = new AddressPage();
 
-class SatisfyMortgageChargePage extends BasePage {
+class CeaseOrReleasePropertyFromCharge extends BasePage {
 
-    //Expand all fields and check the accessibility before interacting with the page
-    initialAccessibilityCheck() {
-        cy.accessibilityCheck();
+    selectAllPropertyAsExtentOfRelease() {
+        cy.get('#charge-fullpart-choice-full').click();
+        cy.get('#charge-fullpart-continue').click();
         return this;
     }
 
-    selectSatisfiedInFull() {
-        cy.get('#charge-satisfaction-choice-full').click();
-        cy.get('#charge-satisfaction-continue').click();
+    selectReleasedFromChargeForCeaseOrRelease() {
+        cy.get('#charge-ceaserelease-choice-release').click();
+        cy.get('#charge-ceaserelease-continue').click();
         return this;
     }
 
@@ -25,7 +25,7 @@ class SatisfyMortgageChargePage extends BasePage {
 
     enterName(name) {
         cy.get('#Name').type(name);
-        cy.get('#charge-your-name-continue').type(name);
+        cy.get('#charge-your-name-continue').click();
         return this;
     }
 
@@ -36,9 +36,7 @@ class SatisfyMortgageChargePage extends BasePage {
 
     enterHomeAddress(propertyNumber, postcode) {
         addressPage.lookUpResidentialAddress(propertyNumber, postcode);
-        cy.get('#charge-your-address-continue').wait(3000).click();
-        //Accessibility check here due to clicking the lookup button that auto populates fields
-        cy.accessibilityCheck();
+        cy.get('#charge-your-address-continue').wait(5000).click();
         return this;
     }
 
@@ -52,4 +50,4 @@ class SatisfyMortgageChargePage extends BasePage {
 
 }
 
-export default SatisfyMortgageChargePage
+export default CeaseOrReleasePropertyFromCharge

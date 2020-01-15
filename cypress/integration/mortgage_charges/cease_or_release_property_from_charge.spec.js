@@ -1,30 +1,32 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage'
-import MortgagePreFilingPage from '../../support/page_objects/MortgagePreFilingPage'
 import MortgageChargesListPage from '../../support/page_objects/MortgageChargesListPage'
-import SatisfyMortgageChargePage from '../../support/page_objects/SatisfyMortgageChargePage'
+
+import CeaseOrReleasePropertyFromCharge from '../../support/page_objects/CeaseOrReleasePropertyFromCharge'
+import MortgagePreFilingPage from '../../support/page_objects/MortgagePreFilingPage'
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
-const mortgagePreFilingPage = new MortgagePreFilingPage();
 const submissionConfirmationPage = new SubmissionConfirmationPage();
-const satisfyMortgageChargePage = new SatisfyMortgageChargePage();
+const mortgagePreFilingPage = new MortgagePreFilingPage();
+const ceaseOrReleasePropertyFromCharge = new CeaseOrReleasePropertyFromCharge();
 const mortgageChargesListPage = new MortgageChargesListPage();
 
 
-describe('Satisfy a charge - MR04', () => {
-    beforeEach('Select MR04 Form and navigate past pre-filing screen', () => {
+
+describe('Cease or release property from a charge - MR05', () => {
+    beforeEach('Select MR05 Form and navigate past pre-filing screen', () => {
         // Select form overview
         companyOverview.selectAllForms();
         allForms.selectMortgageForms()
-            .selectMr04();
+            .selectMr05();
 
-        //Check the Satisfy a Charge pre-filing page
+        //Check the Cease or release property from a charge pre-filing page
         cy.accessibilityCheck();
         mortgagePreFilingPage.proceedWithFiling();
 
-        //Check the accessibility of the Charges list page then click Satisfy on the first charge
+        //Check the accessibility of the Charges list page then select the first charge
         cy.accessibilityCheck();
         mortgageChargesListPage.selectFirstCharge();
 
@@ -33,41 +35,33 @@ describe('Satisfy a charge - MR04', () => {
 
     })
 
-    it('MR04 - Satisfaction of a charge successful', () => {
+    it('MR05 - Cease or release property from a charge successful', () => {
         
-        //Populate the Satisfy a charge form
-        //Check accessibility as screen changes
-        satisfyMortgageChargePage.selectSatisfiedInFull();
-        cy.accessibilityCheck();
-
-        satisfyMortgageChargePage.enterInterestInCharge("Testing");
-        cy.accessibilityCheck();
-
-        satisfyMortgageChargePage.enterName("A Testperson");
-        cy.accessibilityCheck();
-
-        satisfyMortgageChargePage.enterHomeAddress("1", "CF14 3UZ");
-        cy.accessibilityCheck();
-
-        satisfyMortgageChargePage.submitForm();
+        //Populate the Cease or release property from a charge screen
+        ceaseOrReleasePropertyFromCharge.selectAllPropertyAsExtentOfRelease()
+        .selectReleasedFromChargeForCeaseOrRelease()
+        .enterInterestInCharge("Testing")
+        .enterName("A Testperson")
+        .enterHomeAddress("1", "CF46 6NW")
+        .submitForm();
         //Check Submission screen
         submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission");
         cy.accessibilityCheck();
     })
 
-    it('MR04 - Satifaction of a charge Error Validation', () => {
+    it('MR05 - Cease or release property from a charge Error Validation', () => {
 
         //Submit form without entering any information to fire error messages
-        satisfyMortgageChargePage.expandAll();
+        ceaseOrReleasePropertyFromCharge.expandAll()
         cy.accessibilityCheck();
-        satisfyMortgageChargePage.clickEnterAddressManually()
+        ceaseOrReleasePropertyFromCharge.clickEnterAddressManually()
         .enterInvalidCharactersToFireErrors("`")
         .submitForm();
         //check accessibility of page with section error messages displayed
-        cy.accessibilityCheck();
+        //cy.accessibilityCheck();
 
         //Expand all sections to view individual field errors and check their accessibility
-        satisfyMortgageChargePage.expandAll();
+        ceaseOrReleasePropertyFromCharge.expandAll();
         cy.accessibilityCheck();
     })
 })
