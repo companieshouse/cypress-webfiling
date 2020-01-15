@@ -66,8 +66,7 @@ describe('Register an acquisition - MR02', () => {
         registerMortgageChargeOrAcquisitionPage.authenticationofCertification();
         cy.accessibilityCheck();
 
-        registerMortgageChargeOrAcquisitionPage.submitChargeRegistration();
-
+        registerMortgageChargeOrAcquisitionPage.submitForm();
         // Select pay by account and check accessibility
         cy.checkPageHeadingIs('Payment');
         paymentSelectionPage.selectPaymentByAccount()
@@ -85,7 +84,7 @@ describe('Register an acquisition - MR02', () => {
         // Submit the form to generate the remaining errors for blank fields.
         // Expand all fields to ensure they are visible
         registerMortgageChargeOrAcquisitionPage.fileUpload(unsuccessfulUploadFile)
-            .submitChargeRegistration().expandAll();
+            .submitForm().expandAll();
         //check accessibility of page with all error messages displayed
         cy.accessibilityCheck();
     })

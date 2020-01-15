@@ -63,7 +63,7 @@ describe('Register a charge - MR01', () => {
         registerMortgageChargeOrAcquisitionPage.authenticationofCertification();
         cy.accessibilityCheck();
 
-        registerMortgageChargeOrAcquisitionPage.submitChargeRegistration();
+        registerMortgageChargeOrAcquisitionPage.submitForm();
 
         // Select pay by account and check accessibility
         cy.checkPageHeadingIs('Payment');
@@ -82,7 +82,7 @@ describe('Register a charge - MR01', () => {
         // Submit the form to generate the remaining errors for blank fields.
         // Expand all fields to ensure they are visible
         registerMortgageChargeOrAcquisitionPage.fileUpload(unsuccessfulUploadFile)
-            .submitChargeRegistration().expandAll();
+        .submitForm().expandAll();
         //check accessibility of page with all error messages displayed
         cy.accessibilityCheck();
     })

@@ -5,7 +5,7 @@ class BasePage {
     }
 
     submitForm() {
-        cy.get("input[value^='Submit']").click();
+        cy.get('input[class="button regular submit positive"]').click();
     }
 
 }
