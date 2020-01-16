@@ -1,7 +1,7 @@
 
 class MortgageChargesListPage {
 
-    selectSatisfyFirstCharge() {
+    selectFirstCharge() {
         cy.get(':nth-child(3) > .info-line > .button').click();
     }
 

@@ -1,4 +1,4 @@
-# cypress_accessibility_webfiling
+# cypress-webfiling
 Automated accessibility testing for Webfiling using Cypress.io
 
 
@@ -84,3 +84,4 @@ For further details on configuring Axe please visit [here](https://www.deque.com
 
 ### Limitations
 > When running tests in Cypress, Cypress will change it's host URL to match the application under test. Please see [here](https://docs.cypress.io/guides/guides/web-security.html#One-Superdomain-per-Test) for further details.
+=======

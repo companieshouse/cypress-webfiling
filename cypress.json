@@ -16,5 +16,6 @@
     "RETRIES": 1
   },
   "chromeWebSecurity": false,
-  "video": false
+  "video": false,
+  "projectId": "baijqb"
 }

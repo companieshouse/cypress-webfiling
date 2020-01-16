@@ -4,7 +4,7 @@
   "description": "Accessbility testing for Webfiling using Cypress.io",
   "main": "index.js",
   "scripts": {
-    "cypress:test": "cypress run --browser chrome --headless",
+    "cypress:test": "cypress run --browser chrome --headless --record --key 05e1ed2f-c399-425c-96b3-e4b596e8e917",
     "cypress:open": "cypress open",
     "precypress:open": "npm i & npm run lint",
     "precypress:test": "npm run precypress:open",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rsuller/cypress_accessibility_webfiling.git"
+    "url": "git+https://github.com/companieshouse/cypress-webfiling.git"
   },
   "keywords": [
     "cypress",
@@ -22,9 +22,9 @@
   "author": "rsuller",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rsuller/cypress_accessibility_webfiling/issues"
+    "url": "https://github.com/companieshouse/cypress-webfiling/issues"
   },
-  "homepage": "https://github.com/rsuller/cypress_accessibility_webfiling#readme",
+  "homepage": "https://github.com/companieshouse/cypress-webfiling#readme",
   "devDependencies": {
     "axe-core": "^3.4.0",
     "cypress": "^3.8.1",

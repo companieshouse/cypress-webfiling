@@ -1,7 +1,6 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
-import AddressPage from '../../support/page_objects/generic/Address';
 import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import ChangeLegalEntityPsc from '../../support/page_objects/ChangeLegalEntityPsc';
@@ -10,7 +9,6 @@ import { rle_psc_name } from '../../fixtures/psc.json';
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const appointPSC02Page = new PscAppointment();
-const addressPage = new AddressPage();
 const preFilingPage = new PreFilingPSCPage();
 const pscLandingPage = new PSCLandingPage();
 const changeLegalEntityPsc = new ChangeLegalEntityPsc();
@@ -28,7 +26,7 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         // Appoint PSC02 - (No PSC data is baselined)
         cy.checkPageHeadingIs('Notification of a relevant legal entity with significant control (PSC)');
         appointPSC02Page.enterCorporateName(rle_psc_name);
-        addressPage.lookUpServiceAddress('10', 'CF14 3UZ');
+        appointPSC02Page.enterServiceAddress('10', 'CF14 3UZ');
         appointPSC02Page.enterEntityDetails('LLP', 'EU');
         appointPSC02Page.selectNatureOfControl();
         appointPSC02Page.selectTodayAsNotificationDate();

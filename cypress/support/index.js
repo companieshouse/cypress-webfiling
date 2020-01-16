@@ -39,3 +39,7 @@ beforeEach(() => {
     cy.accessibilityCheck();
     companySignIn.enterCompanyDetails(company_number, auth_code);
 })
+
+afterEach('Logout', () => {
+    cy.contains('Sign out').click();
+})

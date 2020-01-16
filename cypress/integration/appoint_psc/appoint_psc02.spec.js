@@ -2,7 +2,6 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
-import AddressPage from '../../support/page_objects/generic/Address';
 import { rle_psc_name } from '../../fixtures/psc.json';
 
 describe('Appoint a corporate PSC', () => {
@@ -12,7 +11,6 @@ describe('Appoint a corporate PSC', () => {
         const preFilingPage = new PreFilingPSCPage();
         const appointPSC02Page = new PscAppointment();
         const pscLandingPage = new PSCLandingPage();
-        const addressPage = new AddressPage();
 
         cy.accessibilityCheck();
         companyOverview.selectLinkWithText('Add a PSC notification');
@@ -32,7 +30,7 @@ describe('Appoint a corporate PSC', () => {
         appointPSC02Page.enterCorporateName(rle_psc_name);
 
         cy.accessibilityCheck();
-        addressPage.lookUpServiceAddress('10', 'CF14 3UZ');
+        appointPSC02Page.lookupServiceAddress('10', 'CF14 3UZ');
 
         cy.accessibilityCheck();
         appointPSC02Page.enterEntityDetails('LLP', 'EU');

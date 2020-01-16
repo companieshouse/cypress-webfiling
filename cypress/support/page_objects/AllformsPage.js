@@ -81,6 +81,10 @@ class AllFormsPage {
         cy.contains('Satisfy a charge - MR04').click();
     }
 
+    selectMr05() {
+        cy.contains('Cease or release property from a charge - MR05').click();
+    }
+
 }
 
 export default AllFormsPage

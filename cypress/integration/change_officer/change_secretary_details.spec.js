@@ -38,7 +38,7 @@ describe('Change secretary details - CH03', () => {
         changeSecretaryDetails.changeMiddleName('Public');
 
         // Change address
-        changeSecretaryDetails.changeAddressPremise('230');
+        changeSecretaryDetails.changeAddress('230', "CF46 6NW");
 
         // Enter date
         enterTodaysDate();

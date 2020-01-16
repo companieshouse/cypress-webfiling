@@ -1,13 +1,6 @@
 class AddressPage {
 
     lookUpROAddress(propertyNumber, postcode) {
-        cy.get('#ro-address-premise').type(propertyNumber)
-        cy.get('#ro-address-postcode').type(postcode)
-        // Lookup address
-        cy.get('#ro-address-postcode-Lookup').click()
-    }
-
-    lookUpHomeAddress(propertyNumber, postcode) {
         const propElement = '#ro-address-premise';
         const postcodeElement = '#ro-address-postcode';
         const buttonElement = '#ro-address-postcode-Lookup';
@@ -20,18 +13,25 @@ class AddressPage {
         const propElement = '#service-address-premise';
         const postcodeElement = '#service-address-postcode';
         const buttonElement = '#service-address-postcode-Lookup';
-        const continueElement = '#service-address-container-continue';
         this.lookUpAddress(propertyNumber, postcode,
-            propElement, postcodeElement, buttonElement, continueElement);
+            propElement, postcodeElement, buttonElement);
         
     }
 
-    lookUpAddress(propertyNumber, postcode, propElement, postcodeElement, lookupButton, continueButton) {
+    lookUpResidentialAddress(propertyNumber, postcode) {
+        const propElement = '#residential-address-premise';
+        const postcodeElement = '#residential-address-postcode';
+        const buttonElement = '#residential-address-postcode-Lookup';
+        this.lookUpAddress(propertyNumber, postcode,
+            propElement, postcodeElement, buttonElement);
+    
+    }
+
+    lookUpAddress(propertyNumber, postcode, propElement, postcodeElement, lookupButton) {
         cy.get(propElement).type(propertyNumber)
         cy.get(postcodeElement).type(postcode)
         // Lookup address
         cy.get(lookupButton).wait(500).click();
-        cy.get(continueButton).wait(2000).click();
 
     }
 

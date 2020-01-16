@@ -1,7 +1,9 @@
 import BasePage from "./BasePage";
+import AddressPage from "./Address";
 
 // Constants
 const invalidCharacter = "`";
+const addressPage = new AddressPage();
 
 class OfficerAppointment extends BasePage {
 
@@ -26,10 +28,13 @@ class OfficerAppointment extends BasePage {
 
     enterHomeAddress(propertyNumber, postcode) {
         cy.get('#home-address-choice-manual-label').click();
-        cy.get('#residential-address-premise').type(propertyNumber);
-        cy.get('#residential-address-postcode').type(postcode);
-        cy.get('#residential-address-postcode-Lookup').wait(2000).click();
+        addressPage.lookUpResidentialAddress(propertyNumber, postcode);
         cy.get('#residential-address-container-continue').wait(2000).click();
+    }
+
+    lookupServiceAddress(propertyNumber, postcode) {
+        addressPage.lookUpServiceAddress(propertyNumber, postcode);
+        cy.get('#service-address-container-continue').wait(2000).click();
     }
 
     checkCountryOfResidenceContains(country) {
