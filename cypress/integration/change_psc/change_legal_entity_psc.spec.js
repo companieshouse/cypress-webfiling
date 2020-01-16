@@ -26,7 +26,7 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         // Appoint PSC02 - (No PSC data is baselined)
         cy.checkPageHeadingIs('Notification of a relevant legal entity with significant control (PSC)');
         appointPSC02Page.enterCorporateName(rle_psc_name);
-        appointPSC02Page.enterServiceAddress('10', 'CF14 3UZ');
+        appointPSC02Page.lookupServiceAddress('10', 'CF14 3UZ');
         appointPSC02Page.enterEntityDetails('LLP', 'EU');
         appointPSC02Page.selectNatureOfControl();
         appointPSC02Page.selectTodayAsNotificationDate();
