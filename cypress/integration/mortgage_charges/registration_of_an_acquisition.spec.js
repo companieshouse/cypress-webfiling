@@ -84,8 +84,11 @@ describe('Register an acquisition - MR02', () => {
         // Submit the form to generate the remaining errors for blank fields.
         // Expand all fields to ensure they are visible
         registerMortgageChargeOrAcquisitionPage.fileUpload(unsuccessfulUploadFile)
-            .submitForm().expandAll();
-        //check accessibility of page with all error messages displayed
+        .submitForm();
+        // Check accessibility of errors without sections expanded    
+        cy.accessibilityCheck();
+        // Expand sections to check accessibility of page with all error messages displayed
+        registerMortgageChargeOrAcquisitionPage.expandAll();
         cy.accessibilityCheck();
     })
 })
