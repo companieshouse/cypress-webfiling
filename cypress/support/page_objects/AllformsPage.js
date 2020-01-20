@@ -85,6 +85,15 @@ class AllFormsPage {
         cy.contains('Cease or release property from a charge - MR05').click();
     }
 
+    selectShareCapitalForms() {
+        cy.get('#allotment-of-shares-forms').click();
+        return this;
+    } 
+
+    selectSh01() {
+        cy.contains('Return of allotment of shares - SH01').click();
+    }
+
 }
 
 export default AllFormsPage
