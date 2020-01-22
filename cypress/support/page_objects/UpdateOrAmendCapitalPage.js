@@ -1,23 +1,22 @@
 
 
-import BasePage from "./generic/BasePage";
+import ShareCapital from "./generic/ShareCapital";
 
 const invalidCharacter = "`";
 
-class UpdateOrAmendCapitalPage extends BasePage {
+class UpdateOrAmendCapitalPage extends ShareCapital {
 
 
     amendClassOfShare(shareClass) {
         cy.get('#share-class-container-change').click();
         cy.accessibilityCheck();
-        cy.get('#shareClassList').select(shareClass);
-        cy.get('#share-class-container-continue').click();
+        this.selectShareClass(shareClass);
     }
 
     editNumberOfSharesAndNominalValue(value) {
         cy.get('#shares-aggregate-container-change').click();
         cy.accessibilityCheck();
-        cy.get('#NumberOfShares').clear().type(value);
+        this.enterNumberOfShares(value);
         cy.get('#AggregateNominalValue').clear().type(value);
         cy.get('#shares-aggregate-container-continue').click();
     }

@@ -1,8 +1,8 @@
 
 
-import BasePage from "./generic/BasePage";
+import ShareCapital from "./generic/ShareCapital";
 
-class AddAllotmentPage extends BasePage {
+class AddAllotmentPage extends ShareCapital {
 
     selectCurrency(currency) {
         cy.get('#currencyCode').select(currency);
@@ -10,19 +10,8 @@ class AddAllotmentPage extends BasePage {
         return this;        
     }
 
-    selectIncorrectCurrency() {
-        cy.get('#currencyCode').select('-----------------------------');
-        return this;        
-    }
-
-    selectShareClass(shareClass) {
-        cy.get('#shareClassList').select(shareClass);
-        cy.get('#share-class-container-continue').click();
-        return this;
-    }
-
     enterNumberOfSharesAndNominalValue(numShares, nominalValue) {
-        cy.get('#NumberOfShares').type(numShares);
+        this.enterNumberOfShares(numShares);
         cy.get('#ShareValue').type(nominalValue);
         cy.get('#shares-allotted-container-continue').click();
     }

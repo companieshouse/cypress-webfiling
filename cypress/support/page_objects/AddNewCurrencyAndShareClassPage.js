@@ -1,13 +1,8 @@
 
 
-import BasePage from "./generic/BasePage";
+import ShareCapital from "./generic/ShareCapital";
 
-class AddNewCurrencyAndShareClassPage extends BasePage {
-
-    selectIncorrectCurrency() {
-        cy.get('#currencyCode').select('-----------------------------');
-        return this;        
-    }
+class AddNewCurrencyAndShareClassPage extends ShareCapital {
 
     addCurrencyAndShareClass() {
         cy.contains('Add this currency and share class').click();
