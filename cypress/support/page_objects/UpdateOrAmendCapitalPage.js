@@ -2,6 +2,8 @@
 
 import BasePage from "./generic/BasePage";
 
+const invalidCharacter = "`";
+
 class UpdateOrAmendCapitalPage extends BasePage {
 
 
@@ -12,16 +14,28 @@ class UpdateOrAmendCapitalPage extends BasePage {
         cy.get('#share-class-container-continue').click();
     }
 
-    expandNumberOfSharesAndNominalValue() {
+    editNumberOfSharesAndNominalValue(value) {
         cy.get('#shares-aggregate-container-change').click();
         cy.accessibilityCheck();
+        cy.get('#NumberOfShares').clear().type(value);
+        cy.get('#AggregateNominalValue').clear().type(value);
         cy.get('#shares-aggregate-container-continue').click();
     }
 
-    expandPrescribedParticulars() {
+    enterPrescribedParticulars(particulars) {
         cy.get('#prescribed-particulars-container-change').click();
         cy.accessibilityCheck();
+        cy.get('#PrescribedParticulars').clear().type(particulars)
         cy.get('#prescribed-particulars-container-continue').click();
+    }
+
+    enterInvalidInformationInFieldsAndCheck() {
+        this.amendClassOfShare('Please select');
+        //cy.accessibilityCheck();
+        this.editNumberOfSharesAndNominalValue(invalidCharacter);
+        //cy.accessibilityCheck();
+        this.enterPrescribedParticulars(invalidCharacter);
+        //cy.accessibilityCheck();
     }
 
 }

@@ -9,6 +9,12 @@ class AddAllotmentPage extends BasePage {
         cy.get('#currency-container-continue').click();
         return this;        
     }
+
+    selectIncorrectCurrency() {
+        cy.get('#currencyCode').select('-----------------------------');
+        return this;        
+    }
+
     selectShareClass(shareClass) {
         cy.get('#shareClassList').select(shareClass);
         cy.get('#share-class-container-continue').click();
@@ -29,6 +35,10 @@ class AddAllotmentPage extends BasePage {
 
     addAllotment() {
         cy.contains('Add this allotment').click();
+    }
+
+    cancelAllotment() {
+        cy.get('.cancel').click();
     }
 
 }
