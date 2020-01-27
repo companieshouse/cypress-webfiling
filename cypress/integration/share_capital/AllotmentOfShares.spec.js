@@ -35,7 +35,7 @@ describe('Return of allotment of shares - SH01', () => {
         // Allotment dates tab
         //Proceed without selecting a date then check accesibility of displayed error messages
         allotmentOfSharesPage.goToAllotmentOfSharesTab();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         //Enter valid date and proceed
         allotmentOfSharesPage.selectPeriodStartDate();
         allotmentOfSharesPage.goToAllotmentOfSharesTab();
@@ -48,7 +48,7 @@ describe('Return of allotment of shares - SH01', () => {
             .selectIncorrectCurrency()
             .submitForm();
         //check accessibility of section error messages
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         //expand all sections and check individual field errors
         addAllotmentPage.expandAll();
         cy.accessibilityCheck();
@@ -69,11 +69,11 @@ describe('Return of allotment of shares - SH01', () => {
         addAllotmentPage.addAllotment();
 
         //Check the accessibility of the Allotment of shares tab with the newly added allotment displayed
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         allotmentOfSharesPage.goToStatementOfCapitalTab();
 
         // Statement of Capital tab
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         allotmentOfSharesPage.updateAmendCapitalLink();
 
         // Update or amend capital page
@@ -88,14 +88,14 @@ describe('Return of allotment of shares - SH01', () => {
         updateOrAmendCapitalPage.enterPrescribedParticulars("Amend capital test " + Cypress.moment());
         cy.accessibilityCheck();
         updateOrAmendCapitalPage.submitForm();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
 
         // Add new share class to this currency page
         //submit without selections to fire section errors and check accessibility
         allotmentOfSharesPage.addNewShareClassToCurrency();
         addNewShareClassToCurrencyPage.expandAll()
         .addShareClass();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         //Expaand all sections to check field errors
         addNewShareClassToCurrencyPage.expandAll();
         cy.accessibilityCheck();
@@ -108,7 +108,7 @@ describe('Return of allotment of shares - SH01', () => {
         addNewCurrencyAndShareClassPage.expandAll()
         .selectIncorrectCurrency()
         .addCurrencyAndShareClass();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         //Expaand all sections to check field errors
         addNewShareClassToCurrencyPage.expandAll();
         cy.accessibilityCheck();

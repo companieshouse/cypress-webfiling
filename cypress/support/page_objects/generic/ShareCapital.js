@@ -1,10 +1,6 @@
 import BasePage from "./BasePage";
 import AddressPage from "./Address";
 
-// Constants
-const invalidCharacter = "`";
-const addressPage = new AddressPage();
-
 class ShareCapital extends BasePage {
 
     selectIncorrectCurrency() {

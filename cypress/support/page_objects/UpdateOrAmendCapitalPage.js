@@ -30,11 +30,11 @@ class UpdateOrAmendCapitalPage extends ShareCapital {
 
     enterInvalidInformationInFieldsAndCheck() {
         this.amendClassOfShare('Please select');
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         this.editNumberOfSharesAndNominalValue(invalidCharacter);
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         this.enterPrescribedParticulars(invalidCharacter);
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
     }
 
 }
