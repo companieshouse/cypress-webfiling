@@ -58,7 +58,7 @@ describe('Cease or release property from a charge - MR05', () => {
         .enterInvalidCharactersToFireErrors("`")
         .submitForm();
         //check accessibility of page with section error messages displayed
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
 
         //Expand all sections to view individual field errors and check their accessibility
         ceaseOrReleasePropertyFromCharge.expandAll();
