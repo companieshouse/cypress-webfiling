@@ -1,5 +1,3 @@
-
-
 import ShareCapital from "./generic/ShareCapital";
 
 const invalidCharacter = "`";

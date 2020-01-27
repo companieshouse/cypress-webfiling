@@ -1,5 +1,3 @@
-
-
 import ShareCapital from "./generic/ShareCapital";
 
 class AddAllotmentPage extends ShareCapital {

@@ -1,5 +1,3 @@
-
-
 import BasePage from "./generic/BasePage";
 
 class AddNewShareClassToCurrencyPage extends BasePage {

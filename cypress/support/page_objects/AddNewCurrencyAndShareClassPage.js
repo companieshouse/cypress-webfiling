@@ -1,5 +1,3 @@
-
-
 import ShareCapital from "./generic/ShareCapital";
 
 class AddNewCurrencyAndShareClassPage extends ShareCapital {
