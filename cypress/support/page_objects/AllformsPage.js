@@ -13,6 +13,10 @@ class AllFormsPage {
         cy.contains('Change of director\'s details - CH01').click();
     }
 
+    selectCH02() {
+        cy.contains('Change of corporate director\'s details - CH02').click();
+    }
+
     selectCH03() {
         cy.contains('Change of secretary\'s details - CH03').click();
     }
