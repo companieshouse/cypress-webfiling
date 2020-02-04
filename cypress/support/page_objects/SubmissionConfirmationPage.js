@@ -10,6 +10,10 @@ class SubmissionConfirmationPage {
         return this;
     }
 
+    done() {
+        cy.get('input[class="button"][name="confirm"]').click();
+    }
+
 }
 
 export default SubmissionConfirmationPage

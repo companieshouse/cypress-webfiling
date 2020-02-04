@@ -1,5 +1,4 @@
 import BasePage from "./BasePage";
-import AddressPage from "./Address";
 
 class ShareCapital extends BasePage {
 
