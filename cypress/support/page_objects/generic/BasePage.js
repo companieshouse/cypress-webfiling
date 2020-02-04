@@ -7,7 +7,6 @@ class BasePage {
 
     submitForm() {
         cy.get('input[class="button regular submit positive"]').click();
-        return this;
     }
 
 }
