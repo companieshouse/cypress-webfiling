@@ -1,4 +1,3 @@
-import CorporateOfficerAppointment from "./generic/CorporateOfficerAppointment";
 import BasePage from "./generic/BasePage";
 
 class ChangeCorporateDirectorDetailsPage extends BasePage {

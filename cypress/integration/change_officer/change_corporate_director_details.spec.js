@@ -53,7 +53,7 @@ describe('Change corporate director details - CH02', () => {
         changeCorporateDirectorPreFilingPage.changeCorporateDirectorDetails();
 
     })
-    it('Change Corporate Director details', () => {
+    it('CH02 - Change Corporate Director details without submission', () => {
         //Check accessibility of change corporate director screen
         cy.accessibilityCheck();
         // Change officer name
@@ -63,13 +63,8 @@ describe('Change corporate director details - CH02', () => {
             cy.accessibilityCheck();
             changeCorporateDirectorDetailsPage.submitForm();
             //Due to the above warning, the form is not submitted and an additional warning shown.
-            //check the acccessibility here and submit the form again.
+            //check the acccessibility here.
             cy.accessibilityCheck();
-            changeCorporateDirectorDetailsPage.submitForm();
-        submissionConfirmation.confirmHeadingContains('Confirmation of Submission');
-
-
     })
-
 
 })
