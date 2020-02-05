@@ -1,6 +1,6 @@
 import ChangeOfAccountingReferenceDatePage from "../../support/page_objects/ChangeOfAccountingReferenceDatePage";
 
-class ConfirmChangeOfAccountingReferenceDate extends ChangeOfAccountingReferenceDatePage{
+class ConfirmChangeOfAccountingReferenceDate extends ChangeOfAccountingReferenceDatePage {
 
 
 }
