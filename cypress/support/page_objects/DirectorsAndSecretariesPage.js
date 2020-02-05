@@ -27,6 +27,10 @@ class DirectorsAndSecretariesPage extends OfficerAppointment {
         cy.get('#confirm-officer-resignation').check();
     }
 
+    submitTermination() {
+        cy.get('input[name="TM01.submit"]').click();
+    }
+
 }
 
 export default DirectorsAndSecretariesPage
