@@ -1,5 +1,14 @@
 class AllFormsPage {
 
+    selectConfirmationStatementAndAccounts() {
+        cy.contains('Confirmation statement and accounts').click();
+        return this;
+    }
+
+    selectAA01() {
+        cy.contains('Change of accounting reference date - AA01').click();
+    }
+
     selectDirectorAndSecretaries() {
         cy.contains('Directors and secretaries').click();
         return this;
