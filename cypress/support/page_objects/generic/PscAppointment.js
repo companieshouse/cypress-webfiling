@@ -19,6 +19,7 @@ class PscAppointment extends OfficerAppointment {
         cy.get('#nature-of-control-container-continue').click();
     }
 
+    // Enters todays date as notification date and clicks continue.
     selectTodayAsNotificationDate() {
         const dayElement = '#start-date-container > div.dateselector > .date-selector > :nth-child(2) > .selector-day';
         const monthElement = '#start-date-container > div.dateselector > .date-selector > :nth-child(3) > .selector-month';
@@ -28,6 +29,7 @@ class PscAppointment extends OfficerAppointment {
         cy.get('#start-date-container-continue').click();
     }
 
+     // Enters todays date as register entry date and clicks continue.
     selectTodayAsRegisterEntryDate() {
         const dayElement = '#register-entry-date-container > div.dateselector > .date-selector > :nth-child(2) > .selector-day';
         const monthElement = '#register-entry-date-container > div.dateselector > .date-selector > :nth-child(3) > .selector-month';
@@ -54,6 +56,23 @@ class PscAppointment extends OfficerAppointment {
 
     submitNotification() {
         cy.get(':nth-child(19) > div > .button').click();
+    }
+
+    selectTodayAsDateOfChange() {
+        const dayElement = '#start-date-container > div.dateselector > .date-selector > :nth-child(2) > .selector-day';
+        const monthElement = '#start-date-container > div.dateselector > .date-selector > :nth-child(3) > .selector-month';
+        const yearElement = '#start-date-container > div.dateselector > .date-selector > :nth-child(4) > .selector-year';
+
+        cy.selectTodaysDate(dayElement, monthElement, yearElement);
+    }
+
+      // Enters todays date as register entry date.
+      enterTodayAsRegisterEntryDate() {
+        const dayElement = '#register-date-container > div.dateselector > .date-selector > :nth-child(2) > .selector-day';
+        const monthElement = '#register-date-container > div.dateselector > .date-selector > :nth-child(3) > .selector-month';
+        const yearElement = '#register-date-container > div.dateselector > .date-selector > :nth-child(4) > .selector-year';
+
+        cy.selectTodaysDate(dayElement, monthElement, yearElement);
     }
     
 
