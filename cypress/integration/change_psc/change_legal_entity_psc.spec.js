@@ -40,33 +40,29 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         // Go to PSC05
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc05();
-
-        // Check the appointed PSC is displayed
-        cy.get('tbody tr td:nth-child(1)').invoke('text').then((text) => {
-            expect(text.trim()).to.not.eq('There are currently no persons with significant control registered.');
-        });
+        preFilingPage.checkAppointedPscIsDisplayed();
 
         preFilingPage.selectPscToEdit(rle_psc_name);
         preFilingPage.changePsc05Details();
 
         // PSC05
-        changeLegalEntityPsc.changePscName();
+        changeLegalEntityPsc.expandPscNameSection();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.changeNameCancel();
+        changeLegalEntityPsc.closePscNameSection();
 
-        changeLegalEntityPsc.changePscAddress()
+        changeLegalEntityPsc.expandPscAddressSection()
         cy.accessibilityCheck();
-        changeLegalEntityPsc.expandPscAddress();
+        changeLegalEntityPsc.expandPscManualEntryAddressSection();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.cancelPscAddressChange();
+        changeLegalEntityPsc.closePscAddressSection();
 
-        changeLegalEntityPsc.changeEntityDetails();
+        changeLegalEntityPsc.expandEntityDetailsSection();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.cancelEntityDetailsChange();
+        changeLegalEntityPsc.closeEntityDetailsSection();
 
-        changeLegalEntityPsc.changeNatureOfControl();
+        changeLegalEntityPsc.expandNatureOfControlSection();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.cancelNatureOfControlChange();
+        changeLegalEntityPsc.closeNatureOfControlSection();
 
         // Date of change and register entry date sections are already expanded
         cy.accessibilityCheck();

@@ -39,33 +39,29 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         // Go to PSC06
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc06();
-
-        // Check the appointed PSC is displayed
-        cy.get('tbody tr td:nth-child(1)').invoke('text').then((text) => {
-            expect(text.trim()).to.not.eq('There are currently no persons with significant control registered.');
-        });
+        preFilingPage.checkAppointedPscIsDisplayed();
 
         preFilingPage.selectPscToEdit(orp_psc_name);
         preFilingPage.changePsc06Details();
 
         // PSC06
-        changeLegalPersonPsc.changePscName();
+        changeLegalPersonPsc.expandPscNameSection();
         cy.accessibilityCheck();
-        changeLegalPersonPsc.changeNameCancel();
+        changeLegalPersonPsc.closePscNameSection();
 
-        changeLegalPersonPsc.changePscAddress()
+        changeLegalPersonPsc.expandPscAddressSection()
         cy.accessibilityCheck();
-        changeLegalPersonPsc.expandPscAddress();
+        changeLegalPersonPsc.expandPscManualAddress();
         cy.accessibilityCheck();
-        changeLegalPersonPsc.cancelPscAddressChange();
+        changeLegalPersonPsc.closePscAddressSection();
 
-        changeLegalPersonPsc.changeLegalPersonsDetails();
+        changeLegalPersonPsc.expandLegalPersonsDetailsSection();
         cy.accessibilityCheck();
         changeLegalPersonPsc.enterEntityDetails('PLC', 'ESP');
 
-        changeLegalPersonPsc.changeNatureOfControl();
+        changeLegalPersonPsc.expandNatureOfControlSection();
         cy.accessibilityCheck();
-        changeLegalPersonPsc.cancelNatureOfControlChange();
+        changeLegalPersonPsc.closeNatureOfControlSection();
 
         changeLegalPersonPsc.selectTodayAsDateOfChange();
         cy.accessibilityCheck();

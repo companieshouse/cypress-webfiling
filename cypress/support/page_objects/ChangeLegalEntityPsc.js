@@ -2,39 +2,39 @@ import PscAppointment from "./generic/PscAppointment";
 
 class ChangeLegalEntityPsc extends PscAppointment {
 
-    changePscName() {
+    expandPscNameSection() {
         cy.get('#corporate-name-container-change').click();
     }
 
-    changeNameCancel() {
+    closePscNameSection() {
         cy.get('#corporate-name-container-cancel').click();
     }
 
-    changePscAddress() {
+    expandPscAddressSection() {
         cy.get('#service-address-container-change').click();
     }
 
-    expandPscAddress() {
+    expandPscManualEntryAddressSection() {
         cy.get('#service-address-manual-link').click();
     }
 
-    cancelPscAddressChange() {
+    closePscAddressSection() {
         cy.get('#service-address-container-cancel').click();
     }
 
-    changeEntityDetails() {
+    expandEntityDetailsSection() {
         cy.get('#psc-eea-container-change').click();
     }
 
-    cancelEntityDetailsChange() {
+    closeEntityDetailsSection() {
         cy.get('#psc-eea-container-cancel').click();
     }
 
-    changeNatureOfControl() {
+    expandNatureOfControlSection() {
         cy.get('#nature-of-control-container-change').click();
     }
 
-    cancelNatureOfControlChange() {
+    closeNatureOfControlSection() {
         cy.get('#nature-of-control-container-cancel').click();
     }
 

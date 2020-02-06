@@ -74,8 +74,14 @@ class PscAppointment extends OfficerAppointment {
 
         cy.selectTodaysDate(dayElement, monthElement, yearElement);
     }
-    
 
+      // Check the appointed PSC is displayed
+      checkAppointedPscIsDisplayed() {
+        cy.get('tbody tr td:nth-child(1)').invoke('text').then((text) => {
+            expect(text.trim()).to.not.eq('There are currently no persons with significant control registered.');
+        });
+    }
+    
 }
 
 export default PscAppointment
