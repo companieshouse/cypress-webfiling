@@ -22,17 +22,17 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         pscLandingPage.appointPsc03();
         preFilingPage.appointPsc();
 
-         // Appoint PSC03 - (No PSC data is baselined)
-         cy.checkPageHeadingIs('Notification of a legal person with significant control (PSC)');
-         appointPSC03Page.enterCorporateName(orp_psc_name);
-         appointPSC03Page.lookupServiceAddress('1', 'CF14 3UZ');
-         appointPSC03Page.enterEntityDetails('LTD', 'US');
-         appointPSC03Page.selectNatureOfControl();
-         appointPSC03Page.selectTodayAsNotificationDate();
-         appointPSC03Page.selectTodayAsRegisterEntryDate();
-         appointPSC03Page.submitNotification();
-         cy.checkPageHeadingIs('Confirmation of Submission');
-         appointPSC03Page.clickCompanyOverview();
+        // Appoint PSC03 - (No PSC data is baselined)
+        cy.checkPageHeadingIs('Notification of a legal person with significant control (PSC)');
+        appointPSC03Page.enterCorporateName(orp_psc_name);
+        appointPSC03Page.lookupServiceAddress('1', 'CF14 3UZ');
+        appointPSC03Page.enterEntityDetails('LTD', 'US');
+        appointPSC03Page.selectNatureOfControl();
+        appointPSC03Page.selectTodayAsNotificationDate();
+        appointPSC03Page.selectTodayAsRegisterEntryDate();
+        appointPSC03Page.submitNotification();
+        cy.checkPageHeadingIs('Confirmation of Submission');
+        appointPSC03Page.clickCompanyOverview();
     })
 
     it('File successful PSC06', () => {
@@ -69,10 +69,10 @@ describe('Change of a legal person with significant control  - PSC06', () => {
 
         changeLegalPersonPsc.selectTodayAsDateOfChange();
         cy.accessibilityCheck();
- 
+
         changeLegalPersonPsc.enterTodayAsRegisterEntryDate();
         cy.accessibilityCheck();
- 
+
         changeLegalPersonPsc.submitNotification();
 
     })
