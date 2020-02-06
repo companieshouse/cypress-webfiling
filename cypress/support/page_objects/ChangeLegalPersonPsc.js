@@ -1,33 +1,33 @@
 import PscAppointment from "./generic/PscAppointment";
 
-class ChangeLegalEntityPsc extends PscAppointment {
+class ChangeLegalPersonPsc extends PscAppointment {
 
     expandPscNameSection() {
         cy.get('#corporate-name-container-change').click();
     }
 
     closePscNameSection() {
-        cy.get('#corporate-name-container-cancel').click();
+        cy.get('#corporate-name-container-cancel')
     }
 
     expandPscAddressSection() {
         cy.get('#service-address-container-change').click();
     }
 
-    expandPscManualEntryAddressSection() {
+    expandPscManualAddress() {
         cy.get('#service-address-manual-link').click();
     }
 
     closePscAddressSection() {
+        cy.get('#service-address-manual-link').click();
+    }
+
+    cancelPscAddressChange() {
         cy.get('#service-address-container-cancel').click();
     }
 
-    expandEntityDetailsSection() {
+    expandLegalPersonsDetailsSection() {
         cy.get('#psc-eea-container-change').click();
-    }
-
-    closeEntityDetailsSection() {
-        cy.get('#psc-eea-container-cancel').click();
     }
 
     expandNatureOfControlSection() {
@@ -40,4 +40,4 @@ class ChangeLegalEntityPsc extends PscAppointment {
 
 }
 
-export default ChangeLegalEntityPsc
+export default ChangeLegalPersonPsc
