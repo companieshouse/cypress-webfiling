@@ -18,6 +18,10 @@ class AllFormsPage {
         cy.contains('Termination of appointment of director - TM01').click();
     }
 
+    selectTM02() {
+        cy.contains('Termination of appointment of secretary - TM02').click();
+    } 
+
     selectCH01() {
         cy.contains('Change of director\'s details - CH01').click();
     }

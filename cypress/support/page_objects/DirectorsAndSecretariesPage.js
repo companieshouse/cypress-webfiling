@@ -28,7 +28,7 @@ class DirectorsAndSecretariesPage extends OfficerAppointment {
     }
 
     submitTermination() {
-        cy.get('input[name="TM01.submit"]').click();
+        cy.get('input[type="submit"]').click();
     }
 
 }
