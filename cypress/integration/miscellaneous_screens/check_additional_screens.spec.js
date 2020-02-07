@@ -54,7 +54,8 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         cy.accessibilityCheck();
     })
 
-    /*it('Change Account Details', () => {
-        
-    })*/
+    it.only('Change Account Details', () => {
+        companyOverview.selectLinkWithText('Change account details');
+        cy.accessibilityCheck();        
+    })
 })
