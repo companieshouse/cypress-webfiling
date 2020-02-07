@@ -43,17 +43,18 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         cy.accessibilityCheck();
     })
 
-    it.only('Recent Filings', () => {
+    it('Recent Filings', () => {
         companyOverview.selectLinkWithText('My recent filings')
         cy.accessibilityCheck();
         
     })
 
-    /*it('Company Authentication', () => {
-        
+    it('Company Authentication', () => {
+        companyOverview.selectLinkWithText('Company authentication');
+        cy.accessibilityCheck();
     })
 
-    it('Change Account Details', () => {
+    /*it('Change Account Details', () => {
         
     })*/
 })
