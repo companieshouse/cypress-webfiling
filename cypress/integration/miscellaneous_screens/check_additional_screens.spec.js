@@ -38,16 +38,18 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         
     })
 
-    it.only('Request Email', () => {
+    it('Request Email', () => {
         companyOverview.selectLinkWithText('Request email');
         cy.accessibilityCheck();
     })
 
-    /*it('Recent Filings', () => {
+    it.only('Recent Filings', () => {
+        companyOverview.selectLinkWithText('My recent filings')
+        cy.accessibilityCheck();
         
     })
 
-    it('Company Authentication', () => {
+    /*it('Company Authentication', () => {
         
     })
 
