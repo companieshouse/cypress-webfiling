@@ -24,7 +24,7 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         cy.visit('https://ewf-kermit.companieshouse.gov.uk//profile')
     })
 
-    it.only('Join PROOF', () => {
+    it('Join PROOF', () => {
         companyOverview.selectLinkWithText('Join PROOF');
         cy.accessibilityCheck();
 
@@ -38,11 +38,12 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         
     })
 
-    /*it('Request Email', () => {
-        
+    it.only('Request Email', () => {
+        companyOverview.selectLinkWithText('Request email');
+        cy.accessibilityCheck();
     })
 
-    it('Recent Filings', () => {
+    /*it('Recent Filings', () => {
         
     })
 
