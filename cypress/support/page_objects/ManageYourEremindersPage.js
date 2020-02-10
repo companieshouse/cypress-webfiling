@@ -16,7 +16,7 @@ class ManageYourEreminders {
 
     viewTermsOfOperation() {
         // As this link opens in a new window, call cy.visit() in oder to test in isolation
-        cy.visit('https://ewf-kermit.companieshouse.gov.uk/sframe?name=eRemindersTermsOfOperation');
+        cy.visit('sframe?name=eRemindersTermsOfOperation');
     }
 }
 

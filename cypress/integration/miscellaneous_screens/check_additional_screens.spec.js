@@ -21,7 +21,7 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         manageYourEremindersPage.viewTermsOfOperation();
         cy.accessibilityCheck();
         // Go back to company overview screen to exit the test
-        cy.visit('https://ewf-kermit.companieshouse.gov.uk//profile')
+        cy.visit('/profile')
     })
 
     it('Join PROOF', () => {
@@ -29,11 +29,11 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         cy.accessibilityCheck();
 
         // Open PROOF t's & c's link. Opens in a new window so call cy.visit() in order to test
-        cy.visit('https://ewf-kermit.companieshouse.gov.uk/help//en/stdwf/proofTandC.html');
+        cy.visit('help//en/stdwf/proofTandC.html');
         cy.accessibilityCheck();
 
         // Go back to company overview screen to exit the test
-        cy.visit('https://ewf-kermit.companieshouse.gov.uk//profile')
+        cy.visit('//profile')
 
         
     })
@@ -54,7 +54,7 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         cy.accessibilityCheck();
     })
 
-    it.only('Change Account Details', () => {
+    it('Change Account Details', () => {
         companyOverview.selectLinkWithText('Change account details');
         cy.accessibilityCheck();        
     })
