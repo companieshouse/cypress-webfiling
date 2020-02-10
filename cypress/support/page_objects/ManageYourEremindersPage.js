@@ -10,7 +10,6 @@ class ManageYourEreminders {
     }
 
     addEmailButton() {
-        //cy.get('input[type="submit"][value="Add"]').click();
         cy.get('[name="eRemindersDetails.AddEmailCtrl.btnAdd"]').click();
     }
 
