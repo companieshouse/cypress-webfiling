@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://ewf.kermit.orctel.internal",
+  "baseUrl": "https://ewf-kermit.companieshouse.gov.uk/",
   "env": {
     "user_email": "testautomation@companieshouse.gov.uk",
     "user_password": "password123",
