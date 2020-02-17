@@ -82,6 +82,10 @@ class AllFormsPage {
         return this;
     }
 
+    selectAd02() {
+        cy.contains('Notification of single alternative inspection location (SAIL) - AD02').click();
+    }
+
     selectEh01() {
         cy.contains("Provide your directors' information on the public register - EH01").click();
     }
