@@ -1,7 +1,5 @@
 import AddressPage from "./generic/Address"
 
-//const addressPage = new AddressPage();
-
 class NotificationOfSailAndRegisterLocationPage extends AddressPage {
 
     enterSailAddress(buildingNameNumber, postcode) {
