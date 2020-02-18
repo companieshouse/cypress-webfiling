@@ -58,4 +58,13 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         companyOverview.selectLinkWithText('Change account details');
         cy.accessibilityCheck();        
     })
+
+    it('Help with confirmation statement screen', () => {
+        cy.visit('/help//en/stdwf/confirmationStatementHelp.html');
+        cy.accessibilityCheck();
+        // Go back to company overview screen to exit the test
+        cy.visit('//profile')
+        
+    })
+
 })
