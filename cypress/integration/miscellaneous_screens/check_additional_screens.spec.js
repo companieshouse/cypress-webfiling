@@ -34,8 +34,6 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
 
         // Go back to company overview screen to exit the test
         cy.visit('//profile')
-
-
     })
 
     it('Request Email', () => {
@@ -46,7 +44,6 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
     it('Recent Filings', () => {
         companyOverview.selectLinkWithText('My recent filings')
         cy.accessibilityCheck();
-
     })
 
     it('Company Authentication', () => {
@@ -64,7 +61,6 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         cy.accessibilityCheck();
         // Go back to company overview screen to exit the test
         cy.visit('//profile')
-
     })
 
 })
