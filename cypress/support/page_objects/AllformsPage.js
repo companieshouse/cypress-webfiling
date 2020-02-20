@@ -120,6 +120,15 @@ class AllFormsPage {
         cy.contains('Return of allotment of shares - SH01').click();
     }
 
+    selectChangeOfName() {
+        cy.contains('Change of name').click();
+        return this;
+    }
+    
+    selectNm01() {
+        cy.contains('Change of name same day service (£30 charge) - NM01').click();
+    }
+
 }
 
 export default AllFormsPage
