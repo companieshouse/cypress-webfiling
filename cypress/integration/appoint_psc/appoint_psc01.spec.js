@@ -1,13 +1,11 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AppointPSC01Page from '../../support/page_objects/AppointPSC01Page';
-import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 
 describe('Appoint an individual PSC', () => {
     it('File successful PSC01', () => {
 
         const companyOverview = new CompanyOverviewPage();
-        const preFilingPage = new PreFilingPSCPage();
         const appointPSCPage = new AppointPSC01Page();
         const pscLandingPage = new PSCLandingPage();
 
@@ -18,7 +16,7 @@ describe('Appoint an individual PSC', () => {
         pscLandingPage.appointPsc01();
 
         cy.accessibilityCheck();
-        preFilingPage.appointPsc();
+        appointPSCPage.proceedPastPreFilingScreen();
 
         // Check correct page is loaded
         cy.checkPageHeadingIs('Notification of a person with significant control (PSC)');

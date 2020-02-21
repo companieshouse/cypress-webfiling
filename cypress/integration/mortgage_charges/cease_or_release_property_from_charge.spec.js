@@ -4,12 +4,10 @@ import SubmissionConfirmationPage from '../../support/page_objects/SubmissionCon
 import MortgageChargesListPage from '../../support/page_objects/MortgageChargesListPage'
 
 import CeaseOrReleasePropertyFromCharge from '../../support/page_objects/CeaseOrReleasePropertyFromCharge'
-import MortgagePreFilingPage from '../../support/page_objects/MortgagePreFilingPage'
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const submissionConfirmationPage = new SubmissionConfirmationPage();
-const mortgagePreFilingPage = new MortgagePreFilingPage();
 const ceaseOrReleasePropertyFromCharge = new CeaseOrReleasePropertyFromCharge();
 const mortgageChargesListPage = new MortgageChargesListPage();
 
@@ -24,7 +22,7 @@ describe('Cease or release property from a charge - MR05', () => {
 
         //Check the Cease or release property from a charge pre-filing page
         cy.accessibilityCheck();
-        mortgagePreFilingPage.proceedWithFiling();
+        ceaseOrReleasePropertyFromCharge.proceedPastPreFilingScreen();
 
         //Check the accessibility of the Charges list page then select the first charge
         cy.accessibilityCheck();

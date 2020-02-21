@@ -1,8 +1,8 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import DirectorAndSecretariesPage from '../../support/page_objects/DirectorsAndSecretariesPage'
-import SecretaryChangeDetailsPreFilingPage from '../../support/page_objects/SecretaryChangeDetailsPreFilingPage'
 import ChangeSecretaryDetailsPage from '../../support/page_objects/ChangeSecretaryDetailsPage';
+import GenericPreFilingPage from '../../support/page_objects/generic/GenericPreFilingPage';
 
 // Constants
 const companyOverview = new CompanyOverviewPage();
@@ -23,12 +23,12 @@ describe('Change secretary details - CH03', () => {
         directorAndSecretaries.selectOfficerToEdit('Condition Publicity KNEEJERKBIRDHOUSE');
 
         // Check to ensure Tick and Cross are displayed
-        const preFiling = new SecretaryChangeDetailsPreFilingPage();
+        const preFiling = new GenericPreFilingPage();
         preFiling.checkPageIsDisplayedCorrectly();
         cy.accessibilityCheck();
 
         // Select change officer
-        preFiling.changeSecretaryDetails();
+        preFiling.proceedPastPreFilingScreen();
         cy.accessibilityCheck();
 
     })

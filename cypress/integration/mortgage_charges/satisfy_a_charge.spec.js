@@ -1,13 +1,11 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage'
-import MortgagePreFilingPage from '../../support/page_objects/MortgagePreFilingPage'
 import MortgageChargesListPage from '../../support/page_objects/MortgageChargesListPage'
 import SatisfyMortgageChargePage from '../../support/page_objects/SatisfyMortgageChargePage'
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
-const mortgagePreFilingPage = new MortgagePreFilingPage();
 const submissionConfirmationPage = new SubmissionConfirmationPage();
 const satisfyMortgageChargePage = new SatisfyMortgageChargePage();
 const mortgageChargesListPage = new MortgageChargesListPage();
@@ -22,7 +20,7 @@ describe('Satisfy a charge - MR04', () => {
 
         //Check the Satisfy a Charge pre-filing page
         cy.accessibilityCheck();
-        mortgagePreFilingPage.proceedWithFiling();
+        satisfyMortgageChargePage.proceedPastPreFilingScreen();
 
         //Check the accessibility of the Charges list page then click Satisfy on the first charge
         cy.accessibilityCheck();

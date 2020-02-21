@@ -1,4 +1,6 @@
-class PreFilingPage {
+import BasePage from "./BasePage";
+
+class GenericPreFilingPage extends BasePage {
 
     checkPageIsDisplayedCorrectly() {
         cy.get('.tick').should('not.be.hidden');
@@ -7,4 +9,4 @@ class PreFilingPage {
 
 }
 
-export default PreFilingPage
+export default GenericPreFilingPage

@@ -1,7 +1,6 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
-import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import ChangeLegalPersonPsc from '../../support/page_objects/ChangeLegalPersonPsc';
 import { orp_psc_name } from '../../fixtures/psc.json';
@@ -9,7 +8,6 @@ import { orp_psc_name } from '../../fixtures/psc.json';
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const appointPSC03Page = new PscAppointment();
-const preFilingPage = new PreFilingPSCPage();
 const pscLandingPage = new PSCLandingPage();
 const changeLegalPersonPsc = new ChangeLegalPersonPsc();
 
@@ -20,7 +18,7 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         // Go to PSC03
         companyOverview.selectLinkWithText('Add a PSC notification');
         pscLandingPage.appointPsc03();
-        preFilingPage.appointPsc();
+        appointPSC03Page.proceedPastPreFilingScreen();
 
         // Appoint PSC03 - (No PSC data is baselined)
         cy.checkPageHeadingIs('Notification of a legal person with significant control (PSC)');
@@ -39,10 +37,10 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         // Go to PSC06
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc06();
-        preFilingPage.checkAppointedPscIsDisplayed();
+        changeLegalPersonPsc.checkAppointedPscIsDisplayed();
 
-        preFilingPage.selectPscToEdit(orp_psc_name);
-        preFilingPage.changePsc06Details();
+        changeLegalPersonPsc.selectPscToEdit(orp_psc_name);
+        changeLegalPersonPsc.proceedPastPreFilingScreen();
 
         // PSC06
         changeLegalPersonPsc.expandPscNameSection();

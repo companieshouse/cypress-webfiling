@@ -1,10 +1,8 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
-import PreFilingAP01Page from '../../support/page_objects/PreFilingAP01Page';
 import AppointDirectorPage from '../../support/page_objects/AppointDirectorPage'
 
 // Constants
 const companyOverview = new CompanyOverviewPage();
-const preFilingPage = new PreFilingAP01Page();
 const appointDirectorPage = new AppointDirectorPage();
 
 describe('Appoint a Director', () => {
@@ -13,7 +11,7 @@ describe('Appoint a Director', () => {
         cy.accessibilityCheck();
         companyOverview.selectLinkWithText('Appoint a director');
     
-        preFilingPage.appointDirector();
+        appointDirectorPage.proceedPastPreFilingScreen();
     
         // Check correct page is loaded
         cy.checkPageHeadingIs('Appointment of a director');
