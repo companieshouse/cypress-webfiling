@@ -9,6 +9,10 @@ class BasePage {
         cy.get('input[class="button regular submit positive"]').click();
     }
 
+    proceedPastPreFilingScreen() {
+        cy.get('[class="button positive large"]').click();
+    }
+
 }
 
 export default BasePage

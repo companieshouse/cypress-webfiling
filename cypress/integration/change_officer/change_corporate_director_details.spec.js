@@ -4,7 +4,6 @@ import AppointCorporateDirectorPage from '../../support/page_objects/AppointCorp
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage';
 import AccountsReminderPage from '../../support/page_objects/AccountsReminderPage';
 import AllFormsPage from '../../support/page_objects/AllformsPage';
-import CorporateDirectorChangeDetailsPreFilingPage from '../../support/page_objects/CorporateDirectorChangeDetailsPreFilingPage';
 import ChangeCorporateDirectorDetailsPage from '../../support/page_objects/ChangeCorporateDirectorDetailsPage';
 
 const companyOverview = new CompanyOverviewPage();
@@ -13,7 +12,6 @@ const submissionConfirmation = new SubmissionConfirmationPage();
 const accountsReminder = new AccountsReminderPage();
 const allFormsPage = new AllFormsPage();
 const directorAndSecretariesPage = new DirectorAndSecretariesPage();
-const changeCorporateDirectorPreFilingPage = new CorporateDirectorChangeDetailsPreFilingPage();
 const changeCorporateDirectorDetailsPage = new ChangeCorporateDirectorDetailsPage();
 
 describe('Change corporate director details - CH02', () => {
@@ -50,7 +48,7 @@ describe('Change corporate director details - CH02', () => {
         directorAndSecretariesPage.selectOfficerToEdit('CHANGE CORPORATE DIRECTOR');
         // Change officer pre-filing page accessibility check 
         cy.accessibilityCheck();
-        changeCorporateDirectorPreFilingPage.changeCorporateDirectorDetails();
+        changeCorporateDirectorDetailsPage.proceedPastPreFilingScreen();
 
     })
     it('CH02 - Change Corporate Director details without submission', () => {
