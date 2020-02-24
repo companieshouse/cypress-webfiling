@@ -48,7 +48,7 @@ describe('Change corporate director details - CH02', () => {
         directorAndSecretariesPage.selectOfficerToEdit('CHANGE CORPORATE DIRECTOR');
         // Change officer pre-filing page accessibility check 
         cy.accessibilityCheck();
-        //changeCorporateDirectorDetailsPage.proceedPastPreFilingScreen();
+        changeCorporateDirectorDetailsPage.proceedPastPreFilingScreen();
 
     })
     it('CH02 - Change Corporate Director details without submission', () => {
