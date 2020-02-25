@@ -1,7 +1,6 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage'
-import AllotmentOfSharesPreFilingPage from '../../support/page_objects/AllotmentOfSharesPreFilingPage'
 import AllotmentOfSharesPage from '../../support/page_objects/AllotmentOfSharesPage'
 import AddAllotmentPage from '../../support/page_objects/AddAllotmentPage'
 import UpdateOrAmendCapitalPage from '../../support/page_objects/UpdateOrAmendCapitalPage'
@@ -10,7 +9,6 @@ import AddNewCurrencyAndShareClassPage from '../../support/page_objects/AddNewCu
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
-const allotmentOfSharesPreFilingPage = new AllotmentOfSharesPreFilingPage();
 const allotmentOfSharesPage = new AllotmentOfSharesPage();
 const addAllotmentPage = new AddAllotmentPage
 const submissionConfirmationPage = new SubmissionConfirmationPage();
@@ -28,9 +26,10 @@ describe('Return of allotment of shares - SH01', () => {
 
         // Check Allotment of shares pre-filing screen
         cy.accessibilityCheck();
-        allotmentOfSharesPreFilingPage.startShareAllotment();
+        allotmentOfSharesPage.proceedPastPreFilingScreen();
 
     })
+    
     it('SH01 Sucessful Submission and error validation', () => {
         // Allotment dates tab
         //Proceed without selecting a date then check accesibility of displayed error messages

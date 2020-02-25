@@ -5,7 +5,7 @@ import AppointCorporateSecretaryPage from '../../support/page_objects/AppointCor
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage';
 import AccountsReminderPage from '../../support/page_objects/AccountsReminderPage';
 import ChangeCorporateSecretaryDetailsPage from '../../support/page_objects/ChangeCorporateSecretaryDetailsPage';
-import CorporateSecretaryChangeDetailsPreFilingPage from '../../support/page_objects/CorporateSecretaryChangeDetailsPreFilingPage'
+import GenericPreFilingPage from '../../support/page_objects/generic/GenericPreFilingPage';
 
 // Constants
 const companyOverview = new CompanyOverviewPage();
@@ -66,12 +66,12 @@ describe('Change corporate secretary details - CH04', () => {
         directorAndSecretaries.selectOfficerToEdit('TEST AUTOMATION LIMITED');
 
         // Check to ensure Tick and Cross are displayed
-        const preFiling = new CorporateSecretaryChangeDetailsPreFilingPage();
+        const preFiling = new GenericPreFilingPage();
         preFiling.checkPageIsDisplayedCorrectly();
         cy.accessibilityCheck();
 
         // Select change officer
-        preFiling.changeCorporateSecretaryDetails();
+        preFiling.proceedPastPreFilingScreen();
 
         // Expand all
         /* 

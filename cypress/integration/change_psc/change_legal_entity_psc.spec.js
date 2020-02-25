@@ -1,7 +1,6 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
-import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import ChangeLegalEntityPsc from '../../support/page_objects/ChangeLegalEntityPsc';
 import { rle_psc_name } from '../../fixtures/psc.json';
@@ -9,7 +8,6 @@ import { rle_psc_name } from '../../fixtures/psc.json';
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const appointPSC02Page = new PscAppointment();
-const preFilingPage = new PreFilingPSCPage();
 const pscLandingPage = new PSCLandingPage();
 const changeLegalEntityPsc = new ChangeLegalEntityPsc();
 
@@ -20,7 +18,7 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         // Go to PSC02
         companyOverview.selectLinkWithText('Add a PSC notification');
         pscLandingPage.appointPsc02();
-        preFilingPage.appointPsc();
+        appointPSC02Page.proceedPastPreFilingScreen();
         companyOverview.selectLinkWithText('Notification of a relevant legal entity with significant control (PSC)');
 
         // Appoint PSC02 - (No PSC data is baselined)
@@ -40,10 +38,10 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         // Go to PSC05
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc05();
-        preFilingPage.checkAppointedPscIsDisplayed();
+        changeLegalEntityPsc.checkAppointedPscIsDisplayed();
 
-        preFilingPage.selectPscToEdit(rle_psc_name);
-        preFilingPage.changePsc05Details();
+        changeLegalEntityPsc.selectPscToEdit(rle_psc_name);
+        changeLegalEntityPsc.proceedPastPreFilingScreen();
 
         // PSC05
         changeLegalEntityPsc.expandPscNameSection();

@@ -1,11 +1,9 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import AppointPSC01Page from '../../support/page_objects/AppointPSC01Page';
-import PreFilingPSCPage from '../../support/page_objects/PreFilingPSCPage';
 import ChangeIndividualPscPage from '../../support/page_objects/ChangeIndividualPscPage';
 
 const companyOverview = new CompanyOverviewPage();
-const preFilingPage = new PreFilingPSCPage();
 const appointPSC01Page = new AppointPSC01Page();
 const allForms = new AllFormsPage();
 const psc04Page = new ChangeIndividualPscPage();
@@ -16,7 +14,7 @@ describe('Change of person with significant control (PSC) details', () => {
         // Go to PSC01
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc01();
-        preFilingPage.appointPsc();
+        appointPSC01Page.proceedPastPreFilingScreen();
         companyOverview.selectLinkWithText('Notification of a person with significant control (PSC)');
 
         // Appoint PSC01 - (No PSC data is baselined)
@@ -38,9 +36,9 @@ describe('Change of person with significant control (PSC) details', () => {
         appointPSC01Page.clickCompanyOverview();
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc04();
-        preFilingPage.selectPscToEdit('Test Automation Ninja');
+        psc04Page.selectPscToEdit('Test Automation Ninja');
         cy.accessibilityCheck();
-        preFilingPage.changePsc04Details();
+        psc04Page.proceedPastPreFilingScreen();
         // Check correct page is loaded
         cy.checkPageHeadingIs('Change of person with significant control (PSC) details');
         cy.accessibilityCheck();

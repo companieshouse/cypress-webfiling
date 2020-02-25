@@ -1,13 +1,11 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage'
-import MortgagePreFilingPage from '../../support/page_objects/MortgagePreFilingPage'
 import RegisterMortgageChargeOrAcquisitionPage from '../../support/page_objects/RegisterMortgageChargeOrAcquisitionPage'
 import PaymentSelectionPage from '../../support/page_objects/PaymentSelectionPage'
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
-const mortgagePreFilingPage = new MortgagePreFilingPage
 const submissionConfirmationPage = new SubmissionConfirmationPage();
 const registerMortgageChargeOrAcquisitionPage = new RegisterMortgageChargeOrAcquisitionPage();
 const paymentSelectionPage = new PaymentSelectionPage();
@@ -23,7 +21,7 @@ describe('Register a charge - MR01', () => {
 
         //Check the register a charge pre-filing page
         cy.accessibilityCheck();
-        mortgagePreFilingPage.proceedWithFiling();
+        registerMortgageChargeOrAcquisitionPage.proceedPastPreFilingScreen();
 
         //expands all fields on the page and perfoms accessibility check
         registerMortgageChargeOrAcquisitionPage.initialAccessibilityCheck()
