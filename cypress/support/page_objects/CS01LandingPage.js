@@ -1,4 +1,6 @@
-class CS01LandingPage {
+import BasePage from "./generic/BasePage";
+
+class CS01LandingPage extends BasePage {
 
     changeDateOfStatementLink() {
         cy.get('#changeDate').click();
