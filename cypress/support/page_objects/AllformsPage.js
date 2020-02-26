@@ -9,6 +9,10 @@ class AllFormsPage {
         cy.contains('Change of accounting reference date - AA01').click();
     }
 
+    selectAA02() {
+        cy.contains('Dormant company accounts').click();
+    }
+
     selectDirectorAndSecretaries() {
         cy.contains('Directors and secretaries').click();
         return this;
