@@ -28,7 +28,7 @@ describe('Dormant Company Accounts - AA02', () => {
 
     })
 
-    it.only('AA02 - Successfully file Dormant Company Accounts', () => {
+    it('AA02 - Successfully file Dormant Company Accounts', () => {
         dormantCompanyAccountsPage.enterCalledUpShareCapitalNotPaid(0)
             .enterCashAtBank(1)
             .enterShareCapital(1, "Ordinary", 1)
@@ -50,7 +50,7 @@ describe('Dormant Company Accounts - AA02', () => {
     it('Check Share class selection popup screen', () => {
         cy.visit('/select_menu?param=AA02.IssuedShareCapitalControl.IssuedShareCapitalListControl.IssuedShareCapitalItemControl_1.ShareClass');
         cy.accessibilityCheck();
-
-
+        // Go back to company overview screen to exit the test
+        cy.visit('/profile');
     })
 })
