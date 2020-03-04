@@ -10,7 +10,7 @@ class BasePage {
     }
 
     proceedPastPreFilingScreen() {
-        cy.get('[class="button positive large"]').click();
+        cy.get('[class*="button positive large"]').click();
     }
 
 }
