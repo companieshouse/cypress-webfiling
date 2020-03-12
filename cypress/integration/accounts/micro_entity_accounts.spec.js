@@ -26,7 +26,7 @@ describe('File Company Accounts', () => {
         microEntityBalanceSheet.enterCalledUpShareCapitalNotPaid(0, 0)
         .enterTotalFixedAssets(1, 1)
         .enterTotalCurrentAssets(1, 1)
-        .enterCapitalAndReserves(2, 2)
+        .enterTotalCapitalAndReserves(2, 2)
         .confirmBalanceSheetStatements()
         .enterDateOfApproval(Cypress.moment().format('DD/MM/YYYY'))
         .enterApprovingDirector("Test Person")
