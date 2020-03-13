@@ -13,6 +13,11 @@ class AllFormsPage {
         cy.contains('Dormant company accounts').click();
     }
 
+    selectFullAccountsWithAbbreviatedOption() {
+        cy.contains('Audit exempt full accounts (with abbreviated accounts option)').click();
+
+    }
+
     selectDirectorAndSecretaries() {
         cy.contains('Directors and secretaries').click();
         return this;
