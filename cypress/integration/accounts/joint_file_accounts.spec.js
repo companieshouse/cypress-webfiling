@@ -15,7 +15,7 @@ describe('Joint file accounts with Companies House and HM Revenue & Customs', ()
     })
 
     it('Check the joint file accounts landing page', () => {
-        // You can't proceed any further on the EWF system here. Filing accounts takes the
+        // Users can't proceed any further on the EWF system here. Filing accounts takes the
         // user to external sites. So a simple accessibility check will suffice for this test.
         cy.accessibilityCheck();
     })
