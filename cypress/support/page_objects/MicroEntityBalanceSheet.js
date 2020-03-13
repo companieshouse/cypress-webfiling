@@ -24,6 +24,12 @@ class MicroEntityBalanceSheet {
         return this;
     }
 
+    enterAvgNumberOfEmployees(current, previous) {
+        cy.get('input[id$="avgNumEmployees"]').clear().type(current);
+        cy.get('input[id$="avgNumEmployeesLastYear"]').clear().type(previous);
+        return this;
+    }
+
     confirmBalanceSheetStatements() {
         cy.get('input[id$="chkStatementExemption"]').check();
         cy.get('input[id$="chkStatementAudit"]').check();
@@ -37,7 +43,7 @@ class MicroEntityBalanceSheet {
         cy.get('.ui-datepicker-trigger').click();
         cy.accessibilityCheck();
         //Enter the date specified in the field
-        cy.get('input[type="text"][id$="dateOfApproval"]').type(date);
+        cy.get('input[type="text"][id$="dateOfApproval"]').clear().type(date);
         //Close the date picker
         cy.get('.ui-datepicker-trigger').click();
         return this;

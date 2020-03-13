@@ -27,6 +27,7 @@ describe('File Company Accounts', () => {
         .enterTotalFixedAssets(1, 1)
         .enterTotalCurrentAssets(1, 1)
         .enterCapitalAndReserves(2, 2)
+        .enterAvgNumberOfEmployees(1, 1)
         .confirmBalanceSheetStatements()
         .enterDateOfApproval(Cypress.moment().format('DD/MM/YYYY'))
         .enterApprovingDirector("Test Person")
