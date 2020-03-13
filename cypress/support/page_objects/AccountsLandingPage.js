@@ -9,6 +9,10 @@ class AccountsLandingPage extends BasePage {
     fileAbbreviatedAccounts() {
         cy.contains("Abbreviated Accounts").click();
     }
+
+    fileJointAccounts() {
+        cy.contains("Full accounts with Companies House and HMRC").click();
+    }
  
 }
 
