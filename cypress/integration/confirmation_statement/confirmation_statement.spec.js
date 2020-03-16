@@ -1,12 +1,10 @@
 import CompanyOverviewPage from "../../support/page_objects/CompanyOverviewPage";
-import PreFilingCS01Page from "../../support/page_objects/PreFilingCS01Page";
 import CS01LandingPage from "../../support/page_objects/CS01LandingPage";
 import CS01MainPage from "../../support/page_objects/CS01MainPage";
 import PaymentSelectionPage from "../../support/page_objects/PaymentSelectionPage";
 import SubmissionConfirmationPage from "../../support/page_objects/SubmissionConfirmationPage";
 
 const companyOverview = new CompanyOverviewPage();
-const preFilingCS01Page = new PreFilingCS01Page();
 const cs01LandingPage = new CS01LandingPage();
 const cs01MainPage = new CS01MainPage();
 const paymentSelectionPage = new PaymentSelectionPage();
@@ -18,7 +16,7 @@ describe("Confirmation statement - CS01", () => {
         companyOverview.selectLinkWithText('File confirmation statement');
         cy.accessibilityCheck();
         // Start the filing on the pre-filing page
-        preFilingCS01Page.startFiling();
+        cs01LandingPage.proceedPastPreFilingScreen();
         cy.accessibilityCheck();
     })
 

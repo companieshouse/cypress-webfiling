@@ -40,5 +40,5 @@ beforeEach(() => {
 afterEach('Logout', () => {
     cy.contains('Sign out').click();
     // Check the sign out screen
-    //cy.accessibilityCheck();
+    cy.accessibilityCheck();
 })

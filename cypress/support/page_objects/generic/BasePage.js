@@ -1,5 +1,10 @@
 class BasePage {
 
+    confirmHeadingContains(text) {
+        cy.get('h1').should('have.text', text);
+        return this;
+    }
+
     expandAll() {
         cy.contains('Expand all').click({force: true});
         return this;
