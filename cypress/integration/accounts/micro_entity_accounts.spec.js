@@ -15,7 +15,7 @@ describe('File Company Accounts', () => {
         cy.accessibilityCheck();
     })
 
-    it.only('Successfully file Micro-entity accounts', () => {
+    it('Successfully file Micro-entity accounts', () => {
         accountsLandingPage.fileMicroEntityAccounts();
         // Check the micro-entity accounts landing page
         cy.accessibilityCheck();
@@ -24,13 +24,13 @@ describe('File Company Accounts', () => {
         cy.accessibilityCheck();
         //Populate necessary fields of balance sheet
         microEntityBalanceSheet.enterCalledUpShareCapitalNotPaid(0, 0)
-        .enterTotalFixedAssets(1, 1)
-        .enterTotalCurrentAssets(1, 1)
-        .enterCapitalAndReserves(2, 2)
-        .enterAvgNumberOfEmployees(1, 1)
-        .confirmBalanceSheetStatements()
-        .enterDateOfApproval(Cypress.moment().format('DD/MM/YYYY'))
-        .enterApprovingDirector("Test Person")
+            .enterTotalFixedAssets(1, 1)
+            .enterTotalCurrentAssets(1, 1)
+            .enterCapitalAndReserves(2, 2)
+            .enterAvgNumberOfEmployees(1, 1)
+            .confirmBalanceSheetStatements()
+            .enterDateOfApproval(Cypress.moment().format('DD/MM/YYYY'))
+            .enterApprovingDirector("Test Person")
         cy.accessibilityCheck();
         // Balance sheet contains optional links in order to provide additional accounting information.
         // Open these here and check their accessibility.
@@ -39,7 +39,7 @@ describe('File Company Accounts', () => {
         // There are buttons here which navigate to different screens where users can provide more supporting
         // information. This opens each one and conducts an accessibility check on the screens.
         microEntityBalanceSheet.openAndCheckAdditionalNotes()
-        .validateBalanceSheetAndContinue();
+            .validateBalanceSheetAndContinue();
         // Check the summary page
         cy.accessibilityCheck();
         microEntityBalanceSheet.submitAccountsFiling();
@@ -60,6 +60,4 @@ describe('File Company Accounts', () => {
         // Go back to company overview screen to exit the test
         cy.visit('/profile');
     })
-        
-
 })
