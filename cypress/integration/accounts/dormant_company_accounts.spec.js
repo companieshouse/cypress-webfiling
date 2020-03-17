@@ -14,11 +14,6 @@ const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Dormant Company Accounts - AA02', () => {
     beforeEach('Select AA02" form from overview', () => {
-        Cypress.on('uncaught:exception', () => {
-            // returning false here prevents Cypress from failing the test due to null
-            // values in elements that are blank before calculation occurs 
-            return false
-        })
         // Select form overview
         companyOverview.selectAllForms();
         allForms.selectConfirmationStatementAndAccounts()

@@ -1,9 +1,6 @@
-class DormantAccountsLandingPage {
+import BasePage from "./generic/BasePage";
 
-    confirmHeadingContains(text) {
-        cy.get('h1').should('have.text', text);
-        return this;
-    }
+class DormantAccountsLandingPage extends BasePage {
 
     startAccountsFiling() {
         cy.get('.button').click();
