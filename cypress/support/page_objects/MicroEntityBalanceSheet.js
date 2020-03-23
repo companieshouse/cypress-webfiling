@@ -64,7 +64,7 @@ class MicroEntityBalanceSheet {
     }
 
     openAndCheckAdditionalNotes() {
-        // Open each of the additional not screens in turn and conduct accessibility checks
+        // Open each of the additional note screens in turn and conduct accessibility checks
         // A wait is necessary while the screens load
         cy.get('#otherNotesExpand').click();
         //Guarantees
