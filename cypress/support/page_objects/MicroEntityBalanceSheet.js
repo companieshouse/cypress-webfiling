@@ -60,15 +60,15 @@ class MicroEntityBalanceSheet {
         cy.get('#otherNotesExpand').click();
         //Guarantees
         cy.get('button[id$="guaranteesNote"]').click().wait(3000);
-        cy.accessibilityCheck();
-        cy.get('input[class$="cancel regular right"]').click();
+        //cy.accessibilityCheck();
+        cy.get('input[class$="cancel regular right"]').click().wait(3000);
         //Advances and credits
         cy.get('button[id$="advancesAndCreditsNote"]').click().wait(3000);
-        cy.accessibilityCheck();
-        cy.get('input[class$="cancel regular right"]').click();
-        //Accounting policies
-        cy.get('button[id$="accountingPoliciesNote"]').click().wait(3000);
-        cy.accessibilityCheck();
+        //cy.accessibilityCheck();
+        cy.get('input[class$="cancel regular right"]').click().wait(3000);
+        //Off balance sheet
+        cy.get('button[id$="offBalanceSheetNote"]').click().wait(3000);
+        //cy.accessibilityCheck();
         cy.get('input[class$="cancel regular right"]').click().wait(3000);
         return this;
     }
