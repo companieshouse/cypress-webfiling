@@ -5,6 +5,10 @@ class AllFormsPage {
         return this;
     }
 
+    selectAR01() {
+        cy.contains('Annual Return (£13 charge) - AR01').click();
+    }
+
     selectAA01() {
         cy.contains('Change of accounting reference date - AA01').click();
     }
