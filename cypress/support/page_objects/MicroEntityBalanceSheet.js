@@ -54,17 +54,8 @@ class MicroEntityBalanceSheet {
         return this;
     }
 
-    expandAdditionalLinks() {
-        cy.get('#fixedAssetsExpand').click();
-        cy.get('#currentAssetsExpand').click();
-        cy.get('#capitalAndReservesExpand').click();
-        cy.get('#otherNotesExpand').click();
-        cy.get('#abbreviatedNotesExpand').click();
-        return this;
-    }
-
     openAndCheckAdditionalNotes() {
-        // Open each of the additional note screens in turn and conduct accessibility checks
+        // Open each of the additional not screens in turn and conduct accessibility checks
         // A wait is necessary while the screens load
         cy.get('#otherNotesExpand').click();
         //Guarantees
