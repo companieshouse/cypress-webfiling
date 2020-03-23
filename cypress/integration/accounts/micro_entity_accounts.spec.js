@@ -34,7 +34,7 @@ describe('File Company Accounts', () => {
         cy.accessibilityCheck();
         // Balance sheet contains optional links in order to provide additional accounting information.
         // Open these here and check their accessibility.
-        microEntityBalanceSheet.expandAdditionalLinks();
+        //microEntityBalanceSheet.expandAdditionalLinks();
         cy.accessibilityCheck();
         // There are buttons here which navigate to different screens where users can provide more supporting
         // information. This opens each one and conducts an accessibility check on the screens.
