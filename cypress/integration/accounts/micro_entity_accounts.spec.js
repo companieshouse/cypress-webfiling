@@ -32,9 +32,6 @@ describe('File Company Accounts', () => {
             .enterDateOfApproval(Cypress.moment().format('DD/MM/YYYY'))
             .enterApprovingDirector("Test Person")
         cy.accessibilityCheck();
-        // Balance sheet contains optional links in order to provide additional accounting information.
-        // Open these here and check their accessibility.
-        cy.accessibilityCheck();
         // There are buttons here which navigate to different screens where users can provide more supporting
         // information. This opens each one and conducts an accessibility check on the screens.
         microEntityBalanceSheet.openAndCheckAdditionalNotes()
