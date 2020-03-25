@@ -130,7 +130,7 @@ class AllFormsPage {
     }
     
     selectNm01() {
-        cy.contains('Change of name same day service (£30 charge) - NM01').click();
+        cy.contains('Change of name standard service').click();
     }
 
 }
