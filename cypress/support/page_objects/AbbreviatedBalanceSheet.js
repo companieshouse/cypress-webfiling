@@ -86,14 +86,6 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
         cy.get('button[id$="debtorsNote"]').click().wait(5000);
     }
 
-    openCreditorsBeforeNote() {
-        cy.get('button[id$="creditorsBeforeNote"]').click().wait(5000);
-    }
-
-    openCreditorsAfterNote() {
-        cy.get('button[id$="creditorsAfterNote"]').click().wait(5000);
-    }
-
     openCalledUpShareCapitalNote() {
         cy.get('button[id$="calledUpShareCapitalNote"]').click().wait(5000);
     }
