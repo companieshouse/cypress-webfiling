@@ -1,5 +1,11 @@
 class MicroEntityBalanceSheet {
 
+    enterCalledUpShareCapitalNotPaid(current, previous) {
+        cy.get('input[id$="currentCalledUpShareCapitalNotPaid"').clear().type(current);
+        cy.get('input[id$="previousCalledUpShareCapitalNotPaid"').clear().type(previous);
+        return this;
+    }
+
     enterTotalFixedAssets(current, previous) {
         cy.get('input[id$="fixedAssetsControl.currentTotal"]').clear().type(current);
         cy.get('input[id$="fixedAssetsControl.previousTotal"]').clear().type(previous);
@@ -68,8 +74,8 @@ class MicroEntityBalanceSheet {
         return this;
     }
 
-    validateBalanceSheetAndContinue() {	
-        cy.get('input[id$="Page.submit"]').click();	
+    validateBalanceSheetAndContinue() {
+        cy.get('input[id$="Page.submit"]').click();
     }
 
     submitAccountsFiling() {
