@@ -1,9 +1,6 @@
-class SubmissionConfirmationPage {
+import BasePage from "./generic/BasePage";
 
-    confirmHeadingContains(text) {
-        cy.get('h1').should('have.text', text);
-        return this;
-    }
+class SubmissionConfirmationPage extends BasePage{
 
     continue() {
         cy.get('a[class*="positive"]').click();
