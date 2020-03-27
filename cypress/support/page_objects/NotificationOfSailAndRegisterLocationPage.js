@@ -4,7 +4,7 @@ class NotificationOfSailAndRegisterLocationPage extends AddressPage {
 
     enterSailAddress(buildingNameNumber, postcode) {
         this.lookUpROAddress(buildingNameNumber, postcode);
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         cy.get('#company-address-container-continue').click();
     }
 
