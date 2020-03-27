@@ -15,7 +15,6 @@ class AllFormsPage {
 
     selectFullAccountsWithAbbreviatedOption() {
         cy.contains('Audit exempt full accounts (with abbreviated accounts option)').click();
-
     }
 
     selectDirectorAndSecretaries() {
