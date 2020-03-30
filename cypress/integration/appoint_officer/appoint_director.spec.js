@@ -48,6 +48,10 @@ describe('Appoint a Director', () => {
 
         // Check disclaimer is correct
         cy.checkDisclaimer();
+
+        // Check submit button
+        cy.checkSubmitButtonAccessibility();
+
     })
 
     it('Error validation - AP01', () => {

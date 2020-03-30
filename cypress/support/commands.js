@@ -61,10 +61,23 @@ Cypress.Commands.add('checkSubmitIsDisabled', () => {
 })
 
 Cypress.Commands.add('checkDisclaimer', () => {
-    cy.get('.disclaimer').should('contain.text', 
-    'Please ensure all the information above is correct before you proceed.');
+    cy.get('.disclaimer').should('contain.text',
+        'Please ensure all the information above is correct before you proceed.');
 })
 
 Cypress.Commands.add('checkPageHeadingIs', (pageHeading) => {
     cy.get('h1').should('have.text', pageHeading);
 })
+
+/*
+ This is to check the contrast of the submit button prior to submitting form
+ This captures a known error in Webfiling.
+ */
+Cypress.Commands.add('checkSubmitButtonAccessibility', () => {
+    const element = cy.get("input[value^='Submit']");
+    element.invoke('attr', 'class', 'button regular submit disabled');
+    cy.accessibilityCheck();
+    // If it passes click it
+    element.click();
+})
+

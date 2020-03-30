@@ -31,5 +31,8 @@ describe('Appoint a secretary', () => {
         // Check disclaimer is correct
         cy.checkDisclaimer();
 
+        // Check submit button
+        cy.checkSubmitButtonAccessibility();
+
     })
 })
