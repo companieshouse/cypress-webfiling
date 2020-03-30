@@ -19,6 +19,9 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
+// Retry plugin
+require('cypress-plugin-retries')
+
 // Accessibility
 import 'cypress-axe'
 
@@ -35,10 +38,4 @@ beforeEach(() => {
     const companySignIn = new CompanySignInPage();
     cy.accessibilityCheck();
     companySignIn.enterCompanyDetails(company_number, auth_code);
-})
-
-afterEach('Logout', () => {
-    cy.contains('Sign out').click();
-    // Check the sign out screen
-    cy.accessibilityCheck();
 })
