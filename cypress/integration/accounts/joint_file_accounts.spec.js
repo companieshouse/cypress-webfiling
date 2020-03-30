@@ -1,9 +1,7 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
-import AllFormsPage from '../../support/page_objects/AllformsPage'
 import AccountsLandingPage from '../../support/page_objects/AccountsLandingPage';
 
 const companyOverview = new CompanyOverviewPage();
-const allForms = new AllFormsPage();
 const accountsLandingPage = new AccountsLandingPage();
 
 describe('Joint file accounts with Companies House and HM Revenue & Customs', () => {
