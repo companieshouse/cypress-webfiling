@@ -6,7 +6,6 @@ import IntangibleAssetsFixedNote from '../../support/page_objects/IntangibleAsse
 import TangibleAssetsFixedNote from '../../support/page_objects/TangibleAssetsFixedNote';
 import InvestmentsNote from '../../support/page_objects/InvestmentsNote';
 import DebtorsNote from '../../support/page_objects/DebtorsNote';
-import CreditorsNote from '../../support/page_objects/CreditorsNote';
 import CalledUpShareCapitalNote from '../../support/page_objects/CalledUpShareCapitalNote';
 import AccountingPoliciesNote from '../../support/page_objects/AccountingPoliciesNote';
 import TransactionsWithDirectorsNote from '../../support/page_objects/TransactionsWithDirectorsNote';
@@ -18,7 +17,6 @@ const intangibleAssetsFixedNote = new IntangibleAssetsFixedNote();
 const tangibleAssetsFixedNote = new TangibleAssetsFixedNote();
 const investmentsNote = new InvestmentsNote();
 const debtorsNote = new DebtorsNote();
-const creditorsNote = new CreditorsNote();
 const calledUpShareCapitalNote = new CalledUpShareCapitalNote();
 const accountingPoliciesNote = new AccountingPoliciesNote();
 const transactionsWithDirectorsNote = new TransactionsWithDirectorsNote();
@@ -31,7 +29,7 @@ describe('File Company Accounts', () => {
         cy.accessibilityCheck();
     })
 
-    it.only('Successfully file Abbreviated Accounts', () => {
+    it('Successfully file Abbreviated Accounts', () => {
         accountsLandingPage.fileAbbreviatedAccounts();
         // Check the Abbreviated Accounts landing page
         cy.accessibilityCheck();
@@ -96,25 +94,25 @@ describe('File Company Accounts', () => {
 
         // Accounting policies note
         abbreviatedBalanceSheet.openAccountingPoliciesNote();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         accountingPoliciesNote.enterBasisOfAccounts()
         .enterTurnover()
         .enterTangibleAssetsDepreciation()
         .enterIntangibleAssetsAmortisation()
         .enterValuationInformation()
         .enterOtherPolicies();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         accountingPoliciesNote.saveNote();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
 
         // Transactions with directors note
         abbreviatedBalanceSheet.openTransactionsWithDirectorsNote();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         transactionsWithDirectorsNote.addTransaction("Test Person", "Test", 1, 1, 1)
             .removeTransaction()
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         transactionsWithDirectorsNote.cancelNote();
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
 
         // Check the summary page
         cy.accessibilityCheck();
@@ -123,7 +121,6 @@ describe('File Company Accounts', () => {
         cy.accessibilityCheck();
         abbreviatedBalanceSheet.submitAccountsFiling();
         submissionConfirmation.confirmHeadingContains("Confirmation of Submission");
-
     })
 
     it("Check Accounts Exclusions page", () => {
@@ -133,8 +130,8 @@ describe('File Company Accounts', () => {
         cy.visit('/profile');
     })
 
-    it("Check Micro-entity help text", () => {
-        cy.visit("/help/en/stdwf/microAccountsHelp.html");
+    it("Check Abbreviated Accounts Balance Sheet help text", () => {
+        cy.visit("/help/en/stdwf/accountsHelp.html");
         cy.accessibilityCheck();
         // Go back to company overview screen to exit the test
         cy.visit('/profile');

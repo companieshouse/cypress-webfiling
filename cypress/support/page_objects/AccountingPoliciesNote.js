@@ -5,55 +5,51 @@ const testString = "Test";
 class AccountingPoliciesNote extends BalanceSheetNotes {
 
     enterBasisOfAccounts() {
-        cy.get('textarea[id$=".basisOfAccounts"]').clear().type("test");
+        cy.get('textarea[id$=".basisOfAccounts"]').clear().type(testString);
         return this;
     }
 
     enterTurnover() {
-        this.checkTextBoxIsOpen('#turnoverHeading');
-        cy.get('textarea[id$=".turnover"]').clear().type("test");
+        this.checkTextBoxIsOpen('textarea[id$=".turnover"]', '#turnoverHeading');
+        cy.get('textarea[id$=".turnover"]').clear().type(testString);
         return this;
     }
 
     enterTangibleAssetsDepreciation() {
-        this.checkTextBoxIsOpen('#tangibleAssetsDepreciationHeading');
-        cy.get('textarea[id$=".tangibleAssetsDepreciation"]').clear().type("test");
+        this.checkTextBoxIsOpen('textarea[id$=".tangibleAssetsDepreciation"]', '#tangibleAssetsDepreciationHeading');
+        cy.get('textarea[id$=".tangibleAssetsDepreciation"]').clear().type(testString);
         return this;
     }
 
     enterIntangibleAssetsAmortisation() {
-        this.checkTextBoxIsOpen('#intangibleAssetsAmortisationHeading');
-        cy.get('textarea[id$=".intangibleAssetsAmortisation"]').clear().type("test");
+        this.checkTextBoxIsOpen('textarea[id$=".intangibleAssetsAmortisation"]', '#intangibleAssetsAmortisationHeading');
+        cy.get('textarea[id$=".intangibleAssetsAmortisation"]').clear().type(testString);
         return this;
     }
 
     enterValuationInformation() {
-        this.checkTextBoxIsOpen('#valuationHeading');
-        cy.get('textarea[id$=".valuation"]').clear().type("test");
-        return this;        
-    }
-
-    enterOtherPolicies() {
-        this.checkTextBoxIsOpen('#textHeading');
-        cy.get('textarea[id$=".note.text"]').clear().type("test");
+        this.checkTextBoxIsOpen('textarea[id$=".valuation"]', '#valuationHeading');
+        cy.get('textarea[id$=".valuation"]').clear().type(testString);
         return this;
     }
 
-    checkTextBoxIsOpen(linkSelector) {
-        // Get the class value of the element
-        cy.get(linkSelector).then(($linkElement) => {
-
-            // If the link is not expanded the there will be a class value of "closed"
-            // Open it if this is the case
-            if ($linkElement.text().includes("closed")) {
-                linkElement.click()
-            } else {
-                // Do nothing as it's already open
-            }
-
-        })
+    enterOtherPolicies() {
+        this.checkTextBoxIsOpen('textarea[id$=".note.text"]', '#textHeading');
+        cy.get('textarea[id$=".note.text"]').clear().type(testString);
+        return this;
     }
 
+    checkTextBoxIsOpen(textBoxElement, headingLink) {
+        cy.get(textBoxElement).then($textField => {
+            if ($textField.is(':visible')) {
+                // Do nothing, the text field is already open
+            } else {
+                // Click the heading link to make the text field visible
+                cy.get(headingLink).click();
+            }
+        })
+        return this;
+    }
 }
 
 export default AccountingPoliciesNote
