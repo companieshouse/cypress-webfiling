@@ -6,8 +6,8 @@ class AccountsLandingPage extends BasePage {
         cy.contains("Micro-entity Accounts").click();
     }
 
-    fileAbbreviatedAccounts() {
-        cy.contains("Abbreviated Accounts").click();
+    fileJointAccounts() {
+        cy.contains("Full accounts with Companies House and HMRC").click();
     }
  
 }

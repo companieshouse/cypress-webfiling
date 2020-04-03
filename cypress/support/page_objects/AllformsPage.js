@@ -13,6 +13,10 @@ class AllFormsPage {
         cy.contains('Dormant company accounts').click();
     }
 
+    selectFullAccountsWithAbbreviatedOption() {
+        cy.contains('Audit exempt full accounts (with abbreviated accounts option)').click();
+    }
+
     selectDirectorAndSecretaries() {
         cy.contains('Directors and secretaries').click();
         return this;
@@ -130,7 +134,7 @@ class AllFormsPage {
     }
     
     selectNm01() {
-        cy.contains('Change of name same day service (£30 charge) - NM01').click();
+        cy.contains('Change of name standard service').click();
     }
 
 }
