@@ -39,12 +39,7 @@ describe('Notice of ceasing to be a person with significant control (PSC) - PSC0
         allForms.selectPscs().selectPsc07();
 
         // We need some time for the appointment to appear
-        var i;
-        for(i = 0; i < 3; i++) {
-            cy.reload;
-            cy.wait(3000);
-            cy.log('RELOAD: ' + i);
-        }
+        cy.reloadBrowserAttempts(3);
 
         // Check the appointed PSC is displayed
         cy.get('tbody tr td:nth-child(1)').invoke('text').then((text) => {
