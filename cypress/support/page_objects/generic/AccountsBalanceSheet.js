@@ -58,7 +58,7 @@ class AccountsBalanceSheet {
     }
 
     validateBalanceSheetAndContinue() {
-        cy.get('input[id$="Page.submit"]').click();
+        cy.get('input[id$="Page.submit"]').click().wait(3000);
     }
 
     submitAccountsFiling() {
