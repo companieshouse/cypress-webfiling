@@ -37,5 +37,6 @@ beforeEach(() => {
     // Sign into company to file for
     const companySignIn = new CompanySignInPage();
     cy.accessibilityCheck();
-    companySignIn.enterCompanyDetails(company_number, auth_code);
+    companySignIn.enterCompanyDetails(company_number, auth_code)
+    .dismissPreviousFilingsIfPresent();
 })
