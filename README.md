@@ -12,7 +12,7 @@ You must ensure you have your proxy settings, set up correctly. Please see [here
 npm config set proxy http://wsproxy.internal.ch:8080
 npm config set https-proxy https://wsproxy.internal.ch:8080
 ```
-> There has been a known issue with ssl. If you see errors similar to the below please do the following in order to correct it.
+> There has been a known issue with ssl. If you see errors similar to the below please do the following to correct it.
 
 ```
 npm ERR! code EPROTO
@@ -82,6 +82,35 @@ cy.configureAxe();
 `cy.injectAxe()` must be called post `cy.visit('/')` then subsequently `cy.checkAlly()` can be called to validate the web page.
 For further details on configuring Axe please visit [here](https://www.deque.com/axe/axe-for-web/documentation/api-documentation/#api-name-axeconfigure)
 
+### Retrying Failing Tests
+Occasionally some tests fail. I know, shock right. And the solution to some of these failing tests is just to rerun them. We have used the following plugin in this project:
+```
+cypress-plugin-retries
+```
+The details of the plugin can be found [here](https://www.npmjs.com/package/cypress-plugin-retries)
+From the command line you can pass the following:
+```
+CYPRESS_RETRIES=2 npm run cypress
+```
+Or any other number of attempts you desire.
+
+### Visual Testing
+We have applied some element of visual testing in this project.
+We have used the following plugin:
+```
+cypress-image-snapshot
+```
+
+Details of this plugin can be found [here](https://www.npmjs.com/package/cypress-image-snapshot)
+All visual tests can be found [here](cypress\integration\visual_testing)
+
+The initial `matchImageSnapshot()` call will add a base image to the snapshots package which will appear in the `cypress` package.
+In subsequent tests, if a difference is located then a new image will be added to a `diff` package where the difference will be highlighted.
+
+*Please note this is experimental at this stage and a decision will be made in future as to the commitment to this type of testing*
+
+
 ### Limitations
-> When running tests in Cypress, Cypress will change it's host URL to match the application under test. Please see [here](https://docs.cypress.io/guides/guides/web-security.html#One-Superdomain-per-Test) for further details.
-=======
+> When running tests in Cypress, Cypress will change its host URL to match the application under test. Please see [here](https://docs.cypress.io/guides/guides/web-security.html#One-Superdomain-per-Test) for further details.
+
+
