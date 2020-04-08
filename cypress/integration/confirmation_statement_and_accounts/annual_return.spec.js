@@ -64,7 +64,7 @@ describe("Annual Return - AR01", () => {
     })
 
     it('Test the accessibility of an Annual Return', () => {
-        /*cs01LandingPage.changeDateOfStatementLink();
+        cs01LandingPage.changeDateOfStatementLink();
         cy.accessibilityCheck();
 
         cs01LandingPage.proceedWithFiling();
@@ -83,7 +83,7 @@ describe("Annual Return - AR01", () => {
         paymentSelectionPage.continue();
 
         //Check Submission screen
-        submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission and Payment");*/
+        submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission and Payment");
         cy.accessibilityCheck();    
     })
 })
