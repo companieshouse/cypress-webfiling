@@ -23,13 +23,6 @@ class MicroEntityBalanceSheet {
         cy.get('input[id$="previousShareholdersFunds"]').clear().type(previous);
         return this;
     }
-
-    enterAvgNumberOfEmployees(current, previous) {
-        cy.get('input[id$="avgNumEmployees"]').clear().type(current);
-        cy.get('input[id$="avgNumEmployeesLastYear"]').clear().type(previous);
-        return this;
-    }
-
     confirmBalanceSheetStatements() {
         cy.get('input[id$="chkStatementExemption"]').check();
         cy.get('input[id$="chkStatementAudit"]').check();
@@ -65,10 +58,6 @@ class MicroEntityBalanceSheet {
         cy.get('input[class$="cancel regular right"]').click().wait(3000);
         //Advances and credits
         cy.get('button[id$="advancesAndCreditsNote"]').click().wait(3000);
-        cy.accessibilityCheck();
-        cy.get('input[class$="cancel regular right"]').click().wait(3000);
-        //Off balance sheet
-        cy.get('button[id$="offBalanceSheetNote"]').click().wait(3000);
         cy.accessibilityCheck();
         cy.get('input[class$="cancel regular right"]').click().wait(3000);
         return this;
