@@ -64,7 +64,9 @@ cypress run --headless --browser chrome
 `C:\Users\user\cypress\videos\test_name.spec.js.mp4 `
 
 ###### NOTE:
-Video recording will be set to `false` by default. If you require video recordings from the command line you can update this from the command line or simply amending the `video` value in cypress.json to `true`.
+Video recording will be set to `true` by default. If you **DO NOT** require video recordings, you can set this to `false` in `cypress.json` or from the command line.
+See [Cypress video recording](https://docs.cypress.io/guides/guides/screenshots-and-videos.html#Videos)
+
 It is also worth noting that you should specify the browser. As of cypress@3.6.0 you can record in chrome
 ```
 --browser chrome

@@ -14,8 +14,9 @@
       }
     }
   },
-  "defaultCommandTimeout": 8000,
+  "defaultCommandTimeout": 10000,
+  "pageLoadTimeout": 80000,
   "chromeWebSecurity": false,
-  "video": false,
+  "video": true,
   "projectId": "baijqb"
 }
