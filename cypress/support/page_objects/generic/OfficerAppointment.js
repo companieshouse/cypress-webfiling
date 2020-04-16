@@ -59,11 +59,7 @@ class OfficerAppointment extends BasePage {
     }
 
     enterInvalidCharacterForCorrespondenceAddress() {
-        cy.get('#service-address-postcode').type(invalidCharacter);
-        cy.get('#service-address-thoroughfare').type(invalidCharacter);
-        cy.get('#service-address-county').type(invalidCharacter);
-        cy.get('#service-address-careOfName').type(invalidCharacter);
-        cy.get('#service-address-poBox').type(invalidCharacter);
+
         return this;
     }
 

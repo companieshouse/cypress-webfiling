@@ -53,7 +53,7 @@ describe('Appoint a Director', () => {
     it('Error validation - AP01', () => {
         appointDirectorPage.expandAll();
 
-        // Open Addres sections
+        // Open Address sections
         appointDirectorPage.expandCorrespondenceDetails();
         appointDirectorPage.expandHomeAddressDetails();
 

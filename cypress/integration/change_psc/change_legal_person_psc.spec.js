@@ -4,12 +4,14 @@ import PscAppointment from '../../support/page_objects/generic/PscAppointment';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import ChangeLegalPersonPsc from '../../support/page_objects/ChangeLegalPersonPsc';
 import { orp_psc_name } from '../../fixtures/psc.json';
+import AddressPage from '../../support/page_objects/generic/Address.js';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const appointPSC03Page = new PscAppointment();
 const pscLandingPage = new PSCLandingPage();
 const changeLegalPersonPsc = new ChangeLegalPersonPsc();
+const addressPage = new AddressPage();
 
 
 describe('Change of a legal person with significant control  - PSC06', () => {
@@ -47,11 +49,11 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         cy.accessibilityCheck();
         changeLegalPersonPsc.closePscNameSection();
 
-        changeLegalPersonPsc.expandPscAddressSection()
+        addressPage.changeServiceAddressLink();
         cy.accessibilityCheck();
-        changeLegalPersonPsc.expandPscManualAddress();
+        changeLegalPersonPsc.enterAddressManually();
         cy.accessibilityCheck();
-        changeLegalPersonPsc.closePscAddressSection();
+        addressPage.cancelServiceAddressChange();
 
         changeLegalPersonPsc.expandLegalPersonsDetailsSection();
         cy.accessibilityCheck();

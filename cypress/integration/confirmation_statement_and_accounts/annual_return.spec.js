@@ -41,7 +41,7 @@ describe("Annual Return - AR01", () => {
         .enterTotalAggAmountUnpaid(0)
         .confirmUpdates();
         // Shareholders tab
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
         ar01Page.confirmUpdates();
         // Submit tab
         cy.accessibilityCheck();

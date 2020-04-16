@@ -4,12 +4,14 @@ import PscAppointment from '../../support/page_objects/generic/PscAppointment';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import ChangeLegalEntityPsc from '../../support/page_objects/ChangeLegalEntityPsc';
 import { rle_psc_name } from '../../fixtures/psc.json';
+import AddressPage from '../../support/page_objects/generic/Address.js';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const appointPSC02Page = new PscAppointment();
 const pscLandingPage = new PSCLandingPage();
 const changeLegalEntityPsc = new ChangeLegalEntityPsc();
+const addressPage = new AddressPage();
 
 
 describe('Change of a relevant legal entity with significant control (PSC) details - PSC05', () => {
@@ -48,11 +50,11 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         cy.accessibilityCheck();
         changeLegalEntityPsc.closePscNameSection();
 
-        changeLegalEntityPsc.expandPscAddressSection()
+        addressPage.changeServiceAddressLink();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.expandPscManualEntryAddressSection();
+        changeLegalEntityPsc.enterAddressManually();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.closePscAddressSection();
+        addressPage.cancelServiceAddressChange();
 
         changeLegalEntityPsc.expandEntityDetailsSection();
         cy.accessibilityCheck();

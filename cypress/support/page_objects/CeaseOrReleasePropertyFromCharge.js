@@ -29,22 +29,9 @@ class CeaseOrReleasePropertyFromCharge extends BasePage {
         return this;
     }
 
-    clickEnterAddressManually() {
-        cy.get('#residential-address-manual-link').click();
-        return this;
-    }
-
     enterHomeAddress(propertyNumber, postcode) {
         addressPage.lookUpResidentialAddress(propertyNumber, postcode);
         cy.get('#charge-your-address-continue').wait(5000).click();
-        return this;
-    }
-
-    //Enter invalid character in fields that are not mandatory in order to fire errors
-    enterInvalidCharactersToFireErrors(invalidChar) {
-        cy.get('#residential-address-postcode').type(invalidChar);
-        cy.get('#residential-address-thoroughfare').type(invalidChar);
-        cy.get('#residential-address-county').type(invalidChar);
         return this;
     }
 

@@ -13,7 +13,7 @@ class ChangeSecretaryDetailsPage {
     }
 
     changeAddress(propertyNumber, postcode) {
-        cy.get('#service-address-container-change').click().wait(2000);
+        addressPage.changeServiceAddressLink();
         cy.accessibilityCheck();
         cy.get('#correspondence-address-choice-manual-label').click();
 

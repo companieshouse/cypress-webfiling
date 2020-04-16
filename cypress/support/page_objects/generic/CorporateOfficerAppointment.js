@@ -23,7 +23,7 @@ class CorporateOfficerAppointment extends BasePage {
         addressPage.lookUpServiceAddress(propertyNumber, postcode);
         // Accessibility check here
         cy.accessibilityCheck();
-        cy.get('#company-address-container-continue').wait(2000).click();
+        addressPage.companyAddressContinue();
     }
 
     selectEEAStatus(status) {

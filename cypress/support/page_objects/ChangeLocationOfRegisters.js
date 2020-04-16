@@ -2,10 +2,9 @@
 // These are the registers of directors, secretaries and directors usual residential addresses.
 // EW01/02/03 and EH01/02/03 all have common elements, so are contained in this one page object.
 
-// Constants 
-const invalidCharacter = "`";
+import AddressPage from "./generic/Address";
 
-class ChangeLocationOfRegisters {
+class ChangeLocationOfRegisters extends AddressPage {
 
     moveRegistersToSailAddress() {
         //Elect move registers to SAIL address and check accesibility of fields
@@ -14,20 +13,12 @@ class ChangeLocationOfRegisters {
 
         cy.get('#addSAILAddress > a').click();
         cy.accessibilityCheck();
-
-        cy.get('#address-manual-link').click();
+        return this;
 
     }
 
-    invalidEntryforSAILAddressFields() {
-        cy.get('#ro-address-premise').type(invalidCharacter);
-        cy.get('#ro-address-postcode').type(invalidCharacter);
-        cy.get('#ro-address-street').type(invalidCharacter);
-        cy.get('#ro-address-thoroughfare').type(invalidCharacter);
-        cy.get('#ro-address-postTown').type(invalidCharacter);
-        cy.get('#ro-address-county').type(invalidCharacter);
-        cy.get('#ro-address-poBox').type(invalidCharacter);
-        cy.get('#button_submit > .button').click();
+    invalidEntryforSAILAddressFields(invalidCharacter) {
+        this.enterInvalidROAddress(invalidCharacter);
         return this;
 
     }
@@ -53,9 +44,13 @@ class ChangeLocationOfRegisters {
                 //Check after clicking the radio button and checkbox
                 cy.accessibilityCheck();
             }
-            //Submit the form
-            cy.get('#button_submit > .button').click();
+
+            this.submitMoveRegisters();
         })
+    }
+
+    submitMoveRegisters() {
+        cy.get('#button_submit > .button').click();
     }
 }
 export default ChangeLocationOfRegisters

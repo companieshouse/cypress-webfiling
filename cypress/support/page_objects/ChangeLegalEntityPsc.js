@@ -10,18 +10,6 @@ class ChangeLegalEntityPsc extends PscAppointment {
         cy.get('#corporate-name-container-cancel').click();
     }
 
-    expandPscAddressSection() {
-        cy.get('#service-address-container-change').click();
-    }
-
-    expandPscManualEntryAddressSection() {
-        cy.get('#service-address-manual-link').click();
-    }
-
-    closePscAddressSection() {
-        cy.get('#service-address-container-cancel').click();
-    }
-
     expandEntityDetailsSection() {
         cy.get('#psc-eea-container-change').click();
     }
