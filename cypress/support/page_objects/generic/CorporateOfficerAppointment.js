@@ -41,6 +41,7 @@ class CorporateOfficerAppointment extends BasePage {
             cy.get('#LegalForm').type('Legal');
         }
         cy.get('#eea-container-continue').click();
+        return this;
     }
 
     consentToAct() {
