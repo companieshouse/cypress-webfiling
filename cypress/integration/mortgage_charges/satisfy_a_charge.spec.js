@@ -58,8 +58,7 @@ describe('Satisfy a charge - MR04', () => {
         //Submit form without entering any information to fire error messages
         satisfyMortgageChargePage.expandAll();
         cy.accessibilityCheck();
-        satisfyMortgageChargePage.clickEnterAddressManually()
-        .enterInvalidCharactersToFireErrors("`")
+        satisfyMortgageChargePage.enterAddressManually()
         .submitForm();
         //check accessibility of page with section error messages displayed
         cy.accessibilityCheck();

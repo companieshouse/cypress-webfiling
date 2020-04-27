@@ -18,6 +18,11 @@ class BasePage {
         cy.get('[class*="button positive large"]').click();
     }
 
+    enterAddressManually() {
+        cy.get('a[id$="address-manual-link"]').click();
+        return this;
+    }
+
 }
 
 export default BasePage

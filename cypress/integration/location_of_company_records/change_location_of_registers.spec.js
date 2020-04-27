@@ -34,11 +34,13 @@ describe('EH01/02/03, EW01/02/03 - Elect to Hold Registers on the Public Registe
         //Select correct register
         manageRegistersPreFilingPage.selectDirectorsRegister();
         //Select to move registers to SAIL address
-        changeLocationOfRegisters.moveRegistersToSailAddress();
+        changeLocationOfRegisters.moveRegistersToSailAddress()
+        .enterAddressManually()
         cy.accessibilityCheck();
 
         //Check after firing invalid SAIL address field errors
-        changeLocationOfRegisters.invalidEntryforSAILAddressFields();
+        changeLocationOfRegisters.invalidEntryforSAILAddressFields('`')
+        .submitMoveRegisters();
         cy.accessibilityCheck();
     })
 
@@ -70,11 +72,13 @@ describe('EH01/02/03, EW01/02/03 - Elect to Hold Registers on the Public Registe
         //Select correct register
         manageRegistersPreFilingPage.selectSecretariesRegister();
         //Select to move registers to SAIL address
-        changeLocationOfRegisters.moveRegistersToSailAddress();
+        changeLocationOfRegisters.moveRegistersToSailAddress()
+        .enterAddressManually();
         cy.accessibilityCheck();
 
         //Check after firing invalid SAIL address field errors
-        changeLocationOfRegisters.invalidEntryforSAILAddressFields();
+        changeLocationOfRegisters.invalidEntryforSAILAddressFields('`')
+        .submitMoveRegisters();
         cy.accessibilityCheck();
     })
 

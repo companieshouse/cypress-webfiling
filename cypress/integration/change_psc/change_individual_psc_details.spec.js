@@ -2,11 +2,13 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import AppointPSC01Page from '../../support/page_objects/AppointPSC01Page';
 import ChangeIndividualPscPage from '../../support/page_objects/ChangeIndividualPscPage';
+import AddressPage from '../../support/page_objects/generic/Address.js';
 
 const companyOverview = new CompanyOverviewPage();
 const appointPSC01Page = new AppointPSC01Page();
 const allForms = new AllFormsPage();
 const psc04Page = new ChangeIndividualPscPage();
+const addressPage = new AddressPage();
 
 describe('Change of person with significant control (PSC) details', () => {
     beforeEach(() => {
@@ -52,13 +54,13 @@ describe('Change of person with significant control (PSC) details', () => {
         cy.accessibilityCheck();
         psc04Page.cancelPscNationalityChange();
 
-        psc04Page.changePscCorrespondenceAddress();
+        addressPage.changeServiceAddressLink();
         cy.accessibilityCheck();
-        psc04Page.cancelPscCorrespondenceAddressChange();
+        addressPage.cancelServiceAddressChange();
 
-        psc04Page.changePscHomeAddress();
+        addressPage.changeResidentialAddressLink();
         cy.accessibilityCheck();
-        psc04Page.cancelPscHomeAddressChange();
+        addressPage.cancelResidentialAddressChange();
 
         psc04Page.changeCountryOfResidence();
         cy.accessibilityCheck();

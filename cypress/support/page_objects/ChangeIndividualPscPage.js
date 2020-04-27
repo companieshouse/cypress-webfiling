@@ -18,23 +18,6 @@ class ChangeIndividualPscPage extends PscAppointment {
         cy.get('#nationality-container-cancel').click();
     }
 
-    changePscCorrespondenceAddress() {
-        cy.get('#service-address-container-change').click();
-    }
-
-    cancelPscCorrespondenceAddressChange() {
-        cy.get('#service-address-container-cancel').click();
-    }
-
-    changePscHomeAddress() {
-        cy.get('#residential-address-container-change').click();
-    }
-
-    cancelPscHomeAddressChange() {
-        cy.get('#residential-address-container-cancel').click();
-
-    }
-
     changeCountryOfResidence() {
         cy.get('#country-of-residence-container-change').click();
     }

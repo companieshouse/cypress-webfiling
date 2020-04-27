@@ -1,7 +1,9 @@
-class ChangeCorporateSecretaryDetailsPage {
+import AddressPage from "./generic/Address";
+
+class ChangeCorporateSecretaryDetailsPage extends AddressPage {
 
     changeAddressPremise() {
-        cy.get('#company-address-container-change').click().wait(2000);
+        this.changeCompanyAddressLink();
         cy.accessibilityCheck();
 
         // Clear premise and enter new entry
@@ -9,7 +11,7 @@ class ChangeCorporateSecretaryDetailsPage {
 
         cy.accessibilityCheck();
         // Update details
-        cy.get('#company-address-container-continue').click();
+        this.companyAddressContinue();
     }
 
 }
