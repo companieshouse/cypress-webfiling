@@ -11,6 +11,7 @@ const changeOfCompanyName = new ChangeOfCompanyName();
 const contactDetailsAndAuthorisationPage = new ContactDetailsAndAuthorisationPage();
 const paymentSelectionPage = new PaymentSelectionPage();
 const submissionConfirmationPage = new SubmissionConfirmationPage();
+const todaysDate = Cypress.moment().format('DD/MM/YYYY');
 
 describe('Change of company name - NM01', () => {
     beforeEach(() => {
@@ -21,7 +22,6 @@ describe('Change of company name - NM01', () => {
     })
 
     it('NM01 - Change of Company Name Successful Submission', () => {
-        const todaysDate = Cypress.moment().format('DD/MM/YYYY');
         // Proposed New Name tab
         //Initial accessibility check of the tab
         cy.accessibilityCheck();
@@ -54,6 +54,31 @@ describe('Change of company name - NM01', () => {
 
         //Check Submission screen
         submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission and Payment");
+        cy.accessibilityCheck();
+    })
+
+    it.only('NM01 - Change of Company Name Error Validation', () => {
+        // Proposed New Name tab
+        // Submit form without entering information to fire errors
+        changeOfCompanyName.continueButton();
+        // Accessibility check of the error messages
+        cy.accessibilityCheck();
+        changeOfCompanyName.enterProposedName("NM01 Error Validation " + todaysDate)
+            .selectNameEnding('LIMITED')
+            .continueButton();
+
+        // Resolution Details tab
+        // Submit form without entering information to fire errors
+        changeOfCompanyName.continueButton();
+        // Accessibility check of the error messages
+        cy.accessibilityCheck();
+        changeOfCompanyName.enterResolutionDate(todaysDate)
+            .continueButton();
+
+        // Submit tab
+        // Submit form without entering information to fire errors
+        changeOfCompanyName.submitChangeOfName();
+        // Accessibility check of the error messages
         cy.accessibilityCheck();
     })
 
