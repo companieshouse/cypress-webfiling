@@ -50,7 +50,7 @@ describe('Cease or release property from a charge - MR05', () => {
     it('MR05 - Cease or release property from a charge Error Validation', () => {
 
         //Submit form without entering any information to fire error messages
-        ceaseOrReleasePropertyFromCharge.expandAll()
+        ceaseOrReleasePropertyFromCharge.expandAll();
         cy.accessibilityCheck();
         ceaseOrReleasePropertyFromCharge.enterAddressManually()
         .submitForm();
