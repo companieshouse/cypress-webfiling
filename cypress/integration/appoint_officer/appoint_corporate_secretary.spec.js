@@ -9,7 +9,7 @@ describe('Appoint a Corporate Secretary', () => {
 
         cy.accessibilityCheck();
         companyOverview.selectAllForms().selectLinkWithText('Directors and secretaries')
-            .selectLinkWithText('Appointment of corporate secretary- AP04');
+            .selectLinkWithText('Appointment of corporate secretary - AP04');
 
         // Check correct page is loaded
         cy.checkPageHeadingIs('Appointment of a corporate secretary');
