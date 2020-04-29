@@ -51,13 +51,7 @@ describe('Dormant Company Accounts - AA02', () => {
     it('AA02 - Dormant Company Accounts Error message validation', () => {
         // Submit with all fields blank and check the accessibility of the error messages displayed 
         dormantCompanyAccountsPage
-        /*.enterCalledUpShareCapitalNotPaid(0)
-            .enterCashAtBank(1)
-            .enterShareCapital(1, "Ordinary", 1)
-            .selectDirectorResponsibilities()
-            .enterDateOfApproval(Cypress.moment().format('DD/MM/YYYY'))
-            .enterDirectorName("Test", "Person")*/
-            .submitForm();
+        .submitForm();
         cy.accessibilityCheck();
         // End the test here as the next page is just the Dormant accounts summary page
         // There are no field validation errors
