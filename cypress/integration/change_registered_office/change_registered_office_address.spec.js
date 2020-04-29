@@ -28,7 +28,7 @@ describe('Change of registered office address', () => {
         submissionConfirmation.confirmHeadingContains('Confirmation of Submission')
     })
 
-    it.only('AD01 -  Error message validation', () => {
+    it('AD01 -  Error message validation', () => {
         // Enter address with invalid character in fields and click submit to fire error messages
         changeRegisteredOffice.enterAddressManually()
         .enterInvalidROAddress("`")
