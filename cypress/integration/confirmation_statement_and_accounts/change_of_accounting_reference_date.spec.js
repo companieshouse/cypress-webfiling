@@ -35,7 +35,7 @@ describe('Change of Accounting Reference Date - AA01', () => {
         submissionConfirmation.confirmHeadingContains('WebFiling Service Confirmation').done();        
     })
 
-    it.only('AA01 - Change of Accounting Reference Date Error Validation', () => {
+    it('AA01 - Change of Accounting Reference Date Error Validation', () => {
         // Submit without entering information to fire error messages
         // and check the accessibility of the error messages. End the test here. 
         // There is nothing to validate on the next screen. It is purely for confirmation purposes  
