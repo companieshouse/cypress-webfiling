@@ -57,7 +57,7 @@ describe('Change of company name - NM01', () => {
         cy.accessibilityCheck();
     })
 
-    it.only('NM01 - Change of Company Name Error Validation', () => {
+    it('NM01 - Change of Company Name Error Validation', () => {
         // Proposed New Name tab
         // Submit form without entering information to fire errors
         changeOfCompanyName.continueButton();
