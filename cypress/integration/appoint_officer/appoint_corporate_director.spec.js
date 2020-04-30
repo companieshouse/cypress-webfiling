@@ -13,6 +13,7 @@ describe('Appoint a Corporate Director', () => {
         // Check correct page is loaded
         cy.checkPageHeadingIs('Appointment of a corporate director');
     })
+    
     it('File successful AP02', () => {
         // Repeat calls for accessibility checks
         cy.accessibilityCheck();
