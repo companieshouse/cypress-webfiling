@@ -1,8 +1,10 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AppointCorporateDirectorPage from '../../support/page_objects/AppointCorporateDirectorPage.js';
+import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage.js';
 
 const companyOverview = new CompanyOverviewPage();
 const appointCorporateDirectorPage = new AppointCorporateDirectorPage();
+const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Appoint a Corporate Director', () => {
 
@@ -33,6 +35,12 @@ describe('Appoint a Corporate Director', () => {
 
         // Check disclaimer is correct
         cy.checkDisclaimer();
+
+        appointCorporateSecretaryPage.submitForm();
+
+        // Confirm submission
+        submissionConfirmation.confirmHeadingContains('Confirmation of Submission')
+        cy.accessibilityCheck();
     })
 
     it('AP02 - error message validation', () => {
