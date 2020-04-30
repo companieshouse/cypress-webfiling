@@ -36,7 +36,7 @@ describe('Appoint a Corporate Director', () => {
         // Check disclaimer is correct
         cy.checkDisclaimer();
 
-        appointCorporateSecretaryPage.submitForm();
+        appointCorporateDirectorPage.submitForm();
 
         // Confirm submission
         submissionConfirmation.confirmHeadingContains('Confirmation of Submission')
