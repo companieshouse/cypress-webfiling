@@ -7,8 +7,8 @@ const changeRegisteredOffice = new ChangeRegisteredOfficePage();
 const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Change of registered office address', () => {
+    // Go to change registered office address
     beforeEach(() => {
-        // Go to change registered office address
         cy.accessibilityCheck();
         companyOverview.selectLinkWithText('Change address');
     })
