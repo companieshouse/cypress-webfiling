@@ -5,7 +5,7 @@ import SubmissionConfirmationPage from '../../support/page_objects/SubmissionCon
 
 
 describe('Withdrawal of application to strike off - DS02', () => {
-    it('DS02 Sucessful Submission', () => {
+    it('DS02 Sucessful Submission after validating error message', () => {
         const companyOverview = new CompanyOverviewPage();
         const allForms = new AllFormsPage();
         const withdrawApplication = new WithdrawApplicationToStrikeOffPage();
@@ -16,9 +16,17 @@ describe('Withdrawal of application to strike off - DS02', () => {
         allForms.selectStrikeOffAndDissolution()
         .selectDs02();
 
-        // Check withdraw application to strike off checkbox
+        // Check screen prior to interacting with it
         cy.accessibilityCheck();
-        withdrawApplication.confirmApplicationWithdrawal();
+
+        // Submit form without ticking the checkbox to fire error message
+        withdrawApplication.submitForm();
+        // Accessibility check on the error message
+        cy.accessibilityCheck();
+
+        //Re-submit after ticking the checkbox
+        withdrawApplication.confirmApplicationWithdrawal()
+        .submitForm();
             
         // Confirm submission
         submissionConfirmationPage.confirmHeadingContains('Confirmation of Submission')

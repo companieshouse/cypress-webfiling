@@ -1,10 +1,13 @@
 import CompanyOverviewPage from "../../support/page_objects/CompanyOverviewPage";
 import AppointSecretaryPage from "../../support/page_objects/AppointSecretaryPage";
+import SubmissionConfirmationPage from "../../support/page_objects/SubmissionConfirmationPage";
+
+const companyOverview = new CompanyOverviewPage();
+const secretaryDetailsPage = new AppointSecretaryPage();
+const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Appoint a secretary', () => {
-    it('Appoint secretary - AP03', () => {
-        const companyOverview = new CompanyOverviewPage();
-        const secretaryDetailsPage = new AppointSecretaryPage();
+    beforeEach('Go to AP03 form', () => {
         // Accessibility check
         cy.accessibilityCheck();
 
@@ -15,6 +18,9 @@ describe('Appoint a secretary', () => {
         // Check correct page is loaded
         cy.checkPageHeadingIs('Appointment of a secretary');
         cy.accessibilityCheck();
+    })
+
+    it('Appoint secretary - AP03', () => {
 
         // Enter secretary details
         secretaryDetailsPage.enterName("Mr", "Test", "Automation", "Ninja");
@@ -30,6 +36,26 @@ describe('Appoint a secretary', () => {
 
         // Check disclaimer is correct
         cy.checkDisclaimer();
+
+        secretaryDetailsPage.submitForm();
+
+        // Confirm submission
+        submissionConfirmation.confirmHeadingContains('Confirmation of Submission')
+        cy.accessibilityCheck();
+
+
+    })
+
+    it.only('AP03 - Error message validation', () => {
+
+        secretaryDetailsPage.expandAll()
+        .submitForm();
+
+        cy.accessibilityCheck();
+
+        secretaryDetailsPage.expandAll();
+        cy.accessibilityCheck();
+
 
     })
 })

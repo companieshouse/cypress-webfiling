@@ -13,7 +13,6 @@ const contactDetailsAndAuthorisationPage = new ContactDetailsAndAuthorisationPag
 const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Dormant Company Accounts - AA02', () => {
-    beforeEach('Select AA02" form from overview', () => {
         // Select form overview
         companyOverview.selectAllForms();
         allForms.selectConfirmationStatementAndAccounts()
@@ -48,4 +47,15 @@ describe('Dormant Company Accounts - AA02', () => {
         // Go back to company overview screen to exit the test
         cy.visit('/profile');
     })
+
+    it('AA02 - Dormant Company Accounts Error message validation', () => {
+        // Submit with all fields blank and check the accessibility of the error messages displayed 
+        dormantCompanyAccountsPage
+        .submitForm();
+        cy.accessibilityCheck();
+        // End the test here as the next page is just the Dormant accounts summary page
+        // There are no field validation errors
+    })
+
+    
 })

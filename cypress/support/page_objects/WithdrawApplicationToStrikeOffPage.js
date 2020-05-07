@@ -4,7 +4,7 @@ class WithdrawApplicationToStrikeOffPage extends BasePage {
 
     confirmApplicationWithdrawal() {
         cy.get('input[type="checkbox"][id="withdrawConfirmation"]').check();
-        this.submitForm();
+        return this;
     }
 
 }

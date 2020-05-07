@@ -1,9 +1,11 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AppointDirectorPage from '../../support/page_objects/AppointDirectorPage'
+import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage.js';
 
 // Constants
 const companyOverview = new CompanyOverviewPage();
 const appointDirectorPage = new AppointDirectorPage();
+const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Appoint a Director', () => {
     beforeEach('Go to AP01 form', () => {
@@ -48,6 +50,12 @@ describe('Appoint a Director', () => {
 
         // Check disclaimer is correct
         cy.checkDisclaimer();
+
+        appointDirectorPage.submitForm();
+
+        // Confirm submission
+        submissionConfirmation.confirmHeadingContains('Confirmation of Submission')
+        cy.accessibilityCheck();
     })
 
     it('Error validation - AP01', () => {

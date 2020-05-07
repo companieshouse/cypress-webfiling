@@ -1,5 +1,6 @@
 import OfficerAppointment from "./generic/OfficerAppointment";
 
+
 class AppointSecretaryPage extends OfficerAppointment {
 
     selectTodayAsAppointmentDate() {
@@ -15,6 +16,7 @@ class AppointSecretaryPage extends OfficerAppointment {
         cy.get('#socta-statement').check();
         cy.get('#statement-of-consent-to-act-container-continue').click();
     }
+
 
 }
 
