@@ -13,6 +13,7 @@ const contactDetailsAndAuthorisationPage = new ContactDetailsAndAuthorisationPag
 const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Dormant Company Accounts - AA02', () => {
+    beforeEach('Go to AA02 Form', () => {
         // Select form overview
         companyOverview.selectAllForms();
         allForms.selectConfirmationStatementAndAccounts()
@@ -56,6 +57,5 @@ describe('Dormant Company Accounts - AA02', () => {
         // End the test here as the next page is just the Dormant accounts summary page
         // There are no field validation errors
     })
-
     
 })

@@ -2,14 +2,15 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
 import { rle_psc_name } from '../../fixtures/psc.json';
+import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage.js';
+
+const companyOverview = new CompanyOverviewPage();
+const appointPSC02Page = new PscAppointment();
+const pscLandingPage = new PSCLandingPage();
+const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Appoint a corporate PSC', () => {
-    it('File successful PSC02', () => {
-
-        const companyOverview = new CompanyOverviewPage();
-        const appointPSC02Page = new PscAppointment();
-        const pscLandingPage = new PSCLandingPage();
-
+    beforeEach('Go to PSC02 Form', () => {
         cy.accessibilityCheck();
         companyOverview.selectLinkWithText('Add a PSC notification');
 
@@ -22,6 +23,10 @@ describe('Appoint a corporate PSC', () => {
         // Check correct page is loaded
         cy.checkPageHeadingIs('Notification of a relevant legal entity with significant control (PSC)');
         cy.accessibilityCheck();
+
+    })
+
+    it('File successful PSC02', () => {
 
         cy.accessibilityCheck();
 
@@ -44,6 +49,24 @@ describe('Appoint a corporate PSC', () => {
 
         // Check disclaimer is correct
         cy.checkDisclaimer();
+
+        appointPSC02Page.submitForm();
+        // Confirm submission
+        submissionConfirmation.confirmHeadingContains('Confirmation of Submission');
+        cy.accessibilityCheck();
+
+    })
+
+    it('PSC02 Error Message Validation', () => {
+
+        // Submit with all fields blank to fire errors and check their accessibility
+        appointPSC02Page.expandAll()
+            .submitForm();
+        cy.accessibilityCheck();
+
+        // Expand secitons to check the accessibility of individual field errors
+        appointPSC02Page.expandAll();
+        cy.accessibilityCheck();
 
     })
 
