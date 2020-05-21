@@ -59,7 +59,4 @@ describe('Change secretary details - CH03', () => {
         cy.accessibilityCheck();
     })
 
-
-
-
 })
