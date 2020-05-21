@@ -4,7 +4,7 @@ import DirectorAndSecretariesPage from '../../support/page_objects/DirectorsAndS
 import AppointCorporateSecretaryPage from '../../support/page_objects/AppointCorporateSecretaryPage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage';
 import AccountsReminderPage from '../../support/page_objects/AccountsReminderPage';
-import ChangeCorporateSecretaryDetailsPage from '../../support/page_objects/ChangeCorporateSecretaryDetailsPage';
+import ChangeCorporateOfficerDetailsPage from '../../support/page_objects/ChangeCorporateOfficerDetailsPage';
 import GenericPreFilingPage from '../../support/page_objects/generic/GenericPreFilingPage';
 
 // Constants
@@ -14,7 +14,7 @@ const directorAndSecretaries = new DirectorAndSecretariesPage();
 const appointCorporateSecretaryPage = new AppointCorporateSecretaryPage();
 const submissionConfirmation = new SubmissionConfirmationPage();
 const accountsReminder = new AccountsReminderPage();
-const changeCorporateSecretaryDetails = new ChangeCorporateSecretaryDetailsPage();
+const changeCorporateOfficerDetailsPage = new ChangeCorporateOfficerDetailsPage();
 
 
 describe('Change corporate secretary details - CH04', () => {
@@ -52,11 +52,7 @@ describe('Change corporate secretary details - CH04', () => {
         // Must return to Home Page here to set state for actual test
         cy.title().should('eq', 'Companies House - Company overview');
 
-    })
-
-    it('Change Address Premise Details', () => {
-        cy.log('Selecting Change corporate secretary');
-        // Select form overview
+        // Select CH04 form from overview
         companyOverview.selectAllForms();
         allForms.selectDirectorAndSecretaries()
             .selectCH04();
@@ -67,25 +63,28 @@ describe('Change corporate secretary details - CH04', () => {
 
         // Check to ensure Tick and Cross are displayed
         const preFiling = new GenericPreFilingPage();
-        preFiling.checkPageIsDisplayedCorrectly();
+        //preFiling.checkPageIsDisplayedCorrectly();
         cy.accessibilityCheck();
 
         // Select change officer
         preFiling.proceedPastPreFilingScreen();
 
-        // Expand all
-        /* 
-        Date change link is not visible so forcing the click to expand all sections before
-        checking the accessibility of the sections
-        */
-        cy.get('.changelink').click({ multiple: true, force: true });
-        cy.accessibilityCheck();
+    })
+
+    it('CH03 - Check sections first without and then with error messages present. No submission submitted', () => {
+        cy.log('Selecting Change corporate secretary');
 
         // Enter date of change
         enterTodaysDate();
 
-        // Change address
-        changeCorporateSecretaryDetails.changeAddressPremise();
+        // Expand sections and check accessibility. Then enter invalid information in fields to fire errors and check again
+        changeCorporateOfficerDetailsPage.changeCorporateOfficerName(" ");
+        cy.accessibilityCheck();
+        changeCorporateOfficerDetailsPage.enterInvalidAddress("`");
+        cy.accessibilityCheck();
+        changeCorporateOfficerDetailsPage.enterInvalidCompanyDetails();
+        cy.accessibilityCheck();
+
 
     })
 

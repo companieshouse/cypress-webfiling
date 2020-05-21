@@ -21,7 +21,6 @@ class CorporateOfficerAppointment extends BasePage {
 
     enterCompanyAddress(propertyNumber, postcode) {
         addressPage.lookUpServiceAddress(propertyNumber, postcode);
-        // Accessibility check here
         cy.accessibilityCheck();
         addressPage.companyAddressContinue();
     }

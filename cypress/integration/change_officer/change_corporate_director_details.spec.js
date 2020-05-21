@@ -4,7 +4,7 @@ import AppointCorporateDirectorPage from '../../support/page_objects/AppointCorp
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage';
 import AccountsReminderPage from '../../support/page_objects/AccountsReminderPage';
 import AllFormsPage from '../../support/page_objects/AllformsPage';
-import ChangeCorporateDirectorDetailsPage from '../../support/page_objects/ChangeCorporateDirectorDetailsPage';
+import ChangeCorporateOfficerDetailsPage from '../../support/page_objects/ChangeCorporateOfficerDetailsPage';
 
 const companyOverview = new CompanyOverviewPage();
 const appointCorporateDirectorPage = new AppointCorporateDirectorPage();
@@ -12,7 +12,8 @@ const submissionConfirmation = new SubmissionConfirmationPage();
 const accountsReminder = new AccountsReminderPage();
 const allFormsPage = new AllFormsPage();
 const directorAndSecretariesPage = new DirectorAndSecretariesPage();
-const changeCorporateDirectorDetailsPage = new ChangeCorporateDirectorDetailsPage();
+const changeCorporateOfficerDetailsPage = new ChangeCorporateOfficerDetailsPage();
+const invalidCharacter = '`';
 
 describe('Change corporate director details - CH02', () => {
     beforeEach('Appoint a corporate director prior to amending details', () => {
@@ -48,21 +49,27 @@ describe('Change corporate director details - CH02', () => {
         directorAndSecretariesPage.selectOfficerToEdit('CHANGE CORPORATE DIRECTOR');
         // Change officer pre-filing page accessibility check 
         cy.accessibilityCheck();
-        changeCorporateDirectorDetailsPage.proceedPastPreFilingScreen();
+        changeCorporateOfficerDetailsPage.proceedPastPreFilingScreen();
 
     })
-    it('CH02 - Change Corporate Director details without submission', () => {
-        //Check accessibility of change corporate director screen
+
+    it.only('CH02 - Check sections first without and then with error messages present. No submission submitted', () => {
+        //Initial accessibility check without interacting wiht page
         cy.accessibilityCheck();
-        // Change officer name
-        changeCorporateDirectorDetailsPage.enterDateOfChangeAsToday()
-            .changeCorporateDirectorName("CHANGE CORPORATE DIRECTOR " + Cypress.moment())
-            //A section warning fires here, so check it's accessibility 
-            cy.accessibilityCheck();
-            changeCorporateDirectorDetailsPage.submitForm();
-            //Due to the above warning, the form is not submitted and an additional warning shown.
-            //check the acccessibility here.
-            cy.accessibilityCheck();
+
+        changeCorporateOfficerDetailsPage.enterDateOfChangeAsToday();
+        cy.accessibilityCheck();
+
+        // enter blank fields to fire errors
+        changeCorporateOfficerDetailsPage.changeCorporateOfficerName(" ");
+        cy.accessibilityCheck();
+        changeCorporateOfficerDetailsPage.enterInvalidAddress("`");
+        cy.accessibilityCheck();
+        changeCorporateOfficerDetailsPage.enterInvalidCompanyDetails();
+        // As invalid changes have been made, ensure the submission button is disabled
+        cy.checkSubmitIsDisabled();
+        cy.accessibilityCheck();
+
     })
 
 })
