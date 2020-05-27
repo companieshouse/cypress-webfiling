@@ -1,13 +1,13 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.js';
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import AppointPSC01Page from '../../support/page_objects/AppointPSC01Page';
-import ChangeIndividualPscPage from '../../support/page_objects/ChangeIndividualPscPage';
 import AddressPage from '../../support/page_objects/generic/Address.js';
+import ChangePscPage from '../../support/page_objects/ChangePscPage';
 
 const companyOverview = new CompanyOverviewPage();
 const appointPSC01Page = new AppointPSC01Page();
 const allForms = new AllFormsPage();
-const psc04Page = new ChangeIndividualPscPage();
+const psc04Page = new ChangePscPage();
 const addressPage = new AddressPage();
 const invalidCharacter = "`";
 
