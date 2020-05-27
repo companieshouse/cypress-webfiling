@@ -9,6 +9,7 @@ const appointPSC01Page = new AppointPSC01Page();
 const allForms = new AllFormsPage();
 const psc04Page = new ChangeIndividualPscPage();
 const addressPage = new AddressPage();
+const invalidCharacter = "`";
 
 describe('Change of person with significant control (PSC) details', () => {
     beforeEach(() => {
@@ -33,7 +34,7 @@ describe('Change of person with significant control (PSC) details', () => {
 
     })
 
-    it('File successful PSC04', () => {
+    it('PSC04 - Check sections first without and then with error messages present. No submission submitted', () => {
         // Go to PSC04
         appointPSC01Page.clickCompanyOverview();
         companyOverview.selectAllForms();
@@ -45,32 +46,51 @@ describe('Change of person with significant control (PSC) details', () => {
         cy.checkPageHeadingIs('Change of person with significant control (PSC) details');
         cy.accessibilityCheck();
 
-        // Accessibility check for each section
+        // PSC name
         psc04Page.changePscName();
+        // Initial check after opening section
         cy.accessibilityCheck();
-        psc04Page.cancelPscNameChange();
+        //Enter invalid characters to fire errors
+        psc04Page.enterName(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        //cy.accessibilityCheck();
 
+        // Nationality
         psc04Page.changePscNationality();
         cy.accessibilityCheck();
-        psc04Page.cancelPscNationalityChange();
+        psc04Page.enterNationality(invalidCharacter);
+        //cy.accessibilityCheck();
 
+        // Service Address
         addressPage.changeServiceAddressLink();
         cy.accessibilityCheck();
-        addressPage.cancelServiceAddressChange();
+        addressPage.enterServiceAddressManually();
+        cy.accessibilityCheck();
+        addressPage.enterInvalidServiceAddress(invalidCharacter);
+        cy.accessibilityCheck();
 
+        //Residential Address
         addressPage.changeResidentialAddressLink();
         cy.accessibilityCheck();
-        addressPage.cancelResidentialAddressChange();
+        addressPage.homeAddressManualEntryButton();
+        cy.accessibilityCheck();
+        addressPage.enterResidentialAddressManually();
+        cy.accessibilityCheck();
+        addressPage.enterInvalidResidentialAddress(invalidCharacter);
+        cy.accessibilityCheck();
 
+        //Country of Residence
         psc04Page.changeCountryOfResidence();
         cy.accessibilityCheck();
-        psc04Page.cancelCountryOfResidenceChange();
+        psc04Page.enterCountryOfResidence(invalidCharacter);
 
+        //Nature of Control
         psc04Page.changeNatureOfControl();
         cy.accessibilityCheck();
-        psc04Page.cancelNatureOfControlChange();
+        psc04Page.selectInvalidNatureOfControlCombination();
 
         // Date of change and register entry date sections are already expanded
+        // As invalid changes have been made, ensure the submission button is disabled
+        cy.checkSubmitIsDisabled();
         cy.accessibilityCheck();
     })
 
