@@ -37,7 +37,7 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         appointPSC02Page.clickCompanyOverview();
     })
 
-    it('File successful PSC05', () => {
+    it('PSC05 - Check sections first without and then with error messages present. No submission submitted', () => {
         // Go to PSC05
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc05();
@@ -57,7 +57,8 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         cy.accessibilityCheck();
         addressPage.enterServiceAddressManually();
         cy.accessibilityCheck();
-        addressPage.enterInvalidServiceAddress(invalidCharacter);
+        addressPage.enterInvalidServiceAddress(invalidCharacter)
+        .serviceAddressContinue();
         cy.accessibilityCheck();
 
         // Entity details

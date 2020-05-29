@@ -65,7 +65,8 @@ describe('Change of person with significant control (PSC) details', () => {
         cy.accessibilityCheck();
         addressPage.enterServiceAddressManually();
         cy.accessibilityCheck();
-        addressPage.enterInvalidServiceAddress(invalidCharacter);
+        addressPage.enterInvalidServiceAddress(invalidCharacter)
+        .serviceAddressContinue();
         cy.accessibilityCheck();
 
         //Residential Address
@@ -75,7 +76,8 @@ describe('Change of person with significant control (PSC) details', () => {
         cy.accessibilityCheck();
         addressPage.enterResidentialAddressManually();
         cy.accessibilityCheck();
-        addressPage.enterInvalidResidentialAddress(invalidCharacter);
+        addressPage.enterInvalidResidentialAddress(invalidCharacter)
+        .residentialAddressContinue();
         cy.accessibilityCheck();
 
         //Country of Residence

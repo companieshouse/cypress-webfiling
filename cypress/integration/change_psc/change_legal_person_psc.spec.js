@@ -2,16 +2,17 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
-import ChangeLegalPersonPsc from '../../support/page_objects/ChangeLegalPersonPsc';
 import { orp_psc_name } from '../../fixtures/psc.json';
 import AddressPage from '../../support/page_objects/generic/Address.js';
+import ChangePscPage from '../../support/page_objects/ChangePscPage.js';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const appointPSC03Page = new PscAppointment();
 const pscLandingPage = new PSCLandingPage();
-const changeLegalPersonPsc = new ChangeLegalPersonPsc();
+const changeLegalPersonPsc = new ChangePscPage();
 const addressPage = new AddressPage();
+const invalidCharacter = "`";
 
 
 describe('Change of a legal person with significant control  - PSC06', () => {
@@ -35,7 +36,7 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         appointPSC03Page.clickCompanyOverview();
     })
 
-    it('File successful PSC06', () => {
+    it('PSC06 - Check sections first without and then with error messages present. No submission submitted', () => {
         // Go to PSC06
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc06();
@@ -44,32 +45,36 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         changeLegalPersonPsc.selectPscToEdit(orp_psc_name);
         changeLegalPersonPsc.proceedPastPreFilingScreen();
 
-        // PSC06
-        changeLegalPersonPsc.expandPscNameSection();
+        // PSC name
+        changeLegalPersonPsc.changePscName()
         cy.accessibilityCheck();
-        changeLegalPersonPsc.closePscNameSection();
+        changeLegalPersonPsc.enterCorporateName(invalidCharacter);
+        cy.accessibilityCheck();
 
+        // Service Address
         addressPage.changeServiceAddressLink();
         cy.accessibilityCheck();
-        changeLegalPersonPsc.enterAddressManually();
+        addressPage.enterServiceAddressManually();
         cy.accessibilityCheck();
-        addressPage.cancelServiceAddressChange();
-
-        changeLegalPersonPsc.expandLegalPersonsDetailsSection();
-        cy.accessibilityCheck();
-        changeLegalPersonPsc.enterEntityDetails('PLC', 'ESP');
-
-        changeLegalPersonPsc.expandNatureOfControlSection();
-        cy.accessibilityCheck();
-        changeLegalPersonPsc.closeNatureOfControlSection();
-
-        changeLegalPersonPsc.selectTodayAsDateOfChange();
+        addressPage.enterInvalidServiceAddress(invalidCharacter)
+        .serviceAddressContinue();
         cy.accessibilityCheck();
 
-        changeLegalPersonPsc.enterTodayAsRegisterEntryDate();
+        // Entity details
+        changeLegalPersonPsc.expandEntityDetailsSection();
+        cy.accessibilityCheck();
+        changeLegalPersonPsc.enterEntityDetails(invalidCharacter, invalidCharacter);
         cy.accessibilityCheck();
 
-        changeLegalPersonPsc.submitNotification();
+        // Nature of Control
+        changeLegalPersonPsc.changeNatureOfControl();
+        cy.accessibilityCheck();
+        changeLegalPersonPsc.selectInvalidNatureOfControlCombination();
+
+        // Date of change and register entry date sections are already expanded
+        // As invalid changes have been made, ensure the submission button is disabled
+        cy.checkSubmitIsDisabled();
+        cy.accessibilityCheck();
 
     })
 

@@ -84,12 +84,16 @@ class AddressPage extends BasePage {
         return this;
     }
 
+    serviceAddressContinue() {
+        cy.get('#service-address-container-continue').click();
+        return this;
+    }
+    
     homeAddressManualEntryButton() {
         cy.get('#home-address-choice-manual-label').click();
         return this;
     }
     
-
     changeResidentialAddressLink() {
         cy.get('#residential-address-container-change').click();
         return this;
@@ -102,6 +106,11 @@ class AddressPage extends BasePage {
 
     cancelResidentialAddressChange() {
         cy.get('#residential-address-container-cancel').click();
+        return this;
+    }
+
+    residentialAddressContinue() {
+        cy.get('#residential-address-container-continue').click();
         return this;
     }
 
