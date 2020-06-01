@@ -63,7 +63,7 @@ describe('Change corporate secretary details - CH04', () => {
 
         // Check to ensure Tick and Cross are displayed
         const preFiling = new GenericPreFilingPage();
-        //preFiling.checkPageIsDisplayedCorrectly();
+        preFiling.checkPageIsDisplayedCorrectly();
         cy.accessibilityCheck();
 
         // Select change officer
