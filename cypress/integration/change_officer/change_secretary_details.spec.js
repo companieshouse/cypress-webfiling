@@ -1,19 +1,20 @@
 import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import DirectorAndSecretariesPage from '../../support/page_objects/DirectorsAndSecretariesPage'
-import ChangeSecretaryDetailsPage from '../../support/page_objects/ChangeSecretaryDetailsPage';
 import GenericPreFilingPage from '../../support/page_objects/generic/GenericPreFilingPage';
+import ChangeOfficerDetailsPage from '../../support/page_objects/ChangeOfficerDetailsPage';
 
-// Constants
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const directorAndSecretaries = new DirectorAndSecretariesPage();
-const changeSecretaryDetails = new ChangeSecretaryDetailsPage();
+const changeOfficerDetailsPage = new ChangeOfficerDetailsPage();
+
+const invalidCharacter = '`';
 
 describe('Change secretary details - CH03', () => {
-    beforeEach(() => {
+    beforeEach('Go to CH03 form', () => {
         cy.log('Selecting Change secretary');
-        // Select form overview
+        // Select form from overview
         companyOverview.selectAllForms();
         allForms.selectDirectorAndSecretaries()
             .selectCH03();
@@ -33,26 +34,19 @@ describe('Change secretary details - CH03', () => {
 
     })
 
-    it('Change Details', () => {
-        // Change name
-        changeSecretaryDetails.changeMiddleName('Public');
-
-        // Change address
-        changeSecretaryDetails.changeAddress('230', "CF46 6NW");
-
-        // Enter date
-        enterTodaysDate();
-    })
-
-    it('Make No change', () => {
-        enterTodaysDate();
-
-        // As no change has been made ensure the submission button is disabled
-        cy.checkSubmitIsDisabled();
+    it('Check sections first without and then with error messages present. No submission submitted', () => {
+        // Initial check before interacting with page
         cy.accessibilityCheck();
-    })
 
-    function enterTodaysDate() {
+        // These methods first check the individual sections before making changes. They then enter
+        // invalid data into fields to check the accessibility of the error messages displayed.
+
+        changeOfficerDetailsPage.changeOfficerName(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        cy.accessibilityCheck();
+
+        changeOfficerDetailsPage.enterInvalidCorrespondenceAddress(invalidCharacter);
+        cy.accessibilityCheck();
+
         // Apply today's date for date of change
         const dayElement = ".selector-day";
         const monthElement = ".selector-month";
@@ -60,5 +54,9 @@ describe('Change secretary details - CH03', () => {
 
         cy.selectTodaysDate(dayElement, monthElement, yearElement);
 
-    }
+        // As invalid changes have been made, ensure the submission button is disabled
+        cy.checkSubmitIsDisabled();
+        cy.accessibilityCheck();
+    })
+
 })

@@ -30,46 +30,44 @@ class AddressPage extends BasePage {
     }
 
     lookUpAddress(propertyNumber, postcode, propElement, postcodeElement, lookupButton) {
-        cy.get(propElement).type(propertyNumber)
-        cy.get(postcodeElement).type(postcode)
+        cy.get(propElement).clear().type(propertyNumber)
+        cy.get(postcodeElement).clear().type(postcode)
         // Lookup address
-        cy.get(lookupButton).wait(500).click();
+        cy.get(lookupButton).click().wait(1000);
 
     }
 
     enterInvalidROAddress(invalidCharacter) {
-        cy.get('#ro-address-premise').type(invalidCharacter);
-        cy.get('#ro-address-postcode').type(invalidCharacter);
-        cy.get('#ro-address-street').type(invalidCharacter);
-        cy.get('#ro-address-thoroughfare').type(invalidCharacter);
-        cy.get('#ro-address-postTown').type(invalidCharacter);
-        cy.get('#ro-address-county').type(invalidCharacter);
-        cy.get('#ro-address-poBox').type(invalidCharacter);
+        cy.get('#ro-address-premise').clear().type(invalidCharacter);
+        cy.get('#ro-address-postcode').clear().type(invalidCharacter);
+        cy.get('#ro-address-street').clear().type(invalidCharacter);
+        cy.get('#ro-address-thoroughfare').clear().type(invalidCharacter);
+        cy.get('#ro-address-postTown').clear().type(invalidCharacter);
+        cy.get('#ro-address-county').clear().type(invalidCharacter);
+        cy.get('#ro-address-poBox').clear().type(invalidCharacter);
         return this;
 
-    }
-
-    enterInvalidServiceAddress(invalidCharacter) {
-        cy.get('#residential-address-premise').type(invalidCharacter);
-        cy.get('#residential-address-postcode').type(invalidCharacter);
-        cy.get('#residential-address-street').type(invalidCharacter);
-        cy.get('#residential-address-thoroughfare').type(invalidCharacter);
-        cy.get('#residential-address-postTown').type(invalidCharacter);
-        cy.get('#residential-address-county').type(invalidCharacter);
-        cy.get('#residential-address-careOfName').type(invalidCharacter);
-        cy.get('#residential-address-poBox').type(invalidCharacter);
-        return this;
     }
 
     enterInvalidResidentialAddress(invalidCharacter) {
-        cy.get('#service-address-premise').type(invalidCharacter);
-        cy.get('#service-address-postcode').type(invalidCharacter);
-        cy.get('#service-address-street').type(invalidCharacter);
-        cy.get('#service-address-thoroughfare').type(invalidCharacter);
-        cy.get('#service-address-postTown').type(invalidCharacter);
-        cy.get('#service-address-county').type(invalidCharacter);
-        cy.get('#service-address-careOfName').type(invalidCharacter);
-        cy.get('#service-address-poBox').type(invalidCharacter);
+        cy.get('#residential-address-premise').clear().type(invalidCharacter);
+        cy.get('#residential-address-postcode').clear().type(invalidCharacter);
+        cy.get('#residential-address-street').clear().type(invalidCharacter);
+        cy.get('#residential-address-thoroughfare').clear().type(invalidCharacter);
+        cy.get('#residential-address-postTown').clear().type(invalidCharacter);
+        cy.get('#residential-address-county').clear().type(invalidCharacter);
+        return this;
+    }
+
+    enterInvalidServiceAddress(invalidCharacter) {
+        cy.get('#service-address-premise').clear().type(invalidCharacter);
+        cy.get('#service-address-postcode').clear().type(invalidCharacter);
+        cy.get('#service-address-street').clear().type(invalidCharacter);
+        cy.get('#service-address-thoroughfare').clear().type(invalidCharacter);
+        cy.get('#service-address-postTown').clear().type(invalidCharacter);
+        cy.get('#service-address-county').clear().type(invalidCharacter);
+        cy.get('#service-address-careOfName').clear().type(invalidCharacter);
+        cy.get('#service-address-poBox').clear().type(invalidCharacter);
         return this;
     }
 
@@ -100,6 +98,10 @@ class AddressPage extends BasePage {
 
     companyAddressContinue() {
         cy.get('#company-address-container-continue').click();
+    }
+
+    serviceAddressContinue() {
+        cy.get('#service-address-container-continue').click();
     }
 
     checkAddressByStreetName(streetName) {

@@ -23,7 +23,7 @@ class OfficerAppointment extends BasePage {
     selectROasCorrespondenceAddress() {
         cy.get('#correspondence-address-choice-ro-label').click();
         cy.get('#service-address-sameAsLinkConf').check();
-        cy.get('#service-address-container-continue').click();
+        addressPage.serviceAddressContinue();
     }
 
     enterHomeAddress(propertyNumber, postcode) {
@@ -34,7 +34,7 @@ class OfficerAppointment extends BasePage {
 
     lookupServiceAddress(propertyNumber, postcode) {
         addressPage.lookUpServiceAddress(propertyNumber, postcode);
-        cy.get('#service-address-container-continue').wait(2000).click();
+        addressPage.serviceAddressContinue();
     }
 
     checkCountryOfResidenceContains(country) {
