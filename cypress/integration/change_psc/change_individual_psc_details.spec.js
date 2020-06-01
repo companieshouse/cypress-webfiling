@@ -52,13 +52,13 @@ describe('Change of person with significant control (PSC) details', () => {
         cy.accessibilityCheck();
         //Enter invalid characters to fire errors
         psc04Page.enterName(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
 
         // Nationality
         psc04Page.changePscNationality();
         cy.accessibilityCheck();
         psc04Page.enterNationality(invalidCharacter);
-        //cy.accessibilityCheck();
+        cy.accessibilityCheck();
 
         // Service Address
         addressPage.changeServiceAddressLink();
