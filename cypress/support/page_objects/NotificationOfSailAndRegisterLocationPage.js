@@ -2,7 +2,13 @@ import AddressPage from "./generic/Address"
 
 class NotificationOfSailAndRegisterLocationPage extends AddressPage {
 
+    sailAddressManualEntryLink() {
+        cy.get('#address-manual-link').click()
+        return this;
+    }
+
     enterSailAddress(buildingNameNumber, postcode) {
+        //this.changeCompanyAddressLink();
         this.lookUpROAddress(buildingNameNumber, postcode);
         cy.accessibilityCheck();
         this.companyAddressContinue();
