@@ -66,8 +66,6 @@ class AddressPage extends BasePage {
         cy.get('#service-address-thoroughfare').clear().type(invalidCharacter);
         cy.get('#service-address-postTown').clear().type(invalidCharacter);
         cy.get('#service-address-county').clear().type(invalidCharacter);
-        cy.get('#service-address-careOfName').clear().type(invalidCharacter);
-        cy.get('#service-address-poBox').clear().type(invalidCharacter);
         return this;
     }
 
@@ -76,18 +74,43 @@ class AddressPage extends BasePage {
         return this;
     }
 
+    enterServiceAddressManually() {
+        cy.get('#service-address-manual-link').click();
+        return this;
+    }
+
     cancelServiceAddressChange() {
         cy.get('#service-address-container-cancel').click();
         return this;
     }
 
+    serviceAddressContinue() {
+        cy.get('#service-address-container-continue').click();
+        return this;
+    }
+    
+    homeAddressManualEntryButton() {
+        cy.get('#home-address-choice-manual-label').click();
+        return this;
+    }
+    
     changeResidentialAddressLink() {
         cy.get('#residential-address-container-change').click();
         return this;
     }
 
+    enterResidentialAddressManually() {
+        cy.get('#residential-address-manual-link').click();
+        return this;
+    }
+
     cancelResidentialAddressChange() {
         cy.get('#residential-address-container-cancel').click();
+        return this;
+    }
+
+    residentialAddressContinue() {
+        cy.get('#residential-address-container-continue').click();
         return this;
     }
 

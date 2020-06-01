@@ -2,16 +2,17 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage.
 import AllFormsPage from '../../support/page_objects/AllformsPage'
 import PscAppointment from '../../support/page_objects/generic/PscAppointment';
 import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
-import ChangeLegalEntityPsc from '../../support/page_objects/ChangeLegalEntityPsc';
 import { rle_psc_name } from '../../fixtures/psc.json';
 import AddressPage from '../../support/page_objects/generic/Address.js';
+import ChangePscPage from '../../support/page_objects/ChangePscPage.js';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const appointPSC02Page = new PscAppointment();
 const pscLandingPage = new PSCLandingPage();
-const changeLegalEntityPsc = new ChangeLegalEntityPsc();
+const changeLegalEntityPsc = new ChangePscPage();
 const addressPage = new AddressPage();
+const invalidCharacter = "`";
 
 
 describe('Change of a relevant legal entity with significant control (PSC) details - PSC05', () => {
@@ -36,7 +37,7 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         appointPSC02Page.clickCompanyOverview();
     })
 
-    it('File successful PSC05', () => {
+    it('PSC05 - Check sections first without and then with error messages present. No submission submitted', () => {
         // Go to PSC05
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc05();
@@ -45,26 +46,35 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         changeLegalEntityPsc.selectPscToEdit(rle_psc_name);
         changeLegalEntityPsc.proceedPastPreFilingScreen();
 
-        // PSC05
-        changeLegalEntityPsc.expandPscNameSection();
+        // PSC name
+        changeLegalEntityPsc.changePscName();
+        // Initial check after opening section
         cy.accessibilityCheck();
-        changeLegalEntityPsc.closePscNameSection();
+        changeLegalEntityPsc.enterCorporateName(invalidCharacter);
 
+        // Service Address
         addressPage.changeServiceAddressLink();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.enterAddressManually();
+        addressPage.enterServiceAddressManually();
         cy.accessibilityCheck();
-        addressPage.cancelServiceAddressChange();
+        addressPage.enterInvalidServiceAddress(invalidCharacter)
+        .serviceAddressContinue();
+        cy.accessibilityCheck();
 
+        // Entity details
         changeLegalEntityPsc.expandEntityDetailsSection();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.closeEntityDetailsSection();
-
-        changeLegalEntityPsc.expandNatureOfControlSection();
+        changeLegalEntityPsc.enterEntityDetails(invalidCharacter, invalidCharacter);
         cy.accessibilityCheck();
-        changeLegalEntityPsc.closeNatureOfControlSection();
+
+        // Nature of Control
+        changeLegalEntityPsc.changeNatureOfControl();
+        cy.accessibilityCheck();
+        changeLegalEntityPsc.selectInvalidNatureOfControlCombination();
 
         // Date of change and register entry date sections are already expanded
+        // As invalid changes have been made, ensure the submission button is disabled
+        cy.checkSubmitIsDisabled();
         cy.accessibilityCheck();
 
     })

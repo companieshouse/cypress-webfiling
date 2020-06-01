@@ -3,7 +3,7 @@ import OfficerAppointment from "./OfficerAppointment";
 class PscAppointment extends OfficerAppointment {
 
     enterCorporateName(corporateName) {
-        cy.get('#corporate-name').type(corporateName);
+        cy.get('#corporate-name').clear().type(corporateName);
         cy.get('#corporate-name-container-continue').click();
     }
 

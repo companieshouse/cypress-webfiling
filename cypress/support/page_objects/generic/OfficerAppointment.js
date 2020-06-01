@@ -8,10 +8,10 @@ const addressPage = new AddressPage();
 class OfficerAppointment extends BasePage {
 
     enterName(title, firstName, middleName, lastName) {
-        cy.get('#Title').type(title);
-        cy.get('#Forename').type(firstName);
-        cy.get('#OtherForenames').type(middleName);
-        cy.get('#Surname').type(lastName);
+        cy.get('#Title').clear().type(title);
+        cy.get('#Forename').clear().type(firstName);
+        cy.get('#OtherForenames').clear().type(middleName);
+        cy.get('#Surname').clear().type(lastName);
         cy.get('#name-container-continue').click();
     }
 
