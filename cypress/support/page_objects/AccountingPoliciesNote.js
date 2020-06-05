@@ -1,41 +1,40 @@
 import BalanceSheetNotes from "./generic/BalanceSheetNotes";
 
-const testString = "Test";
 
 class AccountingPoliciesNote extends BalanceSheetNotes {
 
-    enterBasisOfAccounts() {
-        cy.get('textarea[id$=".basisOfAccounts"]').clear().type(testString);
+    enterBasisOfAccounts(basis) {
+        cy.get('textarea[id$=".basisOfAccounts"]').clear().type(basis);
         return this;
     }
 
-    enterTurnover() {
+    enterTurnover(turnover) {
         this.checkTextBoxIsOpen('textarea[id$=".turnover"]', '#turnoverHeading');
-        cy.get('textarea[id$=".turnover"]').clear().type(testString);
+        cy.get('textarea[id$=".turnover"]').clear().type(turnover);
         return this;
     }
 
-    enterTangibleAssetsDepreciation() {
+    enterTangibleAssetsDepreciation(depreciation) {
         this.checkTextBoxIsOpen('textarea[id$=".tangibleAssetsDepreciation"]', '#tangibleAssetsDepreciationHeading');
-        cy.get('textarea[id$=".tangibleAssetsDepreciation"]').clear().type(testString);
+        cy.get('textarea[id$=".tangibleAssetsDepreciation"]').clear().type(depreciation);
         return this;
     }
 
-    enterIntangibleAssetsAmortisation() {
+    enterIntangibleAssetsAmortisation(amortisation) {
         this.checkTextBoxIsOpen('textarea[id$=".intangibleAssetsAmortisation"]', '#intangibleAssetsAmortisationHeading');
-        cy.get('textarea[id$=".intangibleAssetsAmortisation"]').clear().type(testString);
+        cy.get('textarea[id$=".intangibleAssetsAmortisation"]').clear().type(amortisation);
         return this;
     }
 
-    enterValuationInformation() {
+    enterValuationInformation(valuation) {
         this.checkTextBoxIsOpen('textarea[id$=".valuation"]', '#valuationHeading');
-        cy.get('textarea[id$=".valuation"]').clear().type(testString);
+        cy.get('textarea[id$=".valuation"]').clear().type(valuation);
         return this;
     }
 
-    enterOtherPolicies() {
+    enterOtherPolicies(otherPolicies) {
         this.checkTextBoxIsOpen('textarea[id$=".note.text"]', '#textHeading');
-        cy.get('textarea[id$=".note.text"]').clear().type(testString);
+        cy.get('textarea[id$=".note.text"]').clear().type(otherPolicies);
         return this;
     }
 

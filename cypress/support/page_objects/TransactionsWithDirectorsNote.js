@@ -1,4 +1,5 @@
 import BalanceSheetNotes from "./generic/BalanceSheetNotes";
+const invalidCharacter = "`"
 
 class TransactionsWithDirectorsNote extends BalanceSheetNotes {
 
@@ -11,6 +12,10 @@ class TransactionsWithDirectorsNote extends BalanceSheetNotes {
         cy.get('input[id$="repayments"]').clear().type(repayments);
         cy.get('input[id$="addTransaction"]').click().wait(3000);
         cy.accessibilityCheck();
+        return this;
+    }
+    addInvalidTransaction() {
+        this.addTransaction(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
         return this;
     }
 

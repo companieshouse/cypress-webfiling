@@ -21,6 +21,8 @@ const calledUpShareCapitalNote = new CalledUpShareCapitalNote();
 const accountingPoliciesNote = new AccountingPoliciesNote();
 const transactionsWithDirectorsNote = new TransactionsWithDirectorsNote();
 const submissionConfirmation = new SubmissionConfirmationPage();
+const invalidCharacter = "`";
+const testString = "Test";
 
 describe('File Company Accounts', () => {
     beforeEach('Select Accounts from overview', () => {
@@ -95,12 +97,12 @@ describe('File Company Accounts', () => {
         // Accounting policies note
         abbreviatedBalanceSheet.openAccountingPoliciesNote();
         cy.accessibilityCheck();
-        accountingPoliciesNote.enterBasisOfAccounts()
-        .enterTurnover()
-        .enterTangibleAssetsDepreciation()
-        .enterIntangibleAssetsAmortisation()
-        .enterValuationInformation()
-        .enterOtherPolicies();
+        accountingPoliciesNote.enterBasisOfAccounts(testString)
+            .enterTurnover(testString)
+            .enterTangibleAssetsDepreciation(testString)
+            .enterIntangibleAssetsAmortisation(testString)
+            .enterValuationInformation(testString)
+            .enterOtherPolicies(testString);
         cy.accessibilityCheck();
         accountingPoliciesNote.saveNote();
         cy.accessibilityCheck();
@@ -137,5 +139,70 @@ describe('File Company Accounts', () => {
         cy.visit('/profile');
     })
 
+    it('Check Abbreviated Accounts screens with error messages', () => {
+        accountsLandingPage.fileAbbreviatedAccounts();
+        // Check the Abbreviated Accounts landing page
+        cy.accessibilityCheck();
+        // Proceed past micro-entity accounts pre-filing page
+        accountsLandingPage.proceedPastPreFilingScreen();
+        cy.accessibilityCheck();
+        //Populate necessary fields of balance sheet
+        abbreviatedBalanceSheet.enterCalledUpShareCapitalNotPaid(invalidCharacter, invalidCharacter)
+            // Some "Invalid" method's parameters are hidden in the page object for ease of reading the code here.
+            // They enter the invalid character into all fields that are not free text in order to fire error messages 
+            .enterInvalidFixedAssets()
+            .enterInvalidCurrentAssets()
+            .enterInvalidCurrentAssetsLiabilities()
+            .enterInvalidTotalNetAssets()
+            .enterInvalidCapitalAndReserves()
+            .enterApprovingDirector(invalidCharacter);
+        cy.accessibilityCheck();
+        // Save the form to fire the error messages. 
+        abbreviatedBalanceSheet.validateBalanceSheetAndContinue();
+        // Check accessibility of the errors here then check the notes balance sheet notes.
+        cy.accessibilityCheck();
 
+        //Intangible assests note
+        abbreviatedBalanceSheet.openIntangibleAssetsNote();
+        intangibleAssetsFixedNote.enterInvalidCost()
+            .enterInvalidAmortisation()
+            .saveNote();
+        cy.accessibilityCheck();
+        intangibleAssetsFixedNote.cancelNote();
+
+        // Tangible assets note
+        abbreviatedBalanceSheet.openTangibleAssetsNote();
+        cy.accessibilityCheck();
+        tangibleAssetsFixedNote.enterInvalidCost()
+            .saveNote();
+        cy.accessibilityCheck();
+        tangibleAssetsFixedNote.cancelNote();
+
+        // Debtors note
+        abbreviatedBalanceSheet.openDebtorsNote();
+        cy.accessibilityCheck();
+        debtorsNote.enterDebtorsInformation(invalidCharacter, invalidCharacter)
+            .saveNote();
+        cy.accessibilityCheck();
+        debtorsNote.cancelNote();
+
+        // Called up share capital note
+        abbreviatedBalanceSheet.openCalledUpShareCapitalNote();
+        cy.accessibilityCheck();
+        calledUpShareCapitalNote.addInvalidShareClass();
+        cy.accessibilityCheck();
+        calledUpShareCapitalNote.cancelNote();
+        cy.accessibilityCheck();
+
+        // Transactions with directors note
+        abbreviatedBalanceSheet.openTransactionsWithDirectorsNote();
+        cy.accessibilityCheck();
+        transactionsWithDirectorsNote.addInvalidTransaction();
+        cy.accessibilityCheck();
+        transactionsWithDirectorsNote.cancelNote();
+        // Save the form to fire the error messages. 
+        abbreviatedBalanceSheet.validateBalanceSheetAndContinue();
+        cy.accessibilityCheck();
+
+    })
 })

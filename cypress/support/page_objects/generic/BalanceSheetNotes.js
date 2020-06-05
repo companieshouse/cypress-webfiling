@@ -1,3 +1,4 @@
+const invalidCharacter = "`";
 
 class BalanceSheetNotes {
 
@@ -11,13 +12,18 @@ class BalanceSheetNotes {
 
     }
 
+    enterInvalidCost() {
+        this.enterCost(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        return this;
+    }
+
     enterNoteText(text) {
     cy.get('textarea[id$="note.text"]').clear().type(text);
     return this;
     }
 
     cancelNote() {
-        cy.get('input[id="notePage.cancel"]').click().wait(3000);
+        cy.get('input[id$="notePage.cancel"]').click().wait(3000);
     }
 
     saveNote() {
