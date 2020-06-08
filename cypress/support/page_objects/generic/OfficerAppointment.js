@@ -1,8 +1,7 @@
 import BasePage from "./BasePage";
 import AddressPage from "./Address";
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
-// Constants
-const invalidCharacter = "`";
 const addressPage = new AddressPage();
 
 class OfficerAppointment extends BasePage {
@@ -53,20 +52,15 @@ class OfficerAppointment extends BasePage {
     }
 
     invalidEntryForNameFields() {
-        cy.get('#Title').type(invalidCharacter);
-        cy.get('#OtherForenames').type(invalidCharacter);
+        cy.get('#Title').type(invalid_character);
+        cy.get('#OtherForenames').type(invalid_character);
         return this;
     }
 
-    enterInvalidCharacterForCorrespondenceAddress() {
-
-        return this;
-    }
-
-    enterInvalidCharacterForHomeAddress() {
-        cy.get('#residential-address-postcode').type(invalidCharacter);
-        cy.get('#residential-address-thoroughfare').type(invalidCharacter);
-        cy.get('#residential-address-county').type(invalidCharacter);
+    enterinvalidCharacterForHomeAddress() {
+        cy.get('#residential-address-postcode').type(invalid_character);
+        cy.get('#residential-address-thoroughfare').type(invalid_character);
+        cy.get('#residential-address-county').type(invalid_character);
         return this;
     }
     

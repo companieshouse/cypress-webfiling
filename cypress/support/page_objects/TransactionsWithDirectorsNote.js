@@ -1,5 +1,5 @@
 import BalanceSheetNotes from "./generic/BalanceSheetNotes";
-const invalidCharacter = "`"
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 class TransactionsWithDirectorsNote extends BalanceSheetNotes {
 
@@ -15,7 +15,7 @@ class TransactionsWithDirectorsNote extends BalanceSheetNotes {
         return this;
     }
     addInvalidTransaction() {
-        this.addTransaction(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        this.addTransaction(invalid_character, invalid_character, invalid_character, invalid_character, invalid_character);
         return this;
     }
 

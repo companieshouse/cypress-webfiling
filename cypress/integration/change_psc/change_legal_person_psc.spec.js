@@ -5,6 +5,7 @@ import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import { orp_psc_name } from '../../fixtures/psc.json';
 import AddressPage from '../../support/page_objects/generic/Address.js';
 import ChangePscPage from '../../support/page_objects/ChangePscPage.js';
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
@@ -12,8 +13,6 @@ const appointPSC03Page = new PscAppointment();
 const pscLandingPage = new PSCLandingPage();
 const changeLegalPersonPsc = new ChangePscPage();
 const addressPage = new AddressPage();
-const invalidCharacter = "`";
-
 
 describe('Change of a legal person with significant control  - PSC06', () => {
     beforeEach(() => {
@@ -48,7 +47,7 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         // PSC name
         changeLegalPersonPsc.changePscName()
         cy.accessibilityCheck();
-        changeLegalPersonPsc.enterCorporateName(invalidCharacter);
+        changeLegalPersonPsc.enterCorporateName(invalid_character);
         cy.accessibilityCheck();
 
         // Service Address
@@ -56,14 +55,14 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         cy.accessibilityCheck();
         addressPage.enterServiceAddressManually();
         cy.accessibilityCheck();
-        addressPage.enterInvalidServiceAddress(invalidCharacter)
+        addressPage.enterInvalidServiceAddress(invalid_character)
         .serviceAddressContinue();
         cy.accessibilityCheck();
 
         // Entity details
         changeLegalPersonPsc.expandEntityDetailsSection();
         cy.accessibilityCheck();
-        changeLegalPersonPsc.enterEntityDetails(invalidCharacter, invalidCharacter);
+        changeLegalPersonPsc.enterEntityDetails(invalid_character, invalid_character);
         cy.accessibilityCheck();
 
         // Nature of Control

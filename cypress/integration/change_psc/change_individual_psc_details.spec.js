@@ -3,13 +3,13 @@ import AllFormsPage from '../../support/page_objects/AllformsPage'
 import AppointPSC01Page from '../../support/page_objects/AppointPSC01Page';
 import AddressPage from '../../support/page_objects/generic/Address.js';
 import ChangePscPage from '../../support/page_objects/ChangePscPage';
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const appointPSC01Page = new AppointPSC01Page();
 const allForms = new AllFormsPage();
 const psc04Page = new ChangePscPage();
 const addressPage = new AddressPage();
-const invalidCharacter = "`";
 
 describe('Change of person with significant control (PSC) details', () => {
     beforeEach(() => {
@@ -51,13 +51,13 @@ describe('Change of person with significant control (PSC) details', () => {
         // Initial check after opening section
         cy.accessibilityCheck();
         //Enter invalid characters to fire errors
-        psc04Page.enterName(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        psc04Page.enterName(invalid_character, invalid_character, invalid_character, invalid_character);
         cy.accessibilityCheck();
 
         // Nationality
         psc04Page.changePscNationality();
         cy.accessibilityCheck();
-        psc04Page.enterNationality(invalidCharacter);
+        psc04Page.enterNationality(invalid_character);
         cy.accessibilityCheck();
 
         // Service Address
@@ -65,7 +65,7 @@ describe('Change of person with significant control (PSC) details', () => {
         cy.accessibilityCheck();
         addressPage.enterServiceAddressManually();
         cy.accessibilityCheck();
-        addressPage.enterInvalidServiceAddress(invalidCharacter)
+        addressPage.enterInvalidServiceAddress(invalid_character)
         .serviceAddressContinue();
         cy.accessibilityCheck();
 
@@ -76,14 +76,14 @@ describe('Change of person with significant control (PSC) details', () => {
         cy.accessibilityCheck();
         addressPage.enterResidentialAddressManually();
         cy.accessibilityCheck();
-        addressPage.enterInvalidResidentialAddress(invalidCharacter)
+        addressPage.enterInvalidResidentialAddress(invalid_character)
         .residentialAddressContinue();
         cy.accessibilityCheck();
 
         //Country of Residence
         psc04Page.changeCountryOfResidence();
         cy.accessibilityCheck();
-        psc04Page.enterCountryOfResidence(invalidCharacter);
+        psc04Page.enterCountryOfResidence(invalid_character);
 
         //Nature of Control
         psc04Page.changeNatureOfControl();

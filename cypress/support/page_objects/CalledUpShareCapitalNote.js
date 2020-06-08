@@ -1,6 +1,5 @@
 import BalanceSheetNotes from "./generic/BalanceSheetNotes";
-
-const invalidCharacter = "`";
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 class CalledUpShareCapitalNote extends BalanceSheetNotes {
 
@@ -18,7 +17,7 @@ class CalledUpShareCapitalNote extends BalanceSheetNotes {
     }
 
     addInvalidShareClass() {
-        this.addShareClass(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        this.addShareClass(invalid_character, invalid_character, invalid_character, invalid_character);
         return this;
     }
 

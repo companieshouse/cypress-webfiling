@@ -3,13 +3,13 @@ import AllFormsPage from '../../support/page_objects/AllformsPage'
 import DirectorAndSecretariesPage from '../../support/page_objects/DirectorsAndSecretariesPage'
 import GenericPreFilingPage from '../../support/page_objects/generic/GenericPreFilingPage'
 import ChangeOfficerDetailsPage from '../../support/page_objects/ChangeOfficerDetailsPage';
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const directorAndSecretaries = new DirectorAndSecretariesPage();
 const changeOfficerDetailsPage = new ChangeOfficerDetailsPage();
 
-const invalidCharacter = '`';
 
 describe('Change director details - CH01', () => {
     beforeEach('Go to CH01 form', () => {
@@ -40,22 +40,22 @@ describe('Change director details - CH01', () => {
         // These methods first check the individual sections before making changes. They then enter
         // invalid data into fields to check the accessibility of the error messages displayed.
 
-        changeOfficerDetailsPage.changeOfficerName(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        changeOfficerDetailsPage.changeOfficerName(invalid_character, invalid_character, invalid_character, invalid_character);
         cy.accessibilityCheck();
 
-        changeOfficerDetailsPage.changeNationality(invalidCharacter);
+        changeOfficerDetailsPage.changeNationality(invalid_character);
         cy.accessibilityCheck();
 
-        changeOfficerDetailsPage.changeOccupation(invalidCharacter);
+        changeOfficerDetailsPage.changeOccupation(invalid_character);
         cy.accessibilityCheck();
 
-        changeOfficerDetailsPage.enterInvalidCorrespondenceAddress(invalidCharacter);
+        changeOfficerDetailsPage.enterInvalidCorrespondenceAddress(invalid_character);
         cy.accessibilityCheck();
         
-        changeOfficerDetailsPage.enterInvalidResidentialAddress(invalidCharacter);
+        changeOfficerDetailsPage.enterInvalidResidentialAddress(invalid_character);
         cy.accessibilityCheck();
         
-        changeOfficerDetailsPage.changeCountryOfResidence(invalidCharacter);
+        changeOfficerDetailsPage.changeCountryOfResidence(invalid_character);
         cy.accessibilityCheck();
 
         // Apply today's date for date of change

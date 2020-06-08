@@ -9,6 +9,8 @@ import DebtorsNote from '../../support/page_objects/DebtorsNote';
 import CalledUpShareCapitalNote from '../../support/page_objects/CalledUpShareCapitalNote';
 import AccountingPoliciesNote from '../../support/page_objects/AccountingPoliciesNote';
 import TransactionsWithDirectorsNote from '../../support/page_objects/TransactionsWithDirectorsNote';
+import { invalid_character } from '../../fixtures/test_inputs.json';
+import { text_string } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const accountsLandingPage = new AccountsLandingPage();
@@ -21,8 +23,6 @@ const calledUpShareCapitalNote = new CalledUpShareCapitalNote();
 const accountingPoliciesNote = new AccountingPoliciesNote();
 const transactionsWithDirectorsNote = new TransactionsWithDirectorsNote();
 const submissionConfirmation = new SubmissionConfirmationPage();
-const invalidCharacter = "`";
-const testString = "Test";
 
 describe('File Company Accounts', () => {
     beforeEach('Select Accounts from overview', () => {
@@ -97,12 +97,12 @@ describe('File Company Accounts', () => {
         // Accounting policies note
         abbreviatedBalanceSheet.openAccountingPoliciesNote();
         cy.accessibilityCheck();
-        accountingPoliciesNote.enterBasisOfAccounts(testString)
-            .enterTurnover(testString)
-            .enterTangibleAssetsDepreciation(testString)
-            .enterIntangibleAssetsAmortisation(testString)
-            .enterValuationInformation(testString)
-            .enterOtherPolicies(testString);
+        accountingPoliciesNote.enterBasisOfAccounts(text_string)
+            .enterTurnover(text_string)
+            .enterTangibleAssetsDepreciation(text_string)
+            .enterIntangibleAssetsAmortisation(text_string)
+            .enterValuationInformation(text_string)
+            .enterOtherPolicies(text_string);
         cy.accessibilityCheck();
         accountingPoliciesNote.saveNote();
         cy.accessibilityCheck();
@@ -147,7 +147,7 @@ describe('File Company Accounts', () => {
         accountsLandingPage.proceedPastPreFilingScreen();
         cy.accessibilityCheck();
         //Populate necessary fields of balance sheet
-        abbreviatedBalanceSheet.enterCalledUpShareCapitalNotPaid(invalidCharacter, invalidCharacter)
+        abbreviatedBalanceSheet.enterCalledUpShareCapitalNotPaid(invalid_character, invalid_character)
             // Some "Invalid" method's parameters are hidden in the page object for ease of reading the code here.
             // They enter the invalid character into all fields that are not free text in order to fire error messages 
             .enterInvalidFixedAssets()
@@ -155,7 +155,7 @@ describe('File Company Accounts', () => {
             .enterInvalidCurrentAssetsLiabilities()
             .enterInvalidTotalNetAssets()
             .enterInvalidCapitalAndReserves()
-            .enterApprovingDirector(invalidCharacter);
+            .enterApprovingDirector(invalid_character);
         cy.accessibilityCheck();
         // Save the form to fire the error messages. 
         abbreviatedBalanceSheet.validateBalanceSheetAndContinue();
@@ -181,7 +181,7 @@ describe('File Company Accounts', () => {
         // Debtors note
         abbreviatedBalanceSheet.openDebtorsNote();
         cy.accessibilityCheck();
-        debtorsNote.enterDebtorsInformation(invalidCharacter, invalidCharacter)
+        debtorsNote.enterDebtorsInformation(invalid_character, invalid_character)
             .saveNote();
         cy.accessibilityCheck();
         debtorsNote.cancelNote();

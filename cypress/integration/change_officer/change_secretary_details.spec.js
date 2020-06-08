@@ -3,13 +3,12 @@ import AllFormsPage from '../../support/page_objects/AllformsPage'
 import DirectorAndSecretariesPage from '../../support/page_objects/DirectorsAndSecretariesPage'
 import GenericPreFilingPage from '../../support/page_objects/generic/GenericPreFilingPage';
 import ChangeOfficerDetailsPage from '../../support/page_objects/ChangeOfficerDetailsPage';
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
 const directorAndSecretaries = new DirectorAndSecretariesPage();
 const changeOfficerDetailsPage = new ChangeOfficerDetailsPage();
-
-const invalidCharacter = '`';
 
 describe('Change secretary details - CH03', () => {
     beforeEach('Go to CH03 form', () => {
@@ -41,10 +40,10 @@ describe('Change secretary details - CH03', () => {
         // These methods first check the individual sections before making changes. They then enter
         // invalid data into fields to check the accessibility of the error messages displayed.
 
-        changeOfficerDetailsPage.changeOfficerName(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        changeOfficerDetailsPage.changeOfficerName(invalid_character, invalid_character, invalid_character, invalid_character);
         cy.accessibilityCheck();
 
-        changeOfficerDetailsPage.enterInvalidCorrespondenceAddress(invalidCharacter);
+        changeOfficerDetailsPage.enterInvalidCorrespondenceAddress(invalid_character);
         cy.accessibilityCheck();
 
         // Apply today's date for date of change

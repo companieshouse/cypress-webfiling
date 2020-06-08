@@ -1,9 +1,8 @@
 import AccountsBalanceSheet from "./generic/AccountsBalanceSheet";
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
-const invalidCharacter = "`";
 
 class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
-
 
     // Inputs populate the "Total fixed assets" calculation fields
     enterFixedAssets(previousIntangibleAssets, currentIntangibleAssets, previousTangibleAssets,
@@ -18,8 +17,8 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
     }
 
     enterInvalidFixedAssets() {
-        this.enterFixedAssets(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter,
-            invalidCharacter, invalidCharacter);
+        this.enterFixedAssets(invalid_character, invalid_character, invalid_character, invalid_character,
+            invalid_character, invalid_character);
         return this;
     }
 
@@ -38,8 +37,8 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
     }
 
     enterInvalidCurrentAssets() {
-        this.enterCurrentAssets(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter,
-            invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        this.enterCurrentAssets(invalid_character, invalid_character, invalid_character, invalid_character,
+            invalid_character, invalid_character, invalid_character, invalid_character);
         return this;
     }
 
@@ -53,7 +52,7 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
         return this;
     }
     enterInvalidCurrentAssetsLiabilities() {
-        this.enterCurrentAssetsLiabilities(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        this.enterCurrentAssetsLiabilities(invalid_character, invalid_character, invalid_character, invalid_character);
         return this;
     }
 
@@ -71,8 +70,8 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
     }
 
     enterInvalidTotalNetAssets() {
-        this.enterTotalNetAssets(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter,
-            invalidCharacter, invalidCharacter);
+        this.enterTotalNetAssets(invalid_character, invalid_character, invalid_character, invalid_character,
+            invalid_character, invalid_character);
         return this;
     }
 
@@ -93,8 +92,8 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
     }
 
     enterInvalidCapitalAndReserves() {
-        this.enterCapitalAndReserves(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter,
-            invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        this.enterCapitalAndReserves(invalid_character, invalid_character, invalid_character, invalid_character,
+            invalid_character, invalid_character, invalid_character, invalid_character, invalid_character, invalid_character);
         return this;
     }
 

@@ -1,6 +1,5 @@
 import BalanceSheetNotes from "./generic/BalanceSheetNotes";
-
-const invalidCharacter =  "`";
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 class IntangibleAssetsFixedNote extends BalanceSheetNotes{
 
@@ -12,7 +11,7 @@ class IntangibleAssetsFixedNote extends BalanceSheetNotes{
     }
     
     enterInvalidAmortisation() {
-        this.enterAmortisation(invalidCharacter, invalidCharacter, invalidCharacter);
+        this.enterAmortisation(invalid_character, invalid_character, invalid_character);
         return this;
     }
 

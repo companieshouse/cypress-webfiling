@@ -5,6 +5,7 @@ import SubmissionConfirmationPage from '../../support/page_objects/SubmissionCon
 import AccountsReminderPage from '../../support/page_objects/AccountsReminderPage';
 import AllFormsPage from '../../support/page_objects/AllformsPage';
 import ChangeCorporateOfficerDetailsPage from '../../support/page_objects/ChangeCorporateOfficerDetailsPage';
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const appointCorporateDirectorPage = new AppointCorporateDirectorPage();
@@ -13,7 +14,6 @@ const accountsReminder = new AccountsReminderPage();
 const allFormsPage = new AllFormsPage();
 const directorAndSecretariesPage = new DirectorAndSecretariesPage();
 const changeCorporateOfficerDetailsPage = new ChangeCorporateOfficerDetailsPage();
-const invalidCharacter = '`';
 
 describe('Change corporate director details - CH02', () => {
     beforeEach('Appoint a corporate director prior to amending details', () => {
@@ -63,7 +63,7 @@ describe('Change corporate director details - CH02', () => {
         // enter blank fields to fire errors
         changeCorporateOfficerDetailsPage.changeCorporateOfficerName(" ");
         cy.accessibilityCheck();
-        changeCorporateOfficerDetailsPage.enterInvalidAddress("`");
+        changeCorporateOfficerDetailsPage.enterInvalidAddress(invalid_character);
         cy.accessibilityCheck();
         changeCorporateOfficerDetailsPage.enterInvalidCompanyDetails();
         // As invalid changes have been made, ensure the submission button is disabled

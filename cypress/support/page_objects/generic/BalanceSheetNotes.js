@@ -1,4 +1,4 @@
-const invalidCharacter = "`";
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 class BalanceSheetNotes {
 
@@ -13,7 +13,7 @@ class BalanceSheetNotes {
     }
 
     enterInvalidCost() {
-        this.enterCost(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        this.enterCost(invalid_character, invalid_character, invalid_character, invalid_character, invalid_character);
         return this;
     }
 

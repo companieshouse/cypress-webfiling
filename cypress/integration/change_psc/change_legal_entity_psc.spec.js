@@ -5,6 +5,7 @@ import PSCLandingPage from '../../support/page_objects/PSCLandingPage';
 import { rle_psc_name } from '../../fixtures/psc.json';
 import AddressPage from '../../support/page_objects/generic/Address.js';
 import ChangePscPage from '../../support/page_objects/ChangePscPage.js';
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const allForms = new AllFormsPage();
@@ -12,7 +13,6 @@ const appointPSC02Page = new PscAppointment();
 const pscLandingPage = new PSCLandingPage();
 const changeLegalEntityPsc = new ChangePscPage();
 const addressPage = new AddressPage();
-const invalidCharacter = "`";
 
 
 describe('Change of a relevant legal entity with significant control (PSC) details - PSC05', () => {
@@ -50,21 +50,21 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         changeLegalEntityPsc.changePscName();
         // Initial check after opening section
         cy.accessibilityCheck();
-        changeLegalEntityPsc.enterCorporateName(invalidCharacter);
+        changeLegalEntityPsc.enterCorporateName(invalid_character);
 
         // Service Address
         addressPage.changeServiceAddressLink();
         cy.accessibilityCheck();
         addressPage.enterServiceAddressManually();
         cy.accessibilityCheck();
-        addressPage.enterInvalidServiceAddress(invalidCharacter)
+        addressPage.enterInvalidServiceAddress(invalid_character)
         .serviceAddressContinue();
         cy.accessibilityCheck();
 
         // Entity details
         changeLegalEntityPsc.expandEntityDetailsSection();
         cy.accessibilityCheck();
-        changeLegalEntityPsc.enterEntityDetails(invalidCharacter, invalidCharacter);
+        changeLegalEntityPsc.enterEntityDetails(invalid_character, invalid_character);
         cy.accessibilityCheck();
 
         // Nature of Control
