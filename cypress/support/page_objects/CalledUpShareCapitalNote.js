@@ -1,5 +1,7 @@
 import BalanceSheetNotes from "./generic/BalanceSheetNotes";
 
+const invalidCharacter = "`";
+
 class CalledUpShareCapitalNote extends BalanceSheetNotes {
 
     addShareClass(shareClass, shareValue, currentNumShares, previousNumShares) {
@@ -12,6 +14,11 @@ class CalledUpShareCapitalNote extends BalanceSheetNotes {
         cy.get('input[id$=".previousNumberOfShares"]').clear().type(previousNumShares);
         cy.get('input[id$="note.addShare"]').click().wait(3000);
         cy.accessibilityCheck();
+        return this;
+    }
+
+    addInvalidShareClass() {
+        this.addShareClass(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
         return this;
     }
 

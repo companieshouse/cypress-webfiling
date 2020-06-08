@@ -1,5 +1,7 @@
 import AccountsBalanceSheet from "./generic/AccountsBalanceSheet";
 
+const invalidCharacter = "`";
+
 class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
 
 
@@ -12,6 +14,12 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
         cy.get('input[id$="previousTangible"]').clear().type(previousTangibleAssets);
         cy.get('input[id$="fixedAssetsControl.currentInvestments"]').clear().type(currentInvestments);
         cy.get('input[id$="fixedAssetsControl.previousInvestments"]').clear().type(previousInvestments);
+        return this;
+    }
+
+    enterInvalidFixedAssets() {
+        this.enterFixedAssets(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter,
+            invalidCharacter, invalidCharacter);
         return this;
     }
 
@@ -29,6 +37,12 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
         return this;
     }
 
+    enterInvalidCurrentAssets() {
+        this.enterCurrentAssets(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter,
+            invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
+        return this;
+    }
+
     // Input values into the "Prepayments and accrued income" and "Creditors: amounts falling due within one year" 
     // fields. Calculates a value for "Net current assets (liabilities)" and "Total assets less current liabilities"
     enterCurrentAssetsLiabilities(currentPrepayments, previousPrepayments, currentCreditors, previousCreditors) {
@@ -36,6 +50,10 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
         cy.get('input[id$="previousPrepaymentsAndAccruedIncome"]').clear().type(previousPrepayments);
         cy.get('input[id$="currentCreditorsDueWithinOneYear"]').clear().type(currentCreditors);
         cy.get('input[id$="previousCreditorsDueWithinOneYear"]').clear().type(previousCreditors);
+        return this;
+    }
+    enterInvalidCurrentAssetsLiabilities() {
+        this.enterCurrentAssetsLiabilities(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
         return this;
     }
 
@@ -52,6 +70,12 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
         return this;
     }
 
+    enterInvalidTotalNetAssets() {
+        this.enterTotalNetAssets(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter,
+            invalidCharacter, invalidCharacter);
+        return this;
+    }
+
     enterCapitalAndReserves(currentCalledUpShareCapital, previousCalledUpShareCapital, currentSharePremiumAccount,
         previousSharePremiumAccount, currentRevaluationReserve, previousRevaluationReserve, currentOtherReserves,
         previousOtherReserves, currentProfitAndLossAccount, previousProfitAndLossAccount) {
@@ -65,6 +89,12 @@ class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
         cy.get('input[id$="previousOtherReserves"]').clear().type(previousOtherReserves);
         cy.get('input[id$="currentProfitAndLossAccount"]').clear().type(currentProfitAndLossAccount);
         cy.get('input[id$="previousProfitAndLossAccount"]').clear().type(previousProfitAndLossAccount);
+        return this;
+    }
+
+    enterInvalidCapitalAndReserves() {
+        this.enterCapitalAndReserves(invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter,
+            invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter, invalidCharacter);
         return this;
     }
 
