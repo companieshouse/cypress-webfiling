@@ -1,5 +1,6 @@
 import BasePage from "./generic/BasePage";
 import AddressPage from "./generic/Address";
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const addressPage = new AddressPage();
 
@@ -19,12 +20,12 @@ class ChangeCorporateOfficerDetailsPage extends BasePage {
         return this;
     }
 
-    enterInvalidAddress(invalidCharacter) {
+    enterInvalidAddress(invalid_character) {
         cy.get('#company-address-container-change').click();
         //Check after opening the section
         cy.accessibilityCheck();
         cy.get('#service-address-postcode-Lookup').click();
-        addressPage.enterInvalidServiceAddress(invalidCharacter)
+        addressPage.enterInvalidServiceAddress(invalid_character)
         .companyAddressContinue();
         return this;
     }

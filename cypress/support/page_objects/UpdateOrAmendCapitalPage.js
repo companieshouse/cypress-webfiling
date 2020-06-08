@@ -1,6 +1,5 @@
 import ShareCapital from "./generic/ShareCapital";
-
-const invalidCharacter = "`";
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 class UpdateOrAmendCapitalPage extends ShareCapital {
 
@@ -29,9 +28,9 @@ class UpdateOrAmendCapitalPage extends ShareCapital {
     enterInvalidInformationInFieldsAndCheck() {
         this.amendClassOfShare('Please select');
         cy.accessibilityCheck();
-        this.editNumberOfSharesAndNominalValue(invalidCharacter);
+        this.editNumberOfSharesAndNominalValue(invalid_character);
         cy.accessibilityCheck();
-        this.enterPrescribedParticulars(invalidCharacter);
+        this.enterPrescribedParticulars(invalid_character);
         cy.accessibilityCheck();
     }
 
