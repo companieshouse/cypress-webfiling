@@ -35,7 +35,7 @@ describe('File Company Accounts', () => {
         accountsLandingPage.fileAbbreviatedAccounts();
         // Check the Abbreviated Accounts landing page
         cy.accessibilityCheck();
-        // Proceed past micro-entity accounts pre-filing page
+        // Proceed past accounts pre-filing page
         accountsLandingPage.proceedPastPreFilingScreen();
         cy.accessibilityCheck();
         //Populate necessary fields of balance sheet
@@ -143,7 +143,7 @@ describe('File Company Accounts', () => {
         accountsLandingPage.fileAbbreviatedAccounts();
         // Check the Abbreviated Accounts landing page
         cy.accessibilityCheck();
-        // Proceed past micro-entity accounts pre-filing page
+        // Proceed past accounts pre-filing page
         accountsLandingPage.proceedPastPreFilingScreen();
         cy.accessibilityCheck();
         //Populate necessary fields of balance sheet
