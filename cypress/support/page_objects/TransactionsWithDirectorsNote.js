@@ -1,5 +1,5 @@
 import BalanceSheetNotes from "./generic/BalanceSheetNotes";
-import { invalid_character } from '../../fixtures/test_inputs.json';
+import { invalid_character } from '../../../fixtures/test_inputs.json'
 
 class TransactionsWithDirectorsNote extends BalanceSheetNotes {
 

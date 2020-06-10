@@ -1,5 +1,5 @@
 import AccountsBalanceSheet from "./generic/AccountsBalanceSheet";
-import { invalid_character } from '../../fixtures/test_inputs.json';
+import { invalid_character } from '../../../fixtures/test_inputs.json'
 
 
 class AbbreviatedBalanceSheet extends AccountsBalanceSheet {
