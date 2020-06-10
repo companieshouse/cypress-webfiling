@@ -1,5 +1,5 @@
 import ShareCapital from "./generic/ShareCapital";
-import { invalid_character } from '../../../fixtures/test_inputs.json';
+import { invalid_character } from "../../fixtures/test_inputs.json"; 
 
 class UpdateOrAmendCapitalPage extends ShareCapital {
 
