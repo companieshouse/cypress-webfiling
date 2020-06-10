@@ -1,4 +1,4 @@
-import { invalid_character } from '../../../fixtures/test_inputs.json'
+import { invalid_character } from '../../../fixtures/test_inputs.json';
 
 class BalanceSheetNotes {
 
