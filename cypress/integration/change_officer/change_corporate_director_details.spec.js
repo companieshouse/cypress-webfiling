@@ -5,7 +5,7 @@ import SubmissionConfirmationPage from '../../support/page_objects/SubmissionCon
 import AccountsReminderPage from '../../support/page_objects/AccountsReminderPage';
 import AllFormsPage from '../../support/page_objects/AllformsPage';
 import ChangeCorporateOfficerDetailsPage from '../../support/page_objects/ChangeCorporateOfficerDetailsPage';
-import { invalid_character } from '../fixtures/test_inputs.json';
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const appointCorporateDirectorPage = new AppointCorporateDirectorPage();
