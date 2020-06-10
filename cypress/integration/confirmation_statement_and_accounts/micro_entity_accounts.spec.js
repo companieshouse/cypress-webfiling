@@ -2,6 +2,7 @@ import CompanyOverviewPage from '../../support/page_objects/CompanyOverviewPage'
 import SubmissionConfirmationPage from '../../support/page_objects/SubmissionConfirmationPage';
 import AccountsLandingPage from '../../support/page_objects/AccountsLandingPage';
 import MicroEntityBalanceSheet from '../../support/page_objects/MicroEntityBalanceSheet';
+import { invalid_character } from '../../fixtures/test_inputs.json';
 
 const companyOverview = new CompanyOverviewPage();
 const accountsLandingPage = new AccountsLandingPage();
@@ -54,5 +55,24 @@ describe('File Company Accounts', () => {
         cy.accessibilityCheck();
         // Go back to company overview screen to exit the test
         cy.visit('/profile');
+    })
+
+    it('Successfully file Micro-entity accounts', () => {
+        accountsLandingPage.fileMicroEntityAccounts();
+        // Check the micro-entity accounts landing page
+        cy.accessibilityCheck();
+        // Proceed past micro-entity accounts pre-filing page
+        accountsLandingPage.proceedPastPreFilingScreen();
+        cy.accessibilityCheck();
+        //Populate fields of balance sheet with and invlid character
+        microEntityBalanceSheet.enterCalledUpShareCapitalNotPaid(invalid_character, invalid_character)
+            .enterTotalFixedAssets(invalid_character, invalid_character)
+            .enterTotalCurrentAssets(invalid_character, invalid_character)
+            .enterCapitalAndReserves(invalid_character, invalid_character)
+            .enterApprovingDirector(invalid_character)
+            .validateBalanceSheetAndContinue();
+        // Check the page with errors shown
+        cy.accessibilityCheck();
+
     })
 })
