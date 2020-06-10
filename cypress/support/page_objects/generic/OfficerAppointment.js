@@ -1,6 +1,6 @@
 import BasePage from "./BasePage";
 import AddressPage from "./Address";
-import { invalid_character } from '../../fixtures/test_inputs.json';
+import { invalid_character } from '../../../fixtures/test_inputs.json';
 
 const addressPage = new AddressPage();
 
