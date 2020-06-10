@@ -3,7 +3,7 @@
 // EW01/02/03 and EH01/02/03 all have common elements, so are contained in this one page object.
 
 import AddressPage from "./generic/Address";
-import { invalid_character } from '../../../fixtures/test_inputs.json'
+import { invalid_character } from '../../../fixtures/test_inputs.json';
 
 class ChangeLocationOfRegisters extends AddressPage {
 
