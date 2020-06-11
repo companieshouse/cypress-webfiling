@@ -53,7 +53,7 @@ describe('Change corporate director details - CH02', () => {
 
     })
 
-    it.only('CH02 - Check sections first without and then with error messages present. No submission submitted', () => {
+    it('CH02 - Check sections first without and then with error messages present. No submission submitted', () => {
         //Initial accessibility check without interacting wiht page
         cy.accessibilityCheck();
 

@@ -45,7 +45,7 @@ describe('Notification of a PSC statement', () => {
         cy.accessibilityCheck();
     })
 
-    it.only('PSC08 Error message validation', () => {
+    it('PSC08 Error message validation', () => {
         // Fire error messages and check their accessibility
 
         // No reason selected
