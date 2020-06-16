@@ -17,32 +17,51 @@ describe("Annual Return - AR01", () => {
         // Select Annual Return form from overview
         companyOverview.selectAllForms();
         allFormsPage.selectConfirmationStatementAndAccounts()
-        .selectAR01();
+            .selectAR01();
         // Check the AR01 landing page
         cy.accessibilityCheck();
+
         // Start the filing on the pre-filing page
         ar01Page.enterDateOfReturn("20/06/2016")
-        .proceedToFilingScreen();
+            .proceedToFilingScreen();
+    })
+
+    it('Test the accessibility of an Annual Return', () => {
         // Registered Address Details tab
-        cy.accessibilityCheck();   
+        cy.accessibilityCheck();
         ar01Page.confirmUpdates();
+
         // Location of Company Registers tab
         cy.accessibilityCheck();
         ar01Page.confirmUpdates();
+
         // Company Officers tab 
         cy.accessibilityCheck();
         ar01Page.confirmUpdates();
+
         // SIC tab
+        // Remove sic code to fire errors
         cy.accessibilityCheck();
-        ar01Page.confirmUpdates();
+        ar01Page.removeSicCode()
+        cy.accessibilityCheck();
+        // re-add sic code
+        ar01Page.addNewSicCode("85xxx - Education", "85200")
+            .confirmUpdates();
+
         // Capital tab
+        // Proceed without entering total aggregate amount unpaid
         cy.accessibilityCheck();
         ar01Page.goToAmountUnpaidSection()
-        .enterTotalAggAmountUnpaid(0)
-        .confirmUpdates();
-        // Shareholders tab
+            .confirmUpdates();
         cy.accessibilityCheck();
+        // Now add total aggregate amount unpaid
+        ar01Page.enterTotalAggAmountUnpaid(0)
+            .confirmUpdates();
+
+        // Shareholders tab
+        //cy.accessibilityCheck();
         ar01Page.confirmUpdates();
+
         // Submit tab
         cy.accessibilityCheck();
         ar01Page.submitAr01();
@@ -61,29 +80,5 @@ describe("Annual Return - AR01", () => {
         //Check Submission screen
         submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission and Payment");
         cy.accessibilityCheck();
-    })
-
-    it('Test the accessibility of an Annual Return', () => {
-        cs01LandingPage.changeDateOfStatementLink();
-        cy.accessibilityCheck();
-
-        cs01LandingPage.proceedWithFiling();
-        cy.accessibilityCheck();
-
-        cs01MainPage.openSections();
-        cy.accessibilityCheck();
-
-        // A total aggregate unpaid value must be provided in order to submit the form 
-        cs01MainPage.enterTotalAggregateAmountUnpaid(0).clickConfirmCheckbox()
-        .submitForm();
-
-        paymentSelectionPage.selectPaymentByAccount()
-        .enterPresenterID().enterPresenterAuthcode()
-        cy.accessibilityCheck();
-        paymentSelectionPage.continue();
-
-        //Check Submission screen
-        submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission and Payment");
-        cy.accessibilityCheck();    
     })
 })

@@ -27,11 +27,17 @@ describe("Confirmation statement - CS01", () => {
         cs01LandingPage.proceedWithFiling();
         cy.accessibilityCheck();
 
+        // Submit without entering required info to fire errors and check
+        cs01MainPage.clickConfirmCheckbox()
+        .submitForm();
+        cy.accessibilityCheck();
+
         cs01MainPage.openSections();
         cy.accessibilityCheck();
 
         // A total aggregate unpaid value must be provided in order to submit the form 
-        cs01MainPage.enterTotalAggregateAmountUnpaid(0).clickConfirmCheckbox()
+        cs01MainPage.enterTotalAggregateAmountUnpaid(0)
+        .clickConfirmCheckbox()
         .submitForm();
 
         paymentSelectionPage.selectPaymentByAccount()
