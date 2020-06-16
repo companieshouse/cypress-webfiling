@@ -43,7 +43,7 @@ class AR01Page extends BasePage {
     addNewSicCode(groupHeading, sicCode) {
         cy.get('.button').click();
         cy.get('select[id$=".sicClass"]').select(groupHeading);
-        cy.get('input[value=' + "'" +  sicCode + "']").click();
+        cy.get('input[value=' + "'" + sicCode + "']").click();
         cy.get('.leftAlignContainer > .buttonRight').click();
         return this;
     }

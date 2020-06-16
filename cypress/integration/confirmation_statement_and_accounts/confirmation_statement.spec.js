@@ -29,7 +29,7 @@ describe("Confirmation statement - CS01", () => {
 
         // Submit without entering required info to fire errors and check
         cs01MainPage.clickConfirmCheckbox()
-        .submitForm();
+            .submitForm();
         cy.accessibilityCheck();
 
         cs01MainPage.openSections();
@@ -37,16 +37,16 @@ describe("Confirmation statement - CS01", () => {
 
         // A total aggregate unpaid value must be provided in order to submit the form 
         cs01MainPage.enterTotalAggregateAmountUnpaid(0)
-        .clickConfirmCheckbox()
-        .submitForm();
+            .clickConfirmCheckbox()
+            .submitForm();
 
         paymentSelectionPage.selectPaymentByAccount()
-        .enterPresenterID().enterPresenterAuthcode()
+            .enterPresenterID().enterPresenterAuthcode()
         cy.accessibilityCheck();
         paymentSelectionPage.continue();
 
         //Check Submission screen
         submissionConfirmationPage.confirmHeadingContains("Confirmation of Submission and Payment");
-        cy.accessibilityCheck();    
+        cy.accessibilityCheck();
     })
 })
