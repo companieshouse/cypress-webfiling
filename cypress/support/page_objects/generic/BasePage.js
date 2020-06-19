@@ -23,6 +23,12 @@ class BasePage {
         return this;
     }
 
+    selectOriginalFormFilingDateAsToday() {
+        cy.selectTodaysDate("#day-select-1", "#month-select-1", "#year-select-1");
+        cy.get('#secondFilingQuestion-continue').click();
+        return this;
+    }
+
 }
 
 export default BasePage

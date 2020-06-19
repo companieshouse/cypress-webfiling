@@ -1,6 +1,6 @@
 import BasePage from "./BasePage";
 import AddressPage from "./Address";
-import { invalid_character } from  "../../../fixtures/test_inputs.json";
+
 
 const addressPage = new AddressPage();
 
@@ -49,19 +49,6 @@ class OfficerAppointment extends BasePage {
     expandHomeAddressDetails() {
         cy.get('#home-address-choice-manual-label').click();
         cy.get('#residential-address-manual-link').wait(2000).click();
-    }
-
-    invalidEntryForNameFields() {
-        cy.get('#Title').type(invalid_character);
-        cy.get('#OtherForenames').type(invalid_character);
-        return this;
-    }
-
-    enterinvalidCharacterForHomeAddress() {
-        cy.get('#residential-address-postcode').type(invalid_character);
-        cy.get('#residential-address-thoroughfare').type(invalid_character);
-        cy.get('#residential-address-county').type(invalid_character);
-        return this;
     }
     
     selectOfficer(elementId, officerName) {

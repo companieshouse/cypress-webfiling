@@ -46,7 +46,7 @@ describe('Appoint a secretary', () => {
 
     })
 
-    it.only('AP03 - Error message validation', () => {
+    it('AP03 - Error message validation', () => {
 
         secretaryDetailsPage.expandAll()
         .submitForm();
