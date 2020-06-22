@@ -35,6 +35,19 @@ class AR01Page extends BasePage {
         return this;
     }
 
+    removeSicCode() {
+        cy.contains('REMOVE').click();
+        return this;
+    }
+
+    addNewSicCode(groupHeading, sicCode) {
+        cy.get('.button').click();
+        cy.get('select[id$=".sicClass"]').select(groupHeading);
+        cy.get('input[value=' + "'" + sicCode + "']").click();
+        cy.get('.leftAlignContainer > .buttonRight').click();
+        return this;
+    }
+
     submitAr01() {
         cy.get('input[name$="sectionContent.submit"]').click();
     }
