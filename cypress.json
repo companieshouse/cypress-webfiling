@@ -18,5 +18,12 @@
   "pageLoadTimeout": 80000,
   "chromeWebSecurity": false,
   "video": true,
-  "projectId": "baijqb"
+  "projectId": "baijqb",
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/results",
+    "overwrite": false,
+    "html": false,
+    "json": true
+  }
 }

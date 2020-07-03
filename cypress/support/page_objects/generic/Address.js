@@ -123,10 +123,6 @@ class AddressPage extends BasePage {
         cy.get('#company-address-container-continue').click();
     }
 
-    serviceAddressContinue() {
-        cy.get('#service-address-container-continue').click();
-    }
-
     checkAddressByStreetName(streetName) {
         cy.get("input[id='ro-address-street']").should('have.value', streetName)
         return this;
