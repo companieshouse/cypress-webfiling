@@ -4,12 +4,16 @@
   "description": "Accessbility testing for Webfiling using Cypress.io",
   "main": "index.js",
   "scripts": {
-    "cy:test": "cypress run --browser chrome --headless",
+    "clean:reports": "rm -rf cypress/results/ cypress-tests-report.json TestReport/",
+    "precy:test": "npm run clean:reports && npm i && npm run lint",
+    "cy:test": "cypress run --browser chrome --headless || true",
+    "postcy:test": "npm run generate:html:report",
     "cy:open": "cypress open",
-    "precypress:open": "npm i & npm run lint",
-    "precypress:test": "npm run precypress:open",
     "lint": "esw cypress",
-    "cy:record": "cypress run --browser chrome --headless --record"
+    "cy:record": "cypress run --browser chrome --headless --record",
+    "merge:reports": "mochawesome-merge cypress/results/*.json > cypress-tests-report.json",
+    "create:html:report": "marge --reportDir TestReport cypress-tests-report.json",
+    "generate:html:report": "npm run merge:reports && npm run create:html:report"
   },
   "repository": {
     "type": "git",
@@ -35,6 +39,10 @@
     "cypress-plugin-retries": "^1.5.2",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-watch": "^6.0.1"
+    "eslint-watch": "^6.0.1",
+    "mocha": "^8.0.1",
+    "mochawesome": "^6.1.1",
+    "mochawesome-merge": "^4.1.0",
+    "mochawesome-report-generator": "^5.1.0"
   }
 }

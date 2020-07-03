@@ -73,6 +73,16 @@ It is also worth noting that you should specify the browser. As of cypress@3.6.0
 ```
 This is advisable as there have been issues using Electron.
 
+### Scripts
+The script `cy:test` will run all the spec files with a few additions.
+This will trigger the `precy:test` script which will remove all report artifacts from previous tests, install updates and run lint check.
+Once the regression has complete `postcy:test` will be executed which will gather all test reports produced by [mochawesome](https://www.npmjs.com/package/mochawesome)
+Mochawesome produces a test report for each spec file. Once complete we merge all the produced test files (Json), into one readable HTML file.
+
+
+###### NOTE:
+We have applied `|| true` to the `cy:test` script. This allows us to run the `post` script because the exit code will not be '0' while tests fail. This may be a concern for CI. See details [here](https://stackoverflow.com/questions/25292344/npm-posttest-doesnt-trigger-if-npm-test-fails)
+
 ### Accessibility
 This project relies upon the following package [cypress-axe](https://www.npmjs.com/package/cypress-axe)
 `cypress-axe` requires only 3 commands:

@@ -7,6 +7,13 @@ npm-debug.log*
 cypress/videos
 cypress/screenshots
 cypress/snapshots
+cypress/report
+cypress/results
+mochawesome-report
+mochawesome.*
+TestReport/
+cypress-tests-report.json
+
 
 # Runtime data
 pids
