@@ -9,7 +9,8 @@
     "precypress:open": "npm i & npm run lint",
     "precypress:test": "npm run precypress:open",
     "lint": "esw cypress",
-    "cy:record": "cypress run --browser chrome --headless --record"
+    "cy:record": "cypress run --browser chrome --headless --record",
+    "cy:browserstack": "browserstack-cypress --spec 'cypress\\integration\\change_registered_office\\change_registered_office_address.spec.js`"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "homepage": "https://github.com/companieshouse/cypress-webfiling#readme",
   "devDependencies": {
     "axe-core": "^3.4.0",
+    "browserstack-cypress-cli": "^1.2.0",
     "cypress": "^4.3.0",
     "cypress-axe": "^0.5.1",
     "cypress-file-upload": "^3.5.1",

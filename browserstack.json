@@ -1,0 +1,36 @@
+{
+    "auth": {
+      "username": "danielfalconer2",
+      "access_key": "cGeTp1pxmsv9XJpH3hrp"
+    },
+    "browsers": [{
+      "browser": "chrome",
+      "os": "Windows 10",
+      "versions": [
+      "81"
+      ]
+    }],
+    "run_settings": {
+      "cypress_proj_dir": "./",
+      "project_name": "Cypress Webfiling Example",
+      "build_name": "Build no: 1",
+      "parallels": 4,
+      "npm_dependencies": {
+        "axe-core": "^3.4.0",
+        "browserstack-cypress-cli": "^1.2.0",
+        "cypress": "^4.3.0",
+        "cypress-axe": "^0.5.1",
+        "cypress-file-upload": "^3.5.1",
+        "cypress-image-snapshot": "^3.1.1",
+        "cypress-plugin-retries": "^1.5.2",
+        "eslint": "^6.8.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-watch": "^6.0.1"
+      }
+    },
+    "connection_settings": {
+      "local": true,
+      "local_identifier": null
+    },
+    "disable_usage_reporting": false
+  }
