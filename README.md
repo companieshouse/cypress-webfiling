@@ -112,7 +112,7 @@ In subsequent tests, if a difference is located then a new image will be added t
 *Please note this is experimental at this stage and a decision will be made in future as to the commitment to this type of testing*
 
 ### Automated Cross Browser Testing
-***PLEASE NOT THIS WILL REQUIRE AN ACCOUNT WITH BROWSERSTACK AND THIE AUTOMATE PRODUCT. See [here](https://www.browserstack.com/accounts/subscriptions?product=automate)***
+***PLEASE NOT THIS WILL REQUIRE AN ACCOUNT WITH BROWSERSTACK AND THEIR AUTOMATE PRODUCT. See [here](https://www.browserstack.com/accounts/subscriptions?product=automate)***
 
 You will need to unzip the file: `BrowserStackLocal-win32.zip` (For testing on Windows machine)
 
