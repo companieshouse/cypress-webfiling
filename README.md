@@ -111,6 +111,22 @@ In subsequent tests, if a difference is located then a new image will be added t
 
 *Please note this is experimental at this stage and a decision will be made in future as to the commitment to this type of testing*
 
+### Automated Cross Browser Testing
+***PLEASE NOT THIS WILL REQUIRE AN ACCOUNT WITH BROWSERSTACK AND THIE AUTOMATE PRODUCT. See [here](https://www.browserstack.com/accounts/subscriptions?product=automate)***
+
+You will need to unzip the file: `BrowserStackLocal-win32.zip` (For testing on Windows machine)
+
+You can then follow the instructions [here](https://www.browserstack.com/docs/automate/cypress/local-testing) to set up local dev enviroment to test on.
+
+All configuration items will be located in `browserstack.json` including account credentials.
+
+You will also need to install the Browser Stack cli. Follow instructions [here](https://www.browserstack.com/docs/automate/cypress)
+
+Once complete you can run your tests with 
+```
+browserstack-cypress run
+```
+
 
 ### Limitations
 > When running tests in Cypress, Cypress will change its host URL to match the application under test. Please see [here](https://docs.cypress.io/guides/guides/web-security.html#One-Superdomain-per-Test) for further details.

@@ -9,8 +9,7 @@
     "precypress:open": "npm i & npm run lint",
     "precypress:test": "npm run precypress:open",
     "lint": "esw cypress",
-    "cy:record": "cypress run --browser chrome --headless --record",
-    "cy:browserstack": "browserstack-cypress --spec 'cypress\\integration\\change_registered_office\\change_registered_office_address.spec.js`"
+    "cy:record": "cypress run --browser chrome --headless --record"
   },
   "repository": {
     "type": "git",
