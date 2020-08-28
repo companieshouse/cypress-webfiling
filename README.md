@@ -49,10 +49,10 @@ Use `git clone` and your preferred method of cloning (ssh or https) to clone the
 
 `cd /your/project/path`
 
-`npm install cypress --save-dev`
-This will install Cypress locally as a dev dependency for your project.
+`npm install`
+Because cypress is declared in the project, then once you have cloned the project you should only need to run `npm install` and it will pull in all the project dependencies
 
-Make sure that you have already run npm init or have a node_modules folder or package.json file in the root of your project to ensure cypress is installed in the correct directory. See more at https://docs.cypress.io/guides/getting-started/installing-cypress.html#npm-install
+See more on installation at https://docs.cypress.io/guides/getting-started/installing-cypress.html#npm-install
 
 ### Open Cypress with
 `npm run cypress`
