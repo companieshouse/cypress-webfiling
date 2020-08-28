@@ -9,8 +9,8 @@ You must ensure you have your proxy settings, set up correctly. Please see [here
 
 **YOU MAY EXPERIENCE ISSUES WITH SETTING PROXY. PLEASE ENSURE YOU'VE SET THE DETAILS IN NPM, BY DOING THE FOLLOWING**
 ```
-npm config set proxy http://wsproxy.internal.ch:8080
-npm config set https-proxy https://wsproxy.internal.ch:8080
+npm config set proxy http://websenseproxy.internal.ch:8080
+npm config set https-proxy https://websenseproxy.internal.ch:8080
 ```
 > There has been a known issue with ssl. If you see errors similar to the below please do the following to correct it.
 
