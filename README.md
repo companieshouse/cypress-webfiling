@@ -41,6 +41,19 @@ export HTTPS_PROXY=$http_proxy
 ### IDE
 It is recommended that you use Visual Studio Code which is optimised for Javascript. Please download [here](https://code.visualstudio.com/Download)
 
+### Clone the repository
+
+Use `git clone` and your preferred method of cloning (ssh or https) to clone the `github.com/companieshouse/cypress-webfiling` repo
+
+### Install Cypress via npm
+
+`cd /your/project/path`
+
+`npm install cypress --save-dev`
+This will install Cypress locally as a dev dependency for your project.
+
+Make sure that you have already run npm init or have a node_modules folder or package.json file in the root of your project to ensure cypress is installed in the correct directory. See more at https://docs.cypress.io/guides/getting-started/installing-cypress.html#npm-install
+
 ### Open Cypress with
 `npm run cypress`
 
