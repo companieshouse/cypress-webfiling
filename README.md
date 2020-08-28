@@ -29,8 +29,8 @@ env | grep proxy
 ```
 This should return
 ```
-https_proxy=http://wsproxy.internal.ch:8080
-http_proxy=http://wsproxy.internal.ch:8080
+https_proxy=http://websenseproxy.internal.ch:8080
+http_proxy=http://websenseproxy.internal.ch:8080
 ```
 If not, please do the following from `GitBash`:
 ```
