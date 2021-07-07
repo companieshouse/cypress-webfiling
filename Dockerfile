@@ -24,4 +24,4 @@ RUN npm i
 RUN $(npm bin)/cypress verify
 
 # Run cypress in chrome headless browser 
-RUN $(npm bin)/cypress run --browser chrome --headless --record
+RUN $(npm bin)/cypress run --browser chrome --headless --record --key 05e1ed2f-c399-425c-96b3-e4b596e8e917
