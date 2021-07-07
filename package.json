@@ -28,6 +28,7 @@
   "homepage": "https://github.com/companieshouse/cypress-webfiling#readme",
   "devDependencies": {
     "axe-core": "^3.4.0",
+    "browserstack-cypress-cli": "^1.2.0",
     "cypress": "^4.3.0",
     "cypress-axe": "^0.5.1",
     "cypress-file-upload": "^3.5.1",
