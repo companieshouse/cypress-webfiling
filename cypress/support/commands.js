@@ -57,7 +57,7 @@ Cypress.Commands.add('signIntoWebfiling', () => {
 
     cy.get('#email').type(Cypress.env('user_email'))
     cy.get('#seccode').type(Cypress.env('user_password'))
-    cy.get('.button').click()
+    cy.get('input[name="submit"]').click()
 })
 
 Cypress.Commands.add('accessibilityCheck', () => {
