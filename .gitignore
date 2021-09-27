@@ -32,3 +32,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Visual Studio related files
+.vscode/
