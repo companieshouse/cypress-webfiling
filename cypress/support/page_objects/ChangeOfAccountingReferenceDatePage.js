@@ -10,8 +10,13 @@ class ChangeOfAccountingReferenceDatePage {
         return this;
     }
 
+    confirmForm() {
+        cy.get('[value="CONFIRM"]').click();
+    }
+
     submitForm() {
-        cy.get('input[type="submit"][class="buttonRight"]').click();
+        cy.get('[name*="submit"]').click();
+
     }
 
 }

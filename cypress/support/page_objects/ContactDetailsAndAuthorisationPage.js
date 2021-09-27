@@ -1,7 +1,7 @@
 class ContactDetailsAndAuthorisationPage {
 
     submitAuthorisation() {
-        cy.get('.linkButtonHolder > .buttonRight').click();
+        cy.get('[name="submit"]').click();
     }
 
 }

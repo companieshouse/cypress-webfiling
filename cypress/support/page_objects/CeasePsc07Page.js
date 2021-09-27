@@ -25,7 +25,7 @@ class CeasePsc07Page {
     }
 
     submitNoticeOfCessation() {
-        cy.get('.button').click();
+        cy.get('.container-button > div > .button').click();
     }
 
 }

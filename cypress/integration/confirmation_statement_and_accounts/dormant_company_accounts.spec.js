@@ -30,7 +30,7 @@ describe('Dormant Company Accounts - AA02', () => {
             .selectDirectorResponsibilities()
             .enterDateOfApproval(Cypress.moment().format('DD/MM/YYYY'))
             .enterDirectorName("Test", "Person")
-            .submitForm();
+            .validateForm();
         cy.accessibilityCheck();
         // the submit form here is to proceed past the Dormant accounts summary page
         dormantCompanyAccountsPage.submitForm();
@@ -52,7 +52,7 @@ describe('Dormant Company Accounts - AA02', () => {
     it('AA02 - Dormant Company Accounts Error message validation', () => {
         // Submit with all fields blank and check the accessibility of the error messages displayed 
         dormantCompanyAccountsPage
-        .submitForm();
+        .validateForm();
         cy.accessibilityCheck();
         // End the test here as the next page is just the Dormant accounts summary page
         // There are no field validation errors

@@ -9,7 +9,7 @@
     "precypress:open": "npm i & npm run lint",
     "precypress:test": "npm run precypress:open",
     "lint": "esw cypress",
-    "cy:record": "cypress run --browser chrome --headless --record"
+    "cy:record": "cypress run --browser edge --headless --record"
   },
   "repository": {
     "type": "git",

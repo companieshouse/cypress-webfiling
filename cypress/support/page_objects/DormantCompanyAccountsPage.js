@@ -38,7 +38,11 @@ class DormantCompanyAccountsPage extends BasePage {
     }
 
     submitForm() {
-        cy.get('input[type="submit"][class="buttonRight"]').click();
+        cy.get('.buttonLeft').click();
+    }
+
+    validateForm() {
+        cy.get('.leftAlignContainer > .buttonRight').click();
     }
 
 

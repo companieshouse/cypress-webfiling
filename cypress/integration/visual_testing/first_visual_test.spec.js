@@ -1,4 +1,4 @@
-describe('Home Page resolution testing', () => {
+describe.skip('Home Page resolution testing', () => {
     it('Desktop Layout', () => {
         cy.setResolution([1280, 720]);
         cy.matchImageSnapshot();
@@ -18,7 +18,7 @@ describe('Home Page resolution testing', () => {
 const pages = ['/runpage?page=recentFilings', '//formlist'];
 const sizes = ['iphone-x', [1200, 800]];
 
-describe('Multiple Resolutions', () => {
+describe.skip('Multiple Resolutions', () => {
     sizes.forEach(size => {
         pages.forEach(page => {
             it(`Should match ${page} in resolution ${size}`,  () => {

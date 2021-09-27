@@ -11,7 +11,7 @@ class CS01MainPage {
     }
 
     clickConfirmCheckbox() {
-        cy.get('input[type=checkbox]').check();
+        cy.get('input[type="checkbox"]').check();
         return this;
     }
 

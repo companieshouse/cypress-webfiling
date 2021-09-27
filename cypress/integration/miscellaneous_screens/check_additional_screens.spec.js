@@ -51,10 +51,13 @@ describe("Miscellaneous other activities that aren't the filing of forms", () =>
         cy.accessibilityCheck();
     })
 
-    it('Change Account Details', () => {
-        companyOverview.selectLinkWithText('Change account details');
-        cy.accessibilityCheck();
-    })
+    // Removing this due to Forge Rock changes.
+    // Link is now 'Manage Account' and opens third party, rendering this unusable 
+    // due to cross origin
+    // it('Change Account Details', () => {
+    //     companyOverview.selectLinkWithText('Change account details');
+    //     cy.accessibilityCheck();
+    // })
 
     it('Help with confirmation statement screen', () => {
         cy.visit('/help//en/stdwf/confirmationStatementHelp.html');

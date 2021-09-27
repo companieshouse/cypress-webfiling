@@ -34,7 +34,7 @@ describe('Change of a relevant legal entity with significant control (PSC) detai
         appointPSC02Page.selectTodayAsRegisterEntryDate();
         appointPSC02Page.submitNotification();
         cy.checkPageHeadingIs('Confirmation of Submission');
-        appointPSC02Page.clickCompanyOverview();
+        appointPSC02Page.clickContinue();
     })
 
     it('PSC05 - Check sections first without and then with error messages present. No submission submitted', () => {
