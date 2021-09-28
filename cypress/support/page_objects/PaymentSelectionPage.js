@@ -19,7 +19,7 @@ class PaymentSelectionPage {
     }
 
     continue() {
-        cy.get('.button').click();
+        cy.get('.container-button > .button').click();
         return this;
     }
 

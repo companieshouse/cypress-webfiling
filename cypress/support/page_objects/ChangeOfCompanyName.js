@@ -27,7 +27,7 @@ class ChangeOfCompanyName extends BasePage {
     }
 
     submitChangeOfName() {
-        cy.get('input[type="submit"][class="button"]').click();
+        cy.get('[name="ChangeOfName.CONTabControl.sectionContent.submit"]').click();
     }
 
 }

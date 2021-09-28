@@ -32,7 +32,7 @@ describe('Change of a legal person with significant control  - PSC06', () => {
         appointPSC03Page.selectTodayAsRegisterEntryDate();
         appointPSC03Page.submitNotification();
         cy.checkPageHeadingIs('Confirmation of Submission');
-        appointPSC03Page.clickCompanyOverview();
+        appointPSC03Page.clickContinue();
     })
 
     it('PSC06 - Check sections first without and then with error messages present. No submission submitted', () => {

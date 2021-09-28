@@ -36,7 +36,7 @@ describe('Change of person with significant control (PSC) details', () => {
 
     it('PSC04 - Check sections first without and then with error messages present. No submission submitted', () => {
         // Go to PSC04
-        appointPSC01Page.clickCompanyOverview();
+        appointPSC01Page.clickContinue();
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc04();
         psc04Page.selectPscToEdit('Test Automation Ninja');

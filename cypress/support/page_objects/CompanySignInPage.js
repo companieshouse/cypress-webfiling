@@ -5,7 +5,7 @@ class CompanySignInPage extends BasePage {
     enterCompanyDetails(companyNumber, authcode) {
         cy.get("input[id='companySignInPage.coNum']").type(companyNumber);
         cy.get("input[id='companySignInPage.authCode']").type(authcode);
-        cy.get('.button').click();
+        cy.get('form > .button').click();
         return this;
     }
 

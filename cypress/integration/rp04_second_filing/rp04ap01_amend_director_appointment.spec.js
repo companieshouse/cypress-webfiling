@@ -9,7 +9,7 @@ const submissionConfirmation = new SubmissionConfirmationPage();
 
 describe('Appoint a Director', () => {
     beforeEach('Go to RP04AP01 form', () => {
-        companyOverview.selectAllForms().selectLinkWithText('Directors and secretaries')
+        companyOverview.selectAllForms().selectLinkWithText('Amend an error on a previously filed document')
             .selectLinkWithText('Amend error on previously filed appointment of director - RP04 (for AP01)');
 
         appointDirectorPage.proceedPastPreFilingScreen();

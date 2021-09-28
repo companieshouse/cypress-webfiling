@@ -21,14 +21,17 @@ describe('Change of Accounting Reference Date - AA01', () => {
     it('AA01 - Change of Accounting Reference Date', () => {
         //Check the AA01 Change of Accounting Reference Date Page
         cy.accessibilityCheck();
+        cy.log('First submit');
         changeOfAccountingReferenceDatePage.selectCurrentAccountingPeriod()
         .enterNewAccountingReferenceDate(Cypress.moment().format('DD/MM/YYYY'))
-        .submitForm();
+        .confirmForm();
         //Check confirm Confirm change of accounting reference date
         cy.accessibilityCheck();
+        cy.log('Second submit');
         confirmChangeOfaccountingReferenceDate.submitForm();
         //Check the Contact details and authorisation page
         cy.accessibilityCheck();
+        cy.log('Third submit');
         confirmChangeOfaccountingReferenceDate.submitForm();
         // Check the AA01 submission confiration screen
         cy.accessibilityCheck();
@@ -39,7 +42,7 @@ describe('Change of Accounting Reference Date - AA01', () => {
         // Submit without entering information to fire error messages
         // and check the accessibility of the error messages. End the test here. 
         // There is nothing to validate on the next screen. It is purely for confirmation purposes  
-        changeOfAccountingReferenceDatePage.submitForm();
+        changeOfAccountingReferenceDatePage.confirmForm();
         cy.accessibilityCheck();
            
     })

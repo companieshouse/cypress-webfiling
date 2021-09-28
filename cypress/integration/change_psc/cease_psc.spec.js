@@ -30,7 +30,7 @@ describe('Notice of ceasing to be a person with significant control (PSC) - PSC0
         appointPSC02Page.selectTodayAsRegisterEntryDate();
         appointPSC02Page.submitNotification();
         cy.checkPageHeadingIs('Confirmation of Submission');
-        appointPSC02Page.clickCompanyOverview();
+        appointPSC02Page.clickContinue();
     })
 
     it('File successful PSC07 & error validation', () => {
