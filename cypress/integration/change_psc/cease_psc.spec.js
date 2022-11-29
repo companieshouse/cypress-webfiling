@@ -38,6 +38,9 @@ describe('Notice of ceasing to be a person with significant control (PSC) - PSC0
         companyOverview.selectAllForms();
         allForms.selectPscs().selectPsc07();
 
+        // We need some time for the appointment to appear
+        cy.reloadBrowserAttempts(3);
+
         // Check the appointed PSC is displayed
         cy.get('tbody tr td:nth-child(1)').invoke('text').then((text) => {
             expect(text.trim()).to.not.eq('There are currently no persons with significant control registered.');

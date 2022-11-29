@@ -89,3 +89,12 @@ Cypress.Commands.add('checkDisclaimer', () => {
 Cypress.Commands.add('checkPageHeadingIs', (pageHeading) => {
     cy.get('h1').should('have.text', pageHeading);
 })
+
+Cypress.Commands.add('reloadBrowserAttempts', (attempts) => {
+    var i;
+    for(i = 0; i < attempts; i++) {
+        cy.reload;
+        cy.wait(3000);
+        cy.log('RELOAD: ' + i);
+    }
+})
